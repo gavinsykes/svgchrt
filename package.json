@@ -1,0 +1,11 @@
+{
+  "name": "svgchrtjs",
+  "version": "0.0.1",
+  "description": "A way to easily create SVG-based charts without having to worry about positioning of titles, subtitles or legends.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gavin Sykes",
+  "license": "MIT"
+}
