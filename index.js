@@ -1112,5 +1112,3 @@ function SVGChart(data = {}, options = {}) {
   
   return SVGChart;
 }
-
-}));
