@@ -1,4 +1,4 @@
-function SVGChart(data = {}, options = {}) {
+module.exports = function SVGChart(data = {}, options = {}) {
   this.defaultSettings = {
     background: true,
     canvas: {
