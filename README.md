@@ -135,6 +135,8 @@ Chart.render();
 
          An array of objects to be displayed on the legend. Each object must contain a `displayName` property which contains the text that will be displayed, this can either be a string or a function that returns a string. You may also want to include a `class` property to style the icons differently (different fill colours for example) with CSS.
 
+         You can also include an `icon` property as an object, if you want to overwrite your default icon options set above.
+
          As you may be pulling in your legend items from a dataset containing many more properties, the library will simply ignore any additional properties.
 
          If this array is empty then the legend will not display.
