@@ -1,12 +1,25 @@
 {
   "name": "svgchrtjs",
-  "version": "0.0.14",
+  "version": "0.1.0",
   "description": "A way to easily create SVG-based charts without having to worry about positioning of titles, subtitles or legends.",
+  "keywords": [
+    "data",
+    "svg",
+    "visualisation",
+    "visualization"
+  ],
   "main": "bundle.js",
   "scripts": {
     "test": "echo \"No test specified\""
   },
-  "author": "Gavin Sykes",
+  "author": {
+    "name": "Gavin Sykes",
+    "url": "https://gavinsykes.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gavinsykes/svgchrtjs.git"
+  },
   "license": "MIT",
   "dependencies": {}
 }
