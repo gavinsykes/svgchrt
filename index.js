@@ -1,4 +1,8 @@
-exports.SVGChart = function(data = {}, options = {}) {
+module.exports = {
+  SVGChart: SVGChart
+};
+
+function SVGChart(data = [], options = {}) {
   this.defaultSettings = {
     background: true,
     canvas: {
@@ -506,11 +510,11 @@ exports.SVGChart = function(data = {}, options = {}) {
             translations.icon.y =
               (text.getBBox().height - icon.getBBox().height + 6) / 2;
           }
+          icon.setAttribute(
+            "transform",
+            `translate(${translations.icon.x},${translations.icon.y})`
+          );
         }
-        icon.setAttribute(
-          "transform",
-          `translate(${translations.icon.x},${translations.icon.y})`
-        );
         text.setAttribute(
           "transform",
           `translate(${translations.text.x},${translations.text.y})`
@@ -1110,5 +1114,26 @@ exports.SVGChart = function(data = {}, options = {}) {
   }
   this.data = data;
   
-  return SVGChart;
+  return {
+    addLegend: this.addLegend,
+    addSubtitle: this.addSubtitle,
+    addTitle: this.addTitle,
+    appendSVGChild: this.appendSVGChild,
+    buildSurround: this.buildSurround,
+    chartArea: this.chartArea,
+    clearCanvas: this.clearCanvas,
+    data: this.data,
+    deepObjectMerge: this.deepObjectMerge,
+    defaultSettings: this.defaultSettings,
+    getChartArea: this.getChartArea,
+    isObject: this.isObject,
+    layout: this.layout,
+    placeCanvas: this.placeCanvas,
+    placePlot: this.placePlot,
+    plot: this.plot,
+    render: this.render,
+    settings: this.settings,
+    SVGWrapText: this.SVGWrapText,
+    target: this.target
+  };
 }

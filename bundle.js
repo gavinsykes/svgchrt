@@ -1,42 +1,9 @@
-(
-  function (f) {
-    if (typeof exports === "object" && typeof module!== "undefined" ) {
-      module.exports = f()
-    } else if (typeof define === "function" && define.amd) {
-      define([],f)
-    } else {
-      var g;
-      if (typeof window !== "undefined") {
-        g=window
-      } else if (typeof global !== "undefined") {
-        g = global
-      } else if (typeof self !== "undefined") {
-        g=self
-      } else {
-        g=this
-      }
-      g.SVGChart = f()
-    }
-  }
-)
-(
-  function() {
-    var define,module,exports;
-    return (
-      function() {
-        function r(e,n,t) {
-          function o(i,f){
-            if (!n[i]) {
-              if (!e[i]) {
-                var c = "function" == typeof require && require;
-                if (!f&&c) return c(i,!0);
-                if (u) return u(i,!0);
-                var a = new Error("Cannot find module '"+i+"'");
-                throw a.code = "MODULE_NOT_FOUND",a
-              }
-              var p = n[i] = {exports:{}};
-              e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-module.exports = function SVGChart(data = {}, options = {}) {
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.SVGChart = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+module.exports = {
+  SVGChart: SVGChart
+};
+
+function SVGChart(data = [], options = {}) {
   this.defaultSettings = {
     background: true,
     canvas: {
@@ -544,11 +511,11 @@ module.exports = function SVGChart(data = {}, options = {}) {
             translations.icon.y =
               (text.getBBox().height - icon.getBBox().height + 6) / 2;
           }
+          icon.setAttribute(
+            "transform",
+            `translate(${translations.icon.x},${translations.icon.y})`
+          );
         }
-        icon.setAttribute(
-          "transform",
-          `translate(${translations.icon.x},${translations.icon.y})`
-        );
         text.setAttribute(
           "transform",
           `translate(${translations.text.x},${translations.text.y})`
@@ -1148,7 +1115,28 @@ module.exports = function SVGChart(data = {}, options = {}) {
   }
   this.data = data;
   
-  return SVGChart;
+  return {
+    addLegend: this.addLegend,
+    addSubtitle: this.addSubtitle,
+    addTitle: this.addTitle,
+    appendSVGChild: this.appendSVGChild,
+    buildSurround: this.buildSurround,
+    chartArea: this.chartArea,
+    clearCanvas: this.clearCanvas,
+    data: this.data,
+    deepObjectMerge: this.deepObjectMerge,
+    defaultSettings: this.defaultSettings,
+    getChartArea: this.getChartArea,
+    isObject: this.isObject,
+    layout: this.layout,
+    placeCanvas: this.placeCanvas,
+    placePlot: this.placePlot,
+    plot: this.plot,
+    render: this.render,
+    settings: this.settings,
+    SVGWrapText: this.SVGWrapText,
+    target: this.target
+  };
 }
 
 },{}]},{},[1])(1)
