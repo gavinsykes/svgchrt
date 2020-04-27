@@ -8,7 +8,7 @@ The easiest way to put together a data visualisation in SVG.
 
 `npm install svgchrtjs`
 
-`<script src=""></script>`
+`<script src="https://unpkg.com/svgchrtjs"></script>`
 
 ### Usage
 
