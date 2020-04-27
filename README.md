@@ -1,6 +1,8 @@
 SVGChrtJS
 =========
 
+![npm](https://img.shields.io/npm/v/svgchrtjs)
+
 The easiest way to put together a data visualisation in SVG.
 ------------------------------------------------------------
 
@@ -147,11 +149,11 @@ Chart.render();
 
       1. margin (object)
 
-         Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin around your visualisation so that it can be visually separate from the rest of the elements.
+         Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin around your legend so that it can be visually separate from the rest of the elements.
 
       1. orientation (string), default: `'vertical'`
 
-         Decides whether your legend items should stck vertically on top of one another or horizontally next to each other.
+         Decides whether your legend items should stack vertically on top of one another or horizontally next to each other.
 
       1. padding (object)
 
