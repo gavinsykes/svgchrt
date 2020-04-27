@@ -44,72 +44,72 @@ Decides whether or not to give your chart a background to make it stand out from
 
 1. canvas (object)
 
-Contains 4 items:
+   Contains 4 items:
 
   1. height (integer), default: `500`
 
-Determines the height of your visualisation in pixels.
+   Determines the height of your visualisation in pixels.
 
   1. padding (object)
 
-Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides an inner padding so that your visualisation is not squashed up to the edge of the SVG.
+   Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides an inner padding so that your visualisation is not squashed up to the edge of the SVG.
 
   1. viewBox (string), default: `'0 0 960 500'`
 
-Determines the viewBox of your `<svg>` and should usually match `0 0 width height`.
+   Determines the viewBox of your `<svg>` and should usually match `0 0 width height`.
 
   1. width (integer), default: `960`
 
-Determines the width of your visualisation in pixels.
+   Determines the width of your visualisation in pixels.
 
 1. chart (object)
 
-Contains 1 item:
+   Contains 1 item:
 
-1.1. margin (object)
+  1. margin (object)
 
-Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin around your visualisation so that it can be visually separate from the rest of the elements.
+   Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin around your visualisation so that it can be visually separate from the rest of the elements.
 
 1. description (string), default: `''`
 
-Provides a description of your visualisation to assistive technologies such as screen readers.
+   Provides a description of your visualisation to assistive technologies such as screen readers.
 
 1. id (string), defaut: `''`
 
-Adds an ID to the parent SVG. **Please include an ID**
+   Adds an ID to the parent SVG. **Please include an ID**
 
 1. legend (object)
 
-Contains 12 items:
+   Contains 12 items:
 
-1.1. background (object)
-1.1. displaceTitle (boolean), default: `false`
-1.1. display (boolean), default: `false`
-1.1. icons (object)
+  1. background (object)
+  1. displaceTitle (boolean), default: `false`
+  1. display (boolean), default: `false`
+  1. icons (object)
 
-Provides a default for the icons contained in each legend item.
+   Provides a default for the icons contained in each legend item.
 
-Contains 4 items:
+   Contains 4 items:
 
-1.1.1. display (boolean), default: `false`
+    1. display (boolean), default: `false`
 
-Determines whether to display an icon.
+   Determines whether to display an icon.
 
-1.1.1. height (integer), default: `14`
+    1. height (integer), default: `14`
 
-Determines the height of the icons in pixels.
+   Determines the height of the icons in pixels.
 
-**N.B** The `height` property is only applicable to certain SVG elements, in this case the `shape` beneath this defaults to `rect` which takes a height property.
+   **N.B** The `height` property is only applicable to certain SVG elements, in this case the `shape` beneath this defaults to `rect` which takes a height property.
 
-1.1.1. shape (string), default: `'rect'`
+    1. shape (string), default: `'rect'`
 
-Determines the shape that the icons should take.
+   Determines the shape that the icons should take.
 
-1.1.1. width (integer), default: `14`
+    1. width (integer), default: `14`
 
-Determines the width of the icons in pixels.
+   Determines the width of the icons in pixels.
 
-**N.B** The `width` property is only applicable to certain SVG elements, in this case the `shape` above this defaults to `rect` which takes a height property.
+   **N.B** The `width` property is only applicable to certain SVG elements, in this case the `shape` above this defaults to `rect` which takes a height property.
 
 1.1. itemMargin (object)
 1.1. items (array), default: `[]`
