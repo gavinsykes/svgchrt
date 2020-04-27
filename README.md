@@ -40,7 +40,7 @@ Chart.render();
 
 1. background (boolean), default: `true`
 
-Decides whether or not to give your chart a background to make it stand out from the page. If set to `true` it will provide a `<rect>` element with the class of `chart-background` for styling with CSS, and its `height` and `width` attributes will match those of the parent `<svg>`.
+   Decides whether or not to give your chart a background to make it stand out from the page. If set to `true` it will provide a `<rect>` element with the class of `chart-background` for styling with CSS, and its `height` and `width` attributes will match those of the parent `<svg>`.
 
 1. canvas (object)
 
