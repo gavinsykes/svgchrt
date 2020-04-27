@@ -1,10 +1,13 @@
-# SVGChrtJS
+SVGChrtJS
+=========
 
-## The easiest way to put together a data visualisation in SVG.
+The easiest way to put together a data visualisation in SVG.
+------------------------------------------------------------
 
 ### Installation
 
 `npm install svgchrtjs`
+`<script src=""></script>`
 
 ### Usage
 
@@ -27,6 +30,9 @@ Chart.plot = function() {
   *  whichever library you see fit.
   */
 };
+
+Chart.render();
+```
 
 ### API Reference
 
@@ -104,8 +110,6 @@ Determines the shape that the icons should take.
 Determines the width of the icons in pixels.
 
 **N.B** The `width` property is only applicable to certain SVG elements, in this case the `shape` above this defaults to `rect` which takes a height property.
-
-Contains 
 
 1.1. itemMargin (object)
 1.1. items (array), default: `[]`
