@@ -163,7 +163,7 @@ Chart.render();
 
       1. title (string), default: `''`
 
-         __Future update__
+         _Future update_
 
          Adds a title to the legend and provides a `<text>` element with the class `legend-title` for styling with CSS.
 1. subtitle (object)
