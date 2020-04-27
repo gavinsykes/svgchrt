@@ -46,19 +46,19 @@ Chart.render();
 
    Contains 4 items:
 
-  1. height (integer), default: `500`
+   1. height (integer), default: `500`
 
    Determines the height of your visualisation in pixels.
 
-  1. padding (object)
+   1. padding (object)
 
    Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides an inner padding so that your visualisation is not squashed up to the edge of the SVG.
 
-  1. viewBox (string), default: `'0 0 960 500'`
+   1. viewBox (string), default: `'0 0 960 500'`
 
    Determines the viewBox of your `<svg>` and should usually match `0 0 width height`.
 
-  1. width (integer), default: `960`
+   1. width (integer), default: `960`
 
    Determines the width of your visualisation in pixels.
 
@@ -66,7 +66,7 @@ Chart.render();
 
    Contains 1 item:
 
-  1. margin (object)
+   1. margin (object)
 
    Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin around your visualisation so that it can be visually separate from the rest of the elements.
 
