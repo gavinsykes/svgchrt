@@ -746,7 +746,7 @@ function SVGChart(data = [], options = {}) {
         case "right":
           xcoord = this.layout.legend.points.x2 - this.layout.legend.width;
           ycoord =
-            (this.canvas.getBBox().height - this.layout.legend.height) / 2;
+            (this.layout.legend.points.y1 + this.layout.legend.points.y2 - this.layout.legend.height) / 2;
           if (!this.settings.legend.layOverChart) {
             this.layout.chart.points.x2 =
               this.layout.canvas.width -
@@ -854,7 +854,7 @@ function SVGChart(data = [], options = {}) {
         case "left":
           xcoord = this.layout.legend.points.x1;
           ycoord =
-            (this.canvas.getBBox().height - this.layout.legend.height) / 2;
+            (this.layout.legend.points.y1 + this.layout.legend.points.y2 - this.layout.legend.height) / 2;
           if (!this.settings.legend.layOverChart) {
             this.layout.chart.points.x1 =
               Math.max(
