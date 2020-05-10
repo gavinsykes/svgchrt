@@ -2,6 +2,7 @@ SVGChrtJS
 =========
 
 ![npm](https://img.shields.io/npm/v/svgchrtjs)
+![npm](https://img.shields.io/npm/dm/svgchrtjs)
 
 The easiest way to put together a data visualisation in SVG.
 ------------------------------------------------------------
