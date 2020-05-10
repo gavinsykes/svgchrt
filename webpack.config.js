@@ -6,8 +6,10 @@ module.exports = {
   mode    : 'production',
   module  : {
     rules : [
-      test : /\.tsx?$/,
-      use  : 'ts-loader'
+      {
+        test : /\.tsx?$/,
+        use  : 'ts-loader'
+      }
     ]
   },
   output  : {
