@@ -10,6 +10,7 @@
   ],
   "main": "bundle.js",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"No test specified\""
   },
   "author": {
