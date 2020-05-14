@@ -3,7 +3,7 @@ import deepObjectMerge from './deepObjectMerge';
 import defaultSettings, { SettingsObject, LegendItemIcon } from './defaultSettings';
 import layout from './layout';
 
-function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGGraphicsElement) {
+function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElement) {
   if (settings.legend.display && settings.legend.items) {
     const legend: SVGGraphicsElement = appendSVGChild('g', canvas, {class: 'legend',id: `${settings.id ? settings.id + '-' : ''}legend`
     }) as SVGGraphicsElement;
@@ -116,7 +116,7 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGGraphi
         height: legend.getBBox().height,
         width: legend.getBBox().width
       });
-      let xcoord, ycoord;
+      let xcoord: number = 0, ycoord: number = 0;
       switch (settings.legend.position) {
         case 'top-left':
           xcoord = layout.legend.points.x1;
@@ -155,7 +155,7 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGGraphi
           }
           break;
         case 'top':
-          xcoord = (canvas.getBBox().width - layout.legend.width) / 2;
+          xcoord = (parseInt(canvas.getAttribute('width') as string) - layout.legend.width) / 2;
           ycoord = layout.legend.points.y1;
           settings.legend.displaceTitle = false;
           if (!settings.legend.layOverChart) {
@@ -211,18 +211,18 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGGraphi
           }
           break;
         case 'right':
-          xcoord = layout.legend.points.x2 - layout.legend.width;
+          xcoord = layout.get().legend.points.x2 - layout.get().legend.width;
           ycoord =
-            (layout.legend.points.y1 + layout.legend.points.y2 - layout.legend.height) / 2;
+            (layout.get().legend.points.y1 + layout.get().legend.points.y2 - layout.get().legend.height) / 2;
           if (!settings.legend.layOverChart) {
-            layout.chart.points.x2 =
-              layout.canvas.width -
+            layout.get().chart.points.x2 =
+              layout.get().canvas.width -
               (Math.max(
                 settings.canvas.padding.right,
                 settings.legend.margin.right,
                 0
               ) +
-                layout.legend.width +
+                layout.get().legend.width +
                 Math.max(
                   settings.legend.margin.left,
                   settings.chart.margin.right,
@@ -231,32 +231,32 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGGraphi
           }
           break;
         case 'bottom-right':
-          xcoord = layout.legend.points.x2 - layout.legend.width;
-          ycoord = layout.legend.points.y2 - layout.legend.height;
+          xcoord = layout.get().legend.points.x2 - layout.get().legend.width;
+          ycoord = layout.get().legend.points.y2 - layout.get().legend.height;
           if (!settings.legend.layOverChart) {
             if (settings.legend.orientation === 'vertical') {
-              layout.chart.points.x2 =
-                layout.canvas.width -
+              layout.get().chart.points.x2 =
+                layout.get().canvas.width -
                 (Math.max(
                   settings.canvas.padding.right,
                   settings.legend.margin.right,
                   0
                 ) +
-                  layout.legend.width +
+                  layout.get().legend.width +
                   Math.max(
                     settings.legend.margin.left,
                     settings.chart.margin.right,
                     0
                   ));
             } else {
-              layout.chart.points.y2 =
-                layout.canvas.height -
+              layout.get().chart.points.y2 =
+                layout.get().canvas.height -
                 (Math.max(
                   settings.canvas.padding.bottom,
                   settings.legend.margin.bottom,
                   0
                 ) +
-                  layout.legend.height +
+                  layout.get().legend.height +
                   Math.max(
                     settings.legend.margin.top,
                     settings.chart.margin.bottom,
@@ -266,7 +266,7 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGGraphi
           }
           break;
         case 'bottom':
-          xcoord = (canvas.getBBox().width - layout.legend.width) / 2;
+          xcoord = (parseInt(canvas.getAttribute('width') as string) - layout.legend.width) / 2;
           ycoord = layout.legend.points.y2 - layout.legend.height;
           if (!settings.legend.layOverChart) {
             layout.chart.points.y2 =

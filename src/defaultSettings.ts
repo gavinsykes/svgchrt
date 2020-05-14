@@ -72,7 +72,7 @@ export interface SettingsObject {
   id          : string;
   legend      : Legend;
   subtitle    : Titles;
-  target      : string | undefined;
+  target      : string;
   title       : Titles;
 }
 
@@ -149,7 +149,7 @@ const defaultSettings: SettingsObject = {
     },
     text    : ''
   },
-  target      : undefined,
+  target      : '',
   title       : {
     display : false,
     margin  : {

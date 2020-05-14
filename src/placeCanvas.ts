@@ -2,8 +2,10 @@ import appendSVGChild from './appendSVGChild';
 import defaultSettings, { SettingsObject } from './defaultSettings';
 import layout from './layout';
 
-function placeCanvas(target: HTMLElement, settings: SettingsObject = defaultSettings, l = layout): object {
-  let canvas = appendSVGChild('svg', target, {
+import { ReturnedCanvas } from './interfaces';
+
+function placeCanvas(settings: SettingsObject = defaultSettings, target: HTMLElement): ReturnedCanvas {
+  let canvas: SVGElement = appendSVGChild('svg', target, {
     class   : 'chart svg-chart',
     height  : settings.canvas.height,
     viewBox : settings.canvas.viewBox,
@@ -18,30 +20,29 @@ function placeCanvas(target: HTMLElement, settings: SettingsObject = defaultSett
       width  : settings.canvas?.width
     }) as SVGGraphicsElement;
   }
-  layout.title.points.y1 = Math.max(settings.title?.margin?.top,settings.canvas?.padding?.top,0);
-  layout.subtitle.points.y1 = Math.max(settings.title?.margin?.top,settings.canvas?.padding?.top,0);
-  layout.legend.points = {
+  layout.set(Math.max(settings.title?.margin?.top,settings.canvas?.padding?.top,0),'title','points','y1');
+  layout.set(Math.max(settings.title?.margin?.top,settings.canvas?.padding?.top,0),'subtitle','points','y1');
+  layout.set({
     x1 : Math.max(settings.legend.margin.left,settings.canvas.padding.left,0),
     x2 : settings.canvas.width - Math.max(settings.legend.margin.right,settings.canvas.padding.right,0),
     y1 : Math.max(settings.legend.margin.top,settings.canvas.padding.top,0),
     y2 : settings.canvas.height - Math.max(settings.legend.margin.bottom,settings.canvas.padding.bottom,0)
-  };
-  layout.chart.points = {
+  },'legend','points');
+  layout.set({
     x1 : Math.max(settings.chart.margin.left,settings.canvas.padding.left,0),
     x2 : settings.canvas.width - Math.max(layout.canvas.padding.right,layout.chart.margin.right,0),
     y1 : Math.max(settings.chart.margin.top,settings.canvas.padding.top,0),
     y2 : settings.canvas.height - Math.max(layout.canvas.padding.bottom,layout.chart.margin.bottom,0)
-  };
-  layout.chart.width = layout.chart.points.x2 - layout.chart.points.x1;
-  layout.chart.height = layout.chart.points.y2 - layout.chart.points.y1;
-  let chartArea: SVGElement = appendSVGChild('g', canvas, {
+  },'chart','points');
+  layout.set(layout.get().chart.points.x2 - layout.get().chart.points.x1,'chart','width');
+  layout.set(layout.get().chart.points.y2 - layout.get().chart.points.y1,'chart','height');
+  let chartArea: SVGGraphicsElement = appendSVGChild('g', canvas, {
     class : 'chart-area',
     id    : `${settings.id ? settings.id + '-' : ''}chart-area`
-  });
+  }) as SVGGraphicsElement;
   return {
     canvas    : canvas,
-    chartArea : chartArea,
-    layout    : layout,
+    chartArea : chartArea
   };
 };
 

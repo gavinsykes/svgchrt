@@ -1,10 +1,11 @@
 import buildSurround from './buildSurround';
+import defaultSettings, { SettingsObject } from './defaultSettings';
 import plot from './plot';
 
-function render() {
-  buildSurround();
+function render(settings: SettingsObject = defaultSettings,target: HTMLElement) {
+  let c: SVGGraphicsElement = buildSurround(settings,target);
   if (plot instanceof Function) {
-    plot();
+    plot(c);
   }
 }
 
