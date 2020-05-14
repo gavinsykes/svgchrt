@@ -5,9 +5,9 @@ import layout from './layout';
 function placeCanvas(target: HTMLElement, settings: SettingsObject = defaultSettings, l = layout): object {
   let canvas = appendSVGChild('svg', target, {
     class   : 'chart svg-chart',
-    height  : settings.canvas?.height,
-    viewBox : settings.canvas?.viewBox,
-    width   : settings.canvas?.width,
+    height  : settings.canvas.height,
+    viewBox : settings.canvas.viewBox,
+    width   : settings.canvas.width,
     xmlns   : 'http://www.w3.org/2000/svg',
     'xmlns  : xlink':'http://www.w3.org/1999/xlink'
   });

@@ -29,28 +29,8 @@ export function SVGChrt(data = [], options = {}): void {
   addLegend       : addLegend;
   plot            : plot;
   placePlot       : placePlot;
-  buildSurround   : function() {
-    clearCanvas();
-    placeCanvas();
-    if (settings.legend.position === 'top' || settings.legend.position === 'bottom' || settings.legend.orientation === 'horizontal') {
-      settings.legend.displaceTitle = false;
-    }
-    if (settings.legend.display && settings.legend.orientation === 'vertical' && settings.legend.displaceTitle) {
-      addLegend();
-      addTitle();
-      addSubtitle();
-    } else {
-      addTitle();
-      addSubtitle();
-      addLegend();
-    }
-  };
-  render          : function() {
-    buildSurround();
-    if (plot instanceof Function) {
-      plot();
-    }
-  }
+  buildSurround   : buildSurround;
+  render          : render;
   if (!options) {
     console.warn(
       `You haven't set any options for the chart, it should still render however it may not look the way you want it to.`

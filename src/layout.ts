@@ -196,4 +196,18 @@ const layout: {[index: string]:any} = {
   }
 };
 
+export function getChartArea() {
+  let l = layout.get();
+  return {
+    height : l.chart.height,
+    points : {
+      x1 : l.chart.points.x1,
+      x2 : l.chart.points.x2,
+      y1 : l.chart.points.y1,
+      y2 : l.chart.points.y2
+    },
+    width  : l.chart.width
+  }
+}
+
 export default layout;
