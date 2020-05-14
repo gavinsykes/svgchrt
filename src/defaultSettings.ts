@@ -20,7 +20,7 @@ export interface LegendItemIcon {
 
 interface LegendItem {
   class?       : string;
-  displayName  : string;
+  displayName  : string | function;
   icon?        : LegendItemIcon;
 }
 
