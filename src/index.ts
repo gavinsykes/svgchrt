@@ -22,4 +22,6 @@ export function SVGChrt(data = [], options = {}): void {
   placeCanvas     : placeCanvas;
   addTitle        : addTitle;
   addSubtitle     : addSubtitle;
+  addDescription  : addDescription;
+  addLegend       : addLegend;
 }
