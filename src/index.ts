@@ -73,7 +73,7 @@ export function SVGChrt(data = [], options = {}): void {
     );
     return;
   }
-  let tET = target.tagName.toLowerCase();
+  let tET: string = target.tagName.toLowerCase();
   if (!['div', 'section'].includes(tET)) {
     throw new Error(
       `Sorry, ${settings.target} doesn't appear to be a <div> or <section>. You need to select one of those from the document to display your visualisation.`
