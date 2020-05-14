@@ -5,7 +5,7 @@ interface PaddingandMargin {
   left   : number;
 }
 
-interface LegendItemIcon {
+export interface LegendItemIcon {
   cx?     : string;
   cy?     : string;
   d?      : string;
@@ -24,12 +24,21 @@ interface LegendItem {
   icon?        : LegendItemIcon;
 }
 
+interface LegendBackground {
+  display : boolean;
+  color   : string;
+  r       : number;
+  rx      : number;
+  ry      : number;
+}
+
 interface Legend {
-  background    : object;
+  background    : LegendBackground;
   displaceTitle : boolean;
   display       : boolean;
   icons         : LegendItemIcon;
   itemMargin    : PaddingandMargin;
+  items         : LegendItem[],
   layOverChart  : boolean;
   margin        : PaddingandMargin;
   orientation   : string;
