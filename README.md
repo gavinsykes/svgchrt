@@ -3,6 +3,9 @@ SVGChrtJS
 
 ![npm](https://img.shields.io/npm/v/svgchrtjs)
 ![npm](https://img.shields.io/npm/dm/svgchrtjs)
+![GitHub top language](https://img.shields.io/github/languages/top/gavinsykes/svgchrtjs)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gavinsykes/svgchrtjs)
+![NPM](https://img.shields.io/npm/l/svgchrtjs)
 
 The easiest way to put together a data visualisation in SVG.
 ------------------------------------------------------------
