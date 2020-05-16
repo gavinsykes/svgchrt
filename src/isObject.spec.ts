@@ -43,7 +43,7 @@ const expectedResults = [
 
 expectedResults.map(t => describe(`isObject(${t.testVal})`, () => {
   it(`should return ${t.eR}`, () => {
-    const result = isObject.isObject(t.testVal);
+    const result = isObject(t.testVal);
     expect(result).to.equal(t.eR);
   });
 })
