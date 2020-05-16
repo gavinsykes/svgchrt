@@ -1,30 +1,30 @@
-SVGChrtJS
-=========
+SVGChrt
+=======
 
-![npm](https://img.shields.io/npm/v/svgchrtjs)
-![npm](https://img.shields.io/npm/dm/svgchrtjs)
-![GitHub top language](https://img.shields.io/github/languages/top/gavinsykes/svgchrtjs)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gavinsykes/svgchrtjs)
-![NPM](https://img.shields.io/npm/l/svgchrtjs)
+![npm](https://img.shields.io/npm/v/svgchrt)
+![npm](https://img.shields.io/npm/dm/svgchrt)
+![GitHub top language](https://img.shields.io/github/languages/top/gavinsykes/svgchrt)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gavinsykes/svgchrt)
+![NPM](https://img.shields.io/npm/l/svgchrt)
 
 The easiest way to put together a data visualisation in SVG.
 ------------------------------------------------------------
 
 ### Installation
 
-`npm install svgchrtjs`
+`npm install svgchrt`
 
-`<script src="https://unpkg.com/svgchrtjs"></script>`
+`<script src="https://unpkg.com/svgchrt"></script>`
 
 ### Usage
 
 ```javascript
-const SVGChart = require('svgchrtjs');
+const SVGChrt = require('svgchrt');
 
 const data = []; // Your dataset
 const options = {}; // How you want the visualisation to look
 
-const Chart = SVGChart.SVGChart(data,options);
+const Chart = SVGChrt.SVGChrt(data,options);
 
 Chart.plot = function() {
   /* Remember, this only provides an area

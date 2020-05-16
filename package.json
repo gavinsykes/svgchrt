@@ -1,5 +1,5 @@
 {
-  "name": "svgchrtjs",
+  "name": "svgchrt",
   "version": "0.2.7",
   "description": "A way to easily create SVG-based charts without having to worry about positioning of titles, subtitles or legends.",
   "keywords": [
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gavinsykes/svgchrtjs.git"
+    "url": "https://github.com/gavinsykes/svgchrt.git"
   },
   "license": "MIT",
   "dependencies": {},
