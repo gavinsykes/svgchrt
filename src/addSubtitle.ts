@@ -8,7 +8,7 @@ import layout from './layout';
 function addSubitle(settings = defaultSettings, canvas: SVGElement) {
   if (settings.subtitle.display) {
     const subtitle: SVGTextElement = appendSVGChild('text',canvas,{
-      class         : 'chart-title',
+      class         : 'chart-subtitle',
       dy            : '1em',
       'text-anchor' : 'middle',
       x             : layout.canvas.width / 2,
