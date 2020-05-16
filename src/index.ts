@@ -1,5 +1,5 @@
 import defaultSettings, { SettingsObject } from './defaultSettings';
-import initialLayout from './layout';
+import initialLayout, { getChartArea } from './layout';
 import isObject from './isObject';
 import deepObjectMerge from './deepObjectMerge';
 import appendSVGChild from './appendSVGChild';
@@ -13,13 +13,14 @@ import addDescription from './addDescription';
 import addLegend from './addLegend';
 import plot from './plot';
 import placePlot from './placePlot';
-import { getChartArea } from './layout';
 import buildSurround from './buildSurround';
 import render from './render';
 import changeProp from './changeProp';
+import { Caller } from './interfaces';
 
 class SVGChrt {
   defaultSettings = defaultSettings;
+  layout          = initialLayout;
   settings        : SettingsObject;
   target          : HTMLElement;
   testProp        : string;
@@ -55,10 +56,10 @@ class SVGChrt {
       );
       return;
     }
-    render(this.settings,this.target);
-  }
-  changeProp() {
-    changeProp(this);
+    let c: SVGGraphicsElement = buildSurround(this.settings,this.target);
+    if (plot instanceof Function) {
+      plot(c);
+    }
   }
 }
 

@@ -5,7 +5,7 @@ import clearCanvas from './clearCanvas';
 import placeCanvas from './placeCanvas';
 import defaultSettings, { SettingsObject } from './defaultSettings';
 
-import { ReturnedCanvas } from './interfaces';
+import { Caller, ReturnedCanvas } from './interfaces';
 
 function buildSurround(settings: SettingsObject = defaultSettings,target: HTMLElement): SVGGraphicsElement {
   clearCanvas(target);

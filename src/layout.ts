@@ -95,98 +95,6 @@ const layout: {[index: string]:any} = {
     width   : defaultSettings.canvas.width
   },
   chart  : {
-    axes : {
-      bottom : {
-        height : 0,
-        label  : {
-          height : 0,
-          points : {
-            x1 : 0,
-            x2 : 0,
-            y1 : 0,
-            y2 : 0 
-          },
-          width  : 0
-        },
-        points : {
-          x1 : 0,
-          x2 : 0,
-          y1 : 0,
-          y2 : 0
-        },
-        scale  : {
-          height : 0,
-          points : {
-            x1 : 0,
-            x2 : 0,
-            y1 : 0,
-            y2 : 0
-          },
-          width  : 0
-        },
-        width  : 0
-      },
-      left: {
-        height : 0,
-        label  : {
-          height : 0,
-          points : {
-            x1 : 0,
-            x2 : 0,
-            y1 : 0,
-            y2 : 0
-          },
-          width  : 0
-        },
-        points  : {
-          x1 : 0,
-          x2 : 0,
-          y1 : 0,
-          y2 : 0
-        },
-        scale   : {
-          height : 0,
-          points : {
-            x1 : 0,
-            x2 : 0,
-            y1 : 0,
-            y2 : 0  
-          },
-          width  : 0
-        },
-        width : 0
-      },
-      right: {
-        height: 0,
-        label: {
-          height: 0,
-          points: { x1: 0, x2: 0, y1: 0, y2: 0 },
-          width: 0
-        },
-        points: { x1: 0, x2: 0, y1: 0, y2: 0 },
-        scale: {
-          height: 0,
-          points: { x1: 0, x2: 0, y1: 0, y2: 0 },
-          width: 0
-        },
-        width: 0
-      },
-      top: {
-        height: 0,
-        label: {
-          height: 0,
-          points: { x1: 0, x2: 0, y1: 0, y2: 0 },
-          width: 0
-        },
-        points: { x1: 0, x2: 0, y1: 0, y2: 0 },
-        scale: {
-          height: 0,
-          points: { x1: 0, x2: 0, y1: 0, y2: 0 },
-          width: 0
-        },
-        width: 0
-      }
-    },
     height: 0,
     margin: defaultSettings.chart.margin,
     points: {
@@ -265,17 +173,17 @@ const layout: {[index: string]:any} = {
 };
 
 export function getChartArea() {
-  let l = layout.get();
+  let l = layout.get().chart
   return {
-    height : l.chart.height,
+    height : l.height,
     points : {
-      x1 : l.chart.points.x1,
-      x2 : l.chart.points.x2,
-      y1 : l.chart.points.y1,
-      y2 : l.chart.points.y2
+      x1 : l.points.x1,
+      x2 : l.points.x2,
+      y1 : l.points.y1,
+      y2 : l.points.y2
     },
-    width  : l.chart.width
+    width  : l.width
   }
 }
 
-export default initialLayout;
+export default layout;
