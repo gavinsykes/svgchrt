@@ -21,10 +21,9 @@ The easiest way to put together a data visualisation in SVG.
 ```javascript
 const SVGChrt = require('svgchrt');
 
-const data = []; // Your dataset
 const options = {}; // How you want the visualisation to look
 
-const Chart = SVGChrt.SVGChrt(data,options);
+const Chart =  new SVGChrt(options);
 
 Chart.plot = function() {
   /* Remember, this only provides an area
