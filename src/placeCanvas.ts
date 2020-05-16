@@ -6,12 +6,12 @@ import { ReturnedCanvas } from './interfaces';
 
 function placeCanvas(settings: SettingsObject = defaultSettings, target: HTMLElement): ReturnedCanvas {
   let canvas: SVGElement = appendSVGChild('svg', target, {
-    class   : 'chart svg-chart',
-    height  : settings.canvas.height,
-    viewBox : settings.canvas.viewBox,
-    width   : settings.canvas.width,
-    xmlns   : 'http://www.w3.org/2000/svg',
-    'xmlns  : xlink':'http://www.w3.org/1999/xlink'
+    class        : 'chart svg-chart',
+    height       : settings.canvas.height,
+    viewBox      : settings.canvas.viewBox,
+    width        : settings.canvas.width,
+    xmlns        : 'http://www.w3.org/2000/svg',
+    'xmlns:xlink':'http://www.w3.org/1999/xlink'
   });
   if (settings.background) {
     appendSVGChild('rect', canvas, {
