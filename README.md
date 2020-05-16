@@ -86,6 +86,8 @@ Chart.render();
 
 1. legend (object)
 
+   If the legend is set to display, then it will build and display the legend on your chart as dtermined by the below options. It add a `<g>` element with the id and the class `legend`, containing a list of `<g>` elements with the class `legend-item`. Each of these `g.legenditem`s contains a shape (`<rect>` is the default) with the class `legend-item-icon`, dependent on the options, and a `<text>` element with the class `legend-item-text`.
+
    Contains 12 items:
 
    1. background (object)
