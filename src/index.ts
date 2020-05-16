@@ -22,20 +22,7 @@ class SVGChrt {
   layout          = initialLayout;
   settings        : SettingsObject;
   target          : HTMLElement;
-  testProp        : string;
-  constructor(options = {}) {
-    if (!options) {
-      console.warn(
-        `You haven't set any options for the chart, it should still render however it may not look the way you want it to.`
-      );
-    }
-//    if (!data) {
-//      throw new Error(
-//        `You need to provide some data for the chart to work with!`
-//      );
-//      return;
-//    }
-    this.testProp = 'Old test prop';
+  constructor(options = {}, data = []) {
     this.settings = deepObjectMerge(this.defaultSettings, options) as SettingsObject;
     this.target = /^#\w*/i.test(this.settings.target)
                 ? document.querySelector(this.settings.target) as HTMLElement
