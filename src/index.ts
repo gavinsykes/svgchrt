@@ -22,6 +22,7 @@ class SVGChrt {
   layout          = initialLayout;
   settings        : SettingsObject;
   target          : HTMLElement;
+  chartArea       : SVGGraphicsElement;
   constructor(options = {}, data = []) {
     this.settings = deepObjectMerge(this.defaultSettings, options) as SettingsObject;
     this.target = /^#\w*/i.test(this.settings.target)
