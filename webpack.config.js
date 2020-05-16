@@ -13,8 +13,10 @@ module.exports = {
     ]
   },
   output  : {
-    filename : 'main.js',
-    path     : path.resolve(__dirname, 'dist')
+    filename      : 'main.js',
+    library       : 'SVGChrtjs',
+    libraryTarget : 'var',
+    path          : path.resolve(__dirname, 'dist')
   },
   resolve : {
     extensions : [
