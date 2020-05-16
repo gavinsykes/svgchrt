@@ -38,7 +38,8 @@ class SVGChrtjs {
     this.target = /^#\w*/i.test(this.settings.target)
                 ? document.querySelector(this.settings.target) as HTMLElement
                 : document.querySelector(`#${this.settings.target}`) as HTMLElement;
-
+  }
+  render() {
     if (!this.target) {
       throw new Error(
         `Sorry, ${this.settings.target} doesn't appear to exist in the document. Please use a target <div> or <section> that is already in the document to display your visualisation.`
@@ -52,8 +53,6 @@ class SVGChrtjs {
       );
       return;
     }
-  }
-  render() {
     render(this.settings,this.target);
   }
 }
