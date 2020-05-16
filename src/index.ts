@@ -36,8 +36,8 @@ class SVGChrtjs {
 //    }
     this.settings = deepObjectMerge(this.defaultSettings, options) as SettingsObject;
     this.target = /^#\w*/i.test(this.settings.target)
-                ? document.getElementById(this.settings.target.substring(1)) as HTMLElement
-                : document.getElementById(this.settings.target) as HTMLElement;
+                ? document.querySelector(this.settings.target) as HTMLElement
+                : document.querySelector(`#${this.settings.target}`) as HTMLElement;
 
     if (!this.target) {
       throw new Error(
