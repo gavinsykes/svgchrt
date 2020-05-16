@@ -1,6 +1,6 @@
 {
   "name": "svgchrtjs",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A way to easily create SVG-based charts without having to worry about positioning of titles, subtitles or legends.",
   "keywords": [
     "data",
