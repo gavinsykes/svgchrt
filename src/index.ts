@@ -15,7 +15,6 @@ import plot from './plot';
 import placePlot from './placePlot';
 import buildSurround from './buildSurround';
 import render from './render';
-import changeProp from './changeProp';
 import { Caller } from './interfaces';
 
 class SVGChrt {
