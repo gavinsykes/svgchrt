@@ -1,4 +1,5 @@
-import defaultSettings from './defaultSettings';
+import defaultSettings, { SettingsObject } from './defaultSettings';
+import initialLayout from './layout';
 import isObject from './isObject';
 import deepObjectMerge from './deepObjectMerge';
 import appendSVGChild from './appendSVGChild';
@@ -15,13 +16,13 @@ import placePlot from './placePlot';
 import { getChartArea } from './layout';
 import buildSurround from './buildSurround';
 import render from './render';
-import { SettingsObject } from './defaultSettings';
+import changeProp from './changeProp';
 
 class SVGChrt {
   defaultSettings = defaultSettings;
   settings        : SettingsObject;
   target          : HTMLElement;
-  tET             : string;
+  testProp        : string;
   constructor(options = {}) {
     if (!options) {
       console.warn(
@@ -34,6 +35,7 @@ class SVGChrt {
 //      );
 //      return;
 //    }
+    this.testProp = 'Old test prop';
     this.settings = deepObjectMerge(this.defaultSettings, options) as SettingsObject;
     this.target = /^#\w*/i.test(this.settings.target)
                 ? document.querySelector(this.settings.target) as HTMLElement
@@ -46,14 +48,17 @@ class SVGChrt {
       );
       return;
     }
-    this.tET = this.target.tagName.toLowerCase();
-    if (!['div', 'section'].includes(this.tET)) {
+    let tET = this.target.tagName.toLowerCase();
+    if (!['div', 'section'].includes(tET)) {
       throw new Error(
         `Sorry, ${this.settings.target} doesn't appear to be a <div> or <section>. You need to select one of those from the document to display your visualisation.`
       );
       return;
     }
     render(this.settings,this.target);
+  }
+  changeProp() {
+    changeProp(this);
   }
 }
 
