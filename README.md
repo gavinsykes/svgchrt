@@ -97,83 +97,84 @@ Chart.render();
 
          Decides whether or not to add a background to the legend. If it is set to true it will add a `<rect>` element with the class `legend-background` for styling with CSS.
 
-      1. displaceTitle (boolean), default: `false`
+   1. displaceTitle (boolean), default: `false`
 
-         Decides whether the placement of the legend should have an effect on the positioning of the title and subtitle. If it set to true then if `options.legend.position` is set to `top-left`, `left`, `bottom-left`, `top-right`, `right` or `bottom-right` and the `options.legend.orientation` is set to `vertical` then the title and subtitle will shift (and possibly wrap) into their new smaller container.
+      Decides whether the placement of the legend should have an effect on the positioning of the title and subtitle. If it set to true then if `options.legend.position` is set to `top-left`, `left`, `bottom-left`, `top-right`, `right` or `bottom-right` and the `options.legend.orientation` is set to `vertical` then the title and subtitle will shift (and possibly wrap) into their new smaller container.
 
-         If `options.legend.position` is set to `top` or `bottom` or `options.legend.orientation` is set to `horizontal` then this option is ignored.
+      If `options.legend.position` is set to `top` or `bottom` or `options.legend.orientation` is set to `horizontal` then this option is ignored.
+
+   1. display (boolean), default: `false`
+
+      Decides whether or not to display the legend.
+
+   1. icons (object)
+
+      Provides a default for the icons contained in each legend item.
+
+      Contains 4 items:
 
       1. display (boolean), default: `false`
 
-         Decides whether or not to display the legend.
+         Determines whether to display an icon.
 
-      1. icons (object)
+      1. height (integer), default: `14`
 
-         Provides a default for the icons contained in each legend item.
+         Determines the height of the icons in pixels.
 
-         Contains 4 items:
+         **N.B.** The `height` property is only applicable to certain SVG elements, in this case the `shape` beneath this defaults to `rect` which takes a height property.
 
-         1. display (boolean), default: `false`
+      1. shape (string), default: `'rect'`
 
-            Determines whether to display an icon.
+         Determines the shape that the icons should take.
 
-         1. height (integer), default: `14`
+      1. width (integer), default: `14`
 
-            Determines the height of the icons in pixels.
+         Determines the width of the icons in pixels.
 
-            **N.B.** The `height` property is only applicable to certain SVG elements, in this case the `shape` beneath this defaults to `rect` which takes a height property.
+         **N.B.** The `width` property is only applicable to certain SVG elements, in this case the `shape` above this defaults to `rect` which takes a width property.
 
-         1. shape (string), default: `'rect'`
+   1. itemMargin (object)
 
-            Determines the shape that the icons should take.
+      Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin between each legend item to allow them to be visually separate from each other.
 
-         1. width (integer), default: `14`
+   1. items (array), default: `[]`
 
-            Determines the width of the icons in pixels.
+      An array of objects to be displayed on the legend. Each object must contain a `displayName` property which contains the text that will be displayed, this can either be a string or a function that returns a string. You may also want to include a `class` property to style the icons differently (different fill colours for example) with CSS.
 
-            **N.B.** The `width` property is only applicable to certain SVG elements, in this case the `shape` above this defaults to `rect` which takes a width property.
+      You can also include an `icon` property as an object, if you want to overwrite your default icon options set above.
 
-      1. itemMargin (object)
+      As you may be pulling in your legend items from a dataset containing many more properties, the library will simply ignore any additional properties.
 
-         Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin between each legend item to allow them to be visually separate from each other.
+      If this array is empty then the legend will not display.
 
-      1. items (array), default: `[]`
+   1. layOverChart (boolean), default: `false`
 
-         An array of objects to be displayed on the legend. Each object must contain a `displayName` property which contains the text that will be displayed, this can either be a string or a function that returns a string. You may also want to include a `class` property to style the icons differently (different fill colours for example) with CSS.
+      Decides whether the legend should be displayed on top of the visualisation or resize the visualisation to fit.
 
-         You can also include an `icon` property as an object, if you want to overwrite your default icon options set above.
+   1. margin (object)
 
-         As you may be pulling in your legend items from a dataset containing many more properties, the library will simply ignore any additional properties.
+      Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin around your legend so that it can be visually separate from the rest of the elements.
 
-         If this array is empty then the legend will not display.
+   1. orientation (string), default: `'vertical'`
 
-      1. layOverChart (boolean), default: `false`
+      Decides whether your legend items should stack vertically on top of one another or horizontally next to each other.
 
-         Decides whether the legend should be displayed on top of the visualisation or resize the visualisation to fit.
+   1. padding (object)
 
-      1. margin (object)
+      Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `0` and provides an inner padding so that your items are not squashed up to the edge of the legend's background.
 
-         Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin around your legend so that it can be visually separate from the rest of the elements.
+      They default to `0` as a padding is only really recommended if you set `options.legend.background.display` to true.
 
-      1. orientation (string), default: `'vertical'`
+   1. position (string), default: `'right'`
 
-         Decides whether your legend items should stack vertically on top of one another or horizontally next to each other.
+      Provides 8 options: `top-left`, `top`, `top-right`, `right`, `bottom-right`, `bottom`, `bottom-left`, `left` and decides where the legend should be on your SVG.
 
-      1. padding (object)
+   1. title (string), default: `''`
 
-         Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `0` and provides an inner padding so that your items are not squashed up to the edge of the legend's background.
+      _Future update_
 
-         They default to `0` as a padding is only really recommended if you set `options.legend.background.display` to true.
+      Adds a title to the legend and provides a `<text>` element with the class `legend-title` for styling with CSS.
 
-      1. position (string), default: `'right'`
-
-         Provides 8 options: `top-left`, `top`, `top-right`, `right`, `bottom-right`, `bottom`, `bottom-left`, `left` and decides where the legend should be on your SVG.
-
-      1. title (string), default: `''`
-
-         _Future update_
-
-         Adds a title to the legend and provides a `<text>` element with the class `legend-title` for styling with CSS.
 1. subtitle (object)
 
    Contains 3 items:
