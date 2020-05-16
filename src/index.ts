@@ -17,7 +17,7 @@ import buildSurround from './buildSurround';
 import render from './render';
 import { SettingsObject } from './defaultSettings';
 
-class SVGChrtjs {
+class SVGChrt {
   defaultSettings = defaultSettings;
   settings        : SettingsObject;
   target          : HTMLElement;
@@ -57,4 +57,4 @@ class SVGChrtjs {
   }
 }
 
-module.exports = SVGChrtjs;
+module.exports = SVGChrt;

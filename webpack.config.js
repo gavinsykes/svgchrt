@@ -14,7 +14,7 @@ module.exports = {
   },
   output  : {
     filename      : 'main.js',
-    library       : 'SVGChrtjs',
+    library       : 'SVGChrt',
     libraryTarget : 'var',
     path          : path.resolve(__dirname, 'dist')
   },
