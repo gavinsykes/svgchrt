@@ -10,11 +10,11 @@ function addTitle(settings = defaultSettings, canvas: SVGElement) {
     appendSVGChild('title', canvas, {}, settings.title.text) as SVGTitleElement;
     if (settings.title.display) {
       const title: SVGTextElement = appendSVGChild('text',canvas,{
-        class         : 'chart-title',
-        dy            : '1em',
-        'text-anchor' : 'middle',
-        x             : layout.canvas.width / 2,
-        y             : layout.title.points.y1
+        'class'         : 'chart-title',
+        'dy'            : '1em',
+        'text-anchor'   : 'middle',
+        'x'             : layout.canvas.width / 2,
+        'y'             : layout.title.points.y1
       },settings.title.text) as SVGTextElement;
       let shift: string = 'none';
       if (settings.legend.displaceTitle) {
@@ -70,6 +70,7 @@ function addTitle(settings = defaultSettings, canvas: SVGElement) {
         }) as LayoutItem;
       layout.title = newLayoutTitle;
       layout.subtitle.points.y1 = layout.title.points.y2 + Math.max(layout.title.margin.bottom,layout.subtitle.margin.top,0);
+      layout.chart.points.y1 = layout.title.points.y2 + Math.max(layout.title.margin.bottom,layout.subtitle.margin.top,0);
       layout.chart.height = layout.chart.points.y2 - layout.chart.points.y1;
       if (!settings.legend.displaceTitle) {
         layout.legend.points.y1 = layout.title.points.y2 + Math.max(layout.title.margin.bottom,layout.legend.margin.top,0);
