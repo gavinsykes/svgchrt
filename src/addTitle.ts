@@ -70,7 +70,7 @@ function addTitle(settings = defaultSettings, canvas: SVGElement) {
         }) as LayoutItem;
       layout.title = newLayoutTitle;
       layout.subtitle.points.y1 = layout.title.points.y2 + Math.max(layout.title.margin.bottom,layout.subtitle.margin.top,0);
-      layout.chart.points.y1 = layout.title.points.y2 + Math.max(layout.title.margin.bottom,layout.subtitle.margin.top,0);
+      layout.chart.points.y1 = layout.title.points.y2 + Math.max(layout.title.margin.bottom,layout.chart.margin.top,0);
       layout.chart.height = layout.chart.points.y2 - layout.chart.points.y1;
       if (!settings.legend.displaceTitle) {
         layout.legend.points.y1 = layout.title.points.y2 + Math.max(layout.title.margin.bottom,layout.legend.margin.top,0);
