@@ -8,7 +8,6 @@ function plot(chartArea: SVGGraphicsElement) {
     width  : getChartArea().width,
     height : getChartArea().height
   });
-  placePlot(chartArea);
 };
 
 export default plot;

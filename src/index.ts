@@ -1,33 +1,30 @@
 import defaultSettings, { SettingsObject } from './defaultSettings';
 import initialLayout, { getChartArea } from './layout';
-import isObject from './isObject';
 import deepObjectMerge from './deepObjectMerge';
 import appendSVGChild from './appendSVGChild';
-import svgWrapText from './svgWrapText';
 import updateData from './updateData';
 import updateOptions from './updateOptions';
-import placeCanvas from './placeCanvas';
-import addTitle from './addTitle';
-import addSubtitle from './addSubtitle';
-import addDescription from './addDescription';
-import addLegend from './addLegend';
 import plot from './plot';
 import placePlot from './placePlot';
 import buildSurround from './buildSurround';
 import render from './render';
-import { Caller } from './interfaces';
 
 class SVGChrt {
   defaultSettings = defaultSettings;
   layout          = initialLayout;
+  appendSVGChild  = appendSVGChild;
+  plot            = plot;
+  placePlot       = placePlot;
   settings        : SettingsObject;
   target          : HTMLElement;
-  chartArea       : SVGGraphicsElement;
+  chartArea       : SVGGraphicsElement | null;
   constructor(options = {}, data = []) {
     this.settings = deepObjectMerge(this.defaultSettings, options) as SettingsObject;
+    console.log(this.settings);
     this.target = /^#\w*/i.test(this.settings.target)
                 ? document.querySelector(this.settings.target) as HTMLElement
                 : document.querySelector(`#${this.settings.target}`) as HTMLElement;
+    this.chartArea = document.querySelector('#chart-area');
   }
   render() {
     if (!this.target) {
@@ -44,8 +41,9 @@ class SVGChrt {
       return;
     }
     let c: SVGGraphicsElement = buildSurround(this.settings,this.target);
-    if (plot instanceof Function) {
-      plot(c);
+    if (this.plot instanceof Function) {
+      this.plot(c);
+      this.placePlot(c);
     }
   }
 }
