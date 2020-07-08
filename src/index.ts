@@ -15,6 +15,7 @@ class SVGChrt {
   appendSVGChild  = appendSVGChild;
   plot            = plot;
   placePlot       = placePlot;
+  deepObjectMerge = deepObjectMerge;
   settings        : SettingsObject;
   target          : HTMLElement;
   chartArea       : SVGGraphicsElement | null;
