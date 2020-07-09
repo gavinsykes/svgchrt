@@ -27,7 +27,6 @@ class SVGChrt {
     this.target = /^#\w*/i.test(this.settings.target)
                 ? document.querySelector(this.settings.target) as HTMLElement
                 : document.querySelector(`#${this.settings.target}`) as HTMLElement;
-    this.chartArea = document.querySelector('#chart-area');
     this.data = data;
   }
   render() {
@@ -44,10 +43,10 @@ class SVGChrt {
       );
       return;
     }
-    let c: SVGGraphicsElement = buildSurround(this.settings,this.target);
+    this.chartArea = buildSurround(this.settings,this.target);
     if (this.plot instanceof Function) {
-      this.plot(c);
-      this.placePlot(c);
+      this.plot(this.chartArea);
+      this.placePlot(this.chartArea);
     }
   }
 }
