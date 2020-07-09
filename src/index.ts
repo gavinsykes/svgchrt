@@ -27,6 +27,7 @@ class SVGChrt {
                 ? document.querySelector(this.settings.target) as HTMLElement
                 : document.querySelector(`#${this.settings.target}`) as HTMLElement;
     this.chartArea = document.querySelector('#chart-area');
+    this.data = data;
   }
   render() {
     if (!this.target) {
