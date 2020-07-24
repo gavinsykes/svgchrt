@@ -23,7 +23,6 @@ class SVGChrt {
   data            : object;
   constructor(options = {}, data = {}) {
     this.settings = deepObjectMerge(this.defaultSettings, options) as SettingsObject;
-    console.log(this.settings);
     this.target = /^#\w*/i.test(this.settings.target)
                 ? document.querySelector(this.settings.target) as HTMLElement
                 : document.querySelector(`#${this.settings.target}`) as HTMLElement;
