@@ -37,6 +37,19 @@ Chart.plot = function() {
   */
 };
 
+// Get the chartable area for use in your plot function
+
+Chart.getChartArea();
+
+/* Returns an object with height (number),
+*  points (object) and width (number).
+*  Points contains x1 (the x-coordinate of
+*  the leftmost points), y1 (the y-coordinate
+*  of the uppermost points), x2 (the
+*  x-coordinate of the rightmost points) and
+*  y2 (the y-coordinate of the lowermost points).
+*/
+
 Chart.render();
 ```
 
