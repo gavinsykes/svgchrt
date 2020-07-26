@@ -1,5 +1,3 @@
-const isObject: (o: any) => boolean = function(o) {
-  return o && typeof o === "object" && !Array.isArray(o);
-}
+const isObject: (o: any) => boolean = o => o && typeof o === "object" && !Array.isArray(o);
 
 export default isObject;
