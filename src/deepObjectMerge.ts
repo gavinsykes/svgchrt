@@ -3,15 +3,14 @@ import copyObject from './copyObject';
 import { LegendItemIcon } from './defaultSettings';
 import { LayoutItem } from './interfaces';
 
-function deepObjectMerge(original: any, ...newobjs: any[]): object | LegendItemIcon | LayoutItem {
-  if (!newobjs.length) return original;
+function deepObjectMerge(original: any, newobj: any): object | LegendItemIcon | LayoutItem {
+  if (!newobj) return original;
   let returnedObj: {[index: string]: any} = copyObject(original);
-  const newobj: {[index: string]: any} = newobjs.shift();
   if (isObject(newobj)) {
     for (const key in newobj) {
       if (isObject(newobj[key])) {
         if (!returnedObj[key]) {
-          Object.assign(returnedObj, { [key]: {} });
+          Object.assign(returnedObj, { [key]: newobj[key] });
         } else {
           returnedObj[key] = deepObjectMerge(returnedObj[key], newobj[key]);
         }
@@ -20,7 +19,7 @@ function deepObjectMerge(original: any, ...newobjs: any[]): object | LegendItemI
       }
     }
   }
-  return deepObjectMerge(returnedObj, ...newobjs);
+  return returnedObj;
 };
 
 export default deepObjectMerge;
