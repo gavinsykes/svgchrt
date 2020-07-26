@@ -10,8 +10,11 @@ function deepObjectMerge(original: any, ...newobjs: any[]): object | LegendItemI
   if (isObject(newobj)) {
     for (const key in newobj) {
       if (isObject(newobj[key])) {
-        if (!returnedObj[key]) Object.assign(returnedObj, { [key]: {} });
-        returnedObj[key] = deepObjectMerge(returnedObj[key], newobj[key]);
+        if (!returnedObj[key]) {
+          Object.assign(returnedObj, { [key]: {} });
+        } else {
+          returnedObj[key] = deepObjectMerge(returnedObj[key], newobj[key]);
+        }
       } else {
         Object.assign(returnedObj, { [key]: newobj[key] });
       }
