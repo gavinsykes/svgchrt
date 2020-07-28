@@ -17,7 +17,7 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
         ry    : settings.legend.background.ry || settings.legend.background.r || 0
       }) as SVGGraphicsElement;
     }
-    const legend_items: SVGGraphicsElement[] = settings.legend.items.map((c, i) => appendSVGChild('g', legend, {'class': `legend-item ${settings.legend.items[i]?.class ? settings.legend.items[i]?.class : ''}`}) as SVGGraphicsElement);
+    const legend_items: SVGGraphicsElement[] = settings.legend.items.map((c, i) => appendSVGChild('g', legend, {'class': `legend-item ${settings.legend.items[i]?.class ? settings.legend.items[i].class : ''}`,'id': `${settings.legend.items[i]?.id ? settings.legend.items[i].id : ''}`}) as SVGGraphicsElement);
     const maxWidth: number = layout.legend.points.x2 - Math.max(settings.legend.padding.left, 0) - Math.max(settings.legend.padding.right, 0) - layout.legend.points.x1;
     const maxHeight: number = layout.legend.points.y2 - Math.max(settings.legend.padding.top, 0) - Math.max(settings.legend.padding.bottom, 0) -layout.legend.points.y1;
 
