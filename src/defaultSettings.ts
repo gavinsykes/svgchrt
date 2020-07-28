@@ -22,6 +22,7 @@ interface LegendItem {
   class?       : string;
   displayName  : string;
   icon?        : LegendItemIcon;
+  id?          : string;
 }
 
 interface LegendBackground {
