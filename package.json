@@ -1,29 +1,9 @@
 {
-  "name": "svgchrt",
-  "version": "0.3.5",
-  "description": "A way to easily create SVG-based charts without having to worry about positioning of titles, subtitles or legends.",
-  "keywords": [
-    "data",
-    "svg",
-    "visualisation",
-    "visualization"
-  ],
-  "main": "./dist/main.js",
-  "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "build:dev": "webpack --config webpack.dev.js",
-    "test": "mocha -r ts-node/register src/**/*.spec.ts"
-  },
   "author": {
     "name": "Gavin Sykes",
     "email": "gavin@gavinsykes.uk",
     "url": "https://gavinsykes.uk"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gavinsykes/svgchrt.git"
-  },
-  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.2.11",
@@ -31,9 +11,16 @@
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.13.5",
     "@types/webpack-env": "^1.15.2",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
     "chai": "^4.2.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "jasmine": "^3.5.0",
     "mocha": "^7.1.2",
     "nyc": "^15.0.1",
@@ -48,5 +35,34 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.9"
   },
-  "types": "./dist/main.d.ts"
+  "description": "A way to easily create SVG-based charts without having to worry about positioning of titles, subtitles or legends.",
+  "keywords": [
+    "chart",
+    "data",
+    "svg",
+    "visualisation",
+    "visualization"
+  ],
+  "license": "MIT",
+  "main": "./dist/main.js",
+  "name": "svgchrt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gavinsykes/svgchrt.git"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "build:dev": "webpack --config webpack.dev.js",
+    "ci": "npm run build && npm run test:cover",
+    "clean": "shx rm -rf coverage dist docs .nyc_output",
+    "clean-slate-protocol-sir": "shx rm -rf coverage dist docs node_modules .nyc_output",
+    "docs": "typedoc --theme minimal --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src",
+    "postversion": "git push origin master && git push origin master --tags && npm publish",
+    "preversion": "npm run build && npm run test && npm run docs && git add docs && git commit -m\"Bumping version and updating docs\"",
+    "setup": "npm install",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts && alex && npx eslint ./dev/**/*",
+    "test:cover": "nyc --reporter=text --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts && codecov"
+  },
+  "types": "./dist/main.d.ts",
+  "version": "0.3.5"
 }
