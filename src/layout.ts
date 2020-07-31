@@ -131,7 +131,20 @@ const layout: { [index: string]: any } = {
   }
 };
 
-export function getChartArea(): object {
+type PointsCoords {
+  x1: number;
+  x2: number;
+  y1: number;
+  y2: number;
+}
+
+type ChartArea {
+  height: number;
+  points: PointsCoords;
+  width: number;
+}
+
+export function getChartArea(): ChartArea {
   const l = layout.get().chart;
   return {
     height: l.height,

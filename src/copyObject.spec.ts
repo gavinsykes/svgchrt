@@ -22,7 +22,7 @@ const original = {
   }
 };
 
-const copied: { [index: string]: any } = copyObject(original);
+const copied: { [index: string]: any } = copyObject(original) as { [index: string]: any };
 
 console.log(`[3,4] === [3,4]? ${[3, 4] === [3, 4]}`);
 
