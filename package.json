@@ -19,6 +19,7 @@
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "jasmine": "^3.5.0",
@@ -57,11 +58,15 @@
     "clean": "shx rm -rf coverage dist docs .nyc_output",
     "clean-slate-protocol-sir": "shx rm -rf coverage dist docs node_modules .nyc_output",
     "docs": "typedoc --theme minimal --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src",
+    "lint": "npx eslint ./src/**/*",
+    "lint:prettier": "npm run lint && npm run prettier",
     "postversion": "git push origin master && git push origin master --tags && npm publish",
-    "preversion": "npm run build && npm run test && npm run docs && git add docs && git commit -m\"Bumping version and updating docs\"",
+    "prettier": "npx prettier --config .prettierrc 'src/**/*.ts' --write",
+    "preversion": "npm run build && npm run test:prettier && npm run docs && git add docs && git commit -m\"Bumping version and updating docs\"",
     "setup": "npm install",
-    "test": "mocha -r ts-node/register src/**/*.spec.ts && alex && npx eslint ./dev/**/*",
-    "test:cover": "nyc --reporter=text --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts && codecov"
+    "test": "mocha -r ts-node/register src/**/*.spec.ts && alex && lint",
+    "test:cover": "nyc --reporter=text --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts && codecov",
+    "test:prettier": "npm run prettier && npm run test"
   },
   "types": "./dist/main.d.ts",
   "version": "0.3.5"
