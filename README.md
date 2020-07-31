@@ -157,7 +157,7 @@ Chart.render();
 
       You can also include an `icon` property as an object, if you want to overwrite your default icon options set above.
 
-      As you may be pulling in your legend items from a dataset containing many more properties, the library will simply ignore any additional properties.
+      As you may be pulling in your legend items from a dataset containing many more properties, the library will ignore any additional properties.
 
       If this array is empty then the legend will not display.
 
