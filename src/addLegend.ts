@@ -1,107 +1,104 @@
-import appendSVGChild from './appendSVGChild';
-import deepObjectMerge from './deepObjectMerge';
-import defaultSettings, { SettingsObject, LegendItemIcon } from './defaultSettings';
-import { LayoutItem } from './interfaces';
-import layout from './layout';
+import appendSVGChild from './appendSVGChild'
+import deepObjectMerge from './deepObjectMerge'
+import defaultSettings, { SettingsObject, LegendItemIcon } from './defaultSettings'
+import { LayoutItem } from './interfaces'
+import layout from './layout'
 
-function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElement) {
+function addLegend (settings: SettingsObject = defaultSettings, canvas: SVGElement) {
   if (settings.legend.display && settings.legend.items) {
-    const legend: SVGGraphicsElement = appendSVGChild('g', canvas, {class: 'legend',id: `${settings.id ? settings.id + '-' : ''}legend`
-    }) as SVGGraphicsElement;
-    let legendBackground: SVGGraphicsElement | null = null;
+    const legend: SVGGraphicsElement = appendSVGChild('g', canvas, { class: 'legend', id: `${settings.id ? settings.id + '-' : ''}legend` }) as SVGGraphicsElement
+    let legendBackground: SVGGraphicsElement | null = null
     if (settings.legend.background.display) {
       legendBackground = appendSVGChild('rect', legend, {
-        class : 'legend-background',
-        fill  : settings.legend.background.color,
-        rx    : settings.legend.background.rx || settings.legend.background.r || 0,
-        ry    : settings.legend.background.ry || settings.legend.background.r || 0
-      }) as SVGGraphicsElement;
+        class: 'legend-background',
+        fill: settings.legend.background.color,
+        rx: settings.legend.background.rx || settings.legend.background.r || 0,
+        ry: settings.legend.background.ry || settings.legend.background.r || 0
+      }) as SVGGraphicsElement
     }
-    const legend_items: SVGGraphicsElement[] = settings.legend.items.map((c, i) => appendSVGChild('g', legend, {'class': `legend-item ${settings.legend.items[i]?.class ? settings.legend.items[i].class : ''}`,'id': `${settings.legend.items[i]?.id ? settings.legend.items[i].id : ''}`}) as SVGGraphicsElement);
-    const maxWidth: number = layout.legend.points.x2 - Math.max(settings.legend.padding.left, 0) - Math.max(settings.legend.padding.right, 0) - layout.legend.points.x1;
-    const maxHeight: number = layout.legend.points.y2 - Math.max(settings.legend.padding.top, 0) - Math.max(settings.legend.padding.bottom, 0) -layout.legend.points.y1;
+    const legend_items: SVGGraphicsElement[] = settings.legend.items.map((c, i) => appendSVGChild('g', legend, { class: `legend-item ${settings.legend.items[i]?.class ? settings.legend.items[i].class : ''}`, id: `${settings.legend.items[i]?.id ? settings.legend.items[i].id : ''}` }) as SVGGraphicsElement)
+    const maxWidth: number = layout.legend.points.x2 - Math.max(settings.legend.padding.left, 0) - Math.max(settings.legend.padding.right, 0) - layout.legend.points.x1
+    const maxHeight: number = layout.legend.points.y2 - Math.max(settings.legend.padding.top, 0) - Math.max(settings.legend.padding.bottom, 0) - layout.legend.points.y1
 
-    let legend_lines: SVGGraphicsElement[][] = [[]];
-    let lineCount: number = 0;
+    const legend_lines: SVGGraphicsElement[][] = [[]]
+    let lineCount: number = 0
 
     legend_items.map((l, i) => {
-      let params: LegendItemIcon = deepObjectMerge(settings.legend.icons as LegendItemIcon,settings.legend.items[i]?.icon as LegendItemIcon) as LegendItemIcon;
-      let icon;
+      const params: LegendItemIcon = deepObjectMerge(settings.legend.icons as LegendItemIcon, settings.legend.items[i]?.icon as LegendItemIcon) as LegendItemIcon
+      let icon
       if (params.display) {
         icon = appendSVGChild(params.shape, l, {
-          class : `legend-item-icon`,
+          class: 'legend-item-icon',
           ...params
-        }) as SVGGraphicsElement;
+        }) as SVGGraphicsElement
       }
-      let text = appendSVGChild(
+      const text = appendSVGChild(
         'text',
         l,
         {
-          class : 'legend-item-text',
-          dy    : '1em'
+          class: 'legend-item-text',
+          dy: '1em'
         },
         settings.legend.items[i].displayName
-      ) as SVGTextElement;
-      let translations = {
-        icon : {
-          x : 0,
-          y : 0
+      ) as SVGTextElement
+      const translations = {
+        icon: {
+          x: 0,
+          y: 0
         },
-        text : {
-          x : 0,
-          y : 0
+        text: {
+          x: 0,
+          y: 0
         }
-      };
+      }
       if (icon) {
-        translations.text.x = icon.getBBox().width + 4;
+        translations.text.x = icon.getBBox().width + 4
         if (icon.getBBox().height > text.getBBox().height) {
-          translations.text.y = (icon.getBBox().height - text.getBBox().height - 4) / 2;
+          translations.text.y = (icon.getBBox().height - text.getBBox().height - 4) / 2
         } else if (icon.getBBox().height < text.getBBox().height) {
-          translations.icon.y = (text.getBBox().height - icon.getBBox().height + 6) / 2;
+          translations.icon.y = (text.getBBox().height - icon.getBBox().height + 6) / 2
         }
         icon.setAttribute(
           'transform',
           `translate(${translations.icon.x},${translations.icon.y})`
-        );
+        )
       }
       text.setAttribute(
         'transform',
         `translate(${translations.text.x},${translations.text.y})`
-      );
-    });
+      )
+    })
 
     legend_items.map((l, i) => {
       if (settings.legend.orientation === 'horizontal') {
         if (legend_lines[lineCount]
-              .slice(0, i + 1)
-              .reduce((total: number,item: SVGGraphicsElement) =>
-                total + settings.legend.itemMargin.right + item.getBBox().width, 0
-              ) +
-              l.getBBox().width
-              > maxWidth)
-        {
-          lineCount++;
-          legend_lines.push([]);
+          .slice(0, i + 1)
+          .reduce((total: number, item: SVGGraphicsElement) =>
+            total + settings.legend.itemMargin.right + item.getBBox().width, 0
+          ) +
+              l.getBBox().width >
+              maxWidth) {
+          lineCount++
+          legend_lines.push([])
         }
-        legend_lines[lineCount].push(l);
+        legend_lines[lineCount].push(l)
       } else {
         if (legend_lines[lineCount]
-              .slice(0, i + 1)
-              .reduce((total: number, item: SVGGraphicsElement) =>
-                total + settings.legend.itemMargin.bottom + item.getBBox().height, 0
-              ) > maxHeight)
-        {
-          lineCount++;
-          legend_lines.push([]);
+          .slice(0, i + 1)
+          .reduce((total: number, item: SVGGraphicsElement) =>
+            total + settings.legend.itemMargin.bottom + item.getBBox().height, 0
+          ) > maxHeight) {
+          lineCount++
+          legend_lines.push([])
         }
-        legend_lines[lineCount].push(l);
+        legend_lines[lineCount].push(l)
       }
-    });
+    })
 
     legend_lines.forEach((line: SVGGraphicsElement[], index) => {
       line.forEach((el: SVGGraphicsElement, i) => {
         if (settings.legend.orientation === 'horizontal') {
-          el.setAttribute('transform',`translate(
+          el.setAttribute('transform', `translate(
             ${Math.max(settings.legend.padding.left, 0) +
               line
                 .slice(0, i)
@@ -115,7 +112,7 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
             ${Math.max(settings.legend.padding.top, 0) +
               legend_lines
                 .slice(0, index)
-                .reduce((total,line) =>
+                .reduce((total, line) =>
                   total +
                   settings.legend.itemMargin.bottom +
                   line
@@ -128,9 +125,9 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                   , 0
                 )
              })`
-          );
+          )
         } else {
-          el.setAttribute('transform',`translate(
+          el.setAttribute('transform', `translate(
             ${Math.max(settings.legend.padding.left, 0) +
               legend_lines
                 .slice(0, index)
@@ -157,36 +154,36 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                   , 0
                 )
              })`
-          );
+          )
         }
-      });
-    });
+      })
+    })
 
     if (legendBackground) {
       legendBackground.setAttribute(
-        'width',(
-        settings.legend.padding.left +
+        'width', (
+          settings.legend.padding.left +
           legend.getBBox().width +
           settings.legend.padding.right).toString()
-      );
+      )
       legendBackground.setAttribute(
         'height',
         (settings.legend.padding.top +
           legend.getBBox().height +
           settings.legend.padding.bottom).toString()
-      );
+      )
     }
     layout.legend = deepObjectMerge(layout.legend, {
       height: legend.getBBox().height,
       width: legend.getBBox().width
-    }) as LayoutItem;
-    let xcoord: number = 0, ycoord: number = 0;
+    }) as LayoutItem
+    let xcoord: number = 0; let ycoord: number = 0
     switch (settings.legend.position) {
       case 'top-left':
-        xcoord = layout.legend.points.x1;
-        ycoord = layout.legend.points.y1;
+        xcoord = layout.legend.points.x1
+        ycoord = layout.legend.points.y1
         if (settings.legend.orientation === 'horizontal') {
-          settings.legend.displaceTitle = false;
+          settings.legend.displaceTitle = false
         }
         if (!settings.legend.layOverChart) {
           if (settings.legend.orientation == 'vertical') {
@@ -201,7 +198,7 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                 settings.legend.margin.right,
                 settings.chart.margin.left,
                 0
-              );
+              )
           } else {
             layout.chart.points.y1 +=
               Math.max(
@@ -214,14 +211,14 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                 settings.legend.margin.bottom,
                 settings.chart.margin.top,
                 0
-              );
+              )
           }
         }
-        break;
+        break
       case 'top':
-        xcoord = (parseInt(canvas.getAttribute('width') as string) - layout.legend.width) / 2;
-        ycoord = layout.legend.points.y1;
-        settings.legend.displaceTitle = false;
+        xcoord = (parseInt(canvas.getAttribute('width') as string) - layout.legend.width) / 2
+        ycoord = layout.legend.points.y1
+        settings.legend.displaceTitle = false
         if (!settings.legend.layOverChart) {
           layout.chart.points.y1 +=
             Math.max(
@@ -234,14 +231,14 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
               settings.legend.margin.bottom,
               settings.chart.margin.top,
               0
-            );
+            )
         }
-        break;
+        break
       case 'top-right':
-        xcoord = layout.legend.points.x2 - layout.legend.width;
-        ycoord = layout.legend.points.y1;
+        xcoord = layout.legend.points.x2 - layout.legend.width
+        ycoord = layout.legend.points.y1
         if (settings.legend.orientation === 'horizontal') {
-          settings.legend.displaceTitle = false;
+          settings.legend.displaceTitle = false
         }
         if (!settings.legend.layOverChart) {
           if (settings.legend.orientation === 'vertical') {
@@ -257,7 +254,7 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                   settings.legend.margin.left,
                   settings.chart.margin.right,
                   0
-                ));
+                ))
           } else {
             layout.chart.points.y1 +=
               Math.max(
@@ -270,17 +267,17 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                 settings.legend.margin.bottom,
                 settings.chart.margin.top,
                 0
-              );
+              )
           }
         }
-        break;
+        break
         // DOne properly down to here
-        case 'right':
-          xcoord = layout.legend.points.x2 - layout.legend.width;
-          ycoord =
-            (layout.legend.points.y1 + layout.legend.points.y2 - layout.legend.height) / 2;
-          if (!settings.legend.layOverChart) {
-            layout.chart.points.x2 =
+      case 'right':
+        xcoord = layout.legend.points.x2 - layout.legend.width
+        ycoord =
+            (layout.legend.points.y1 + layout.legend.points.y2 - layout.legend.height) / 2
+        if (!settings.legend.layOverChart) {
+          layout.chart.points.x2 =
               layout.canvas.width -
               (Math.max(
                 settings.canvas.padding.right,
@@ -292,15 +289,15 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                   settings.legend.margin.left,
                   settings.chart.margin.right,
                   0
-                ));
-          }
-          break;
-        case 'bottom-right':
-          xcoord = layout.legend.points.x2 - layout.legend.width;
-          ycoord = layout.legend.points.y2 - layout.legend.height;
-          if (!settings.legend.layOverChart) {
-            if (settings.legend.orientation === 'vertical') {
-              layout.chart.points.x2 =
+                ))
+        }
+        break
+      case 'bottom-right':
+        xcoord = layout.legend.points.x2 - layout.legend.width
+        ycoord = layout.legend.points.y2 - layout.legend.height
+        if (!settings.legend.layOverChart) {
+          if (settings.legend.orientation === 'vertical') {
+            layout.chart.points.x2 =
                 layout.canvas.width -
                 (Math.max(
                   settings.canvas.padding.right,
@@ -312,9 +309,9 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                     settings.legend.margin.left,
                     settings.chart.margin.right,
                     0
-                  ));
-            } else {
-              layout.chart.points.y2 =
+                  ))
+          } else {
+            layout.chart.points.y2 =
                 layout.canvas.height -
                 (Math.max(
                   settings.canvas.padding.bottom,
@@ -326,15 +323,15 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                     settings.legend.margin.top,
                     settings.chart.margin.bottom,
                     0
-                  ));
-            }
+                  ))
           }
-          break;
-        case 'bottom':
-          xcoord = (parseInt(canvas.getAttribute('width') as string) - layout.legend.width) / 2;
-          ycoord = layout.legend.points.y2 - layout.legend.height;
-          if (!settings.legend.layOverChart) {
-            layout.chart.points.y2 =
+        }
+        break
+      case 'bottom':
+        xcoord = (parseInt(canvas.getAttribute('width') as string) - layout.legend.width) / 2
+        ycoord = layout.legend.points.y2 - layout.legend.height
+        if (!settings.legend.layOverChart) {
+          layout.chart.points.y2 =
               layout.canvas.height -
               (Math.max(
                 settings.canvas.padding.bottom,
@@ -346,15 +343,15 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                   settings.legend.margin.top,
                   settings.chart.margin.bottom,
                   0
-                ));
-          }
-          break;
-        case 'bottom-left':
-          xcoord = layout.legend.points.x1;
-          ycoord = layout.legend.points.y2 - layout.legend.height;
-          if (!settings.legend.layOverChart) {
-            if (settings.legend.orientation === 'vertical') {
-              layout.chart.points.x1 =
+                ))
+        }
+        break
+      case 'bottom-left':
+        xcoord = layout.legend.points.x1
+        ycoord = layout.legend.points.y2 - layout.legend.height
+        if (!settings.legend.layOverChart) {
+          if (settings.legend.orientation === 'vertical') {
+            layout.chart.points.x1 =
                 Math.max(
                   settings.canvas.padding.left,
                   settings.legend.margin.left,
@@ -365,9 +362,9 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                   settings.legend.margin.right,
                   settings.chart.margin.left,
                   0
-                );
-            } else {
-              layout.chart.points.y2 =
+                )
+          } else {
+            layout.chart.points.y2 =
                 layout.canvas.height -
                 (Math.max(
                   settings.canvas.padding.bottom,
@@ -379,16 +376,16 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                     settings.legend.margin.top,
                     settings.chart.margin.bottom,
                     0
-                  ));
-            }
+                  ))
           }
-          break;
-        case 'left':
-          xcoord = layout.legend.points.x1;
-          ycoord =
-            (layout.legend.points.y1 + layout.legend.points.y2 - layout.legend.height) / 2;
-          if (!settings.legend.layOverChart) {
-            layout.chart.points.x1 =
+        }
+        break
+      case 'left':
+        xcoord = layout.legend.points.x1
+        ycoord =
+            (layout.legend.points.y1 + layout.legend.points.y2 - layout.legend.height) / 2
+        if (!settings.legend.layOverChart) {
+          layout.chart.points.x1 =
               Math.max(
                 settings.canvas.padding.left,
                 settings.legend.margin.left,
@@ -399,24 +396,24 @@ function addLegend(settings: SettingsObject = defaultSettings, canvas: SVGElemen
                 settings.legend.margin.right,
                 settings.chart.margin.left,
                 0
-              );
-          }
-          break;
-      }
-      layout.chart.width =
-        layout.chart.points.x2 - layout.chart.points.x1;
-      layout.chart.height =
-        layout.chart.points.y2 - layout.chart.points.y1;
-      legend.setAttribute('transform', `translate(${xcoord},${ycoord})`);
-      layout.legend = deepObjectMerge(layout.legend, {
-        points: {
-          x1: legend.getBBox().x,
-          x2: legend.getBBox().x + legend.getBBox().width,
-          y1: legend.getBBox().y,
-          y2: legend.getBBox().y + legend.getBBox().height
+              )
         }
-      }) as LayoutItem;
+        break
     }
-  };
+    layout.chart.width =
+        layout.chart.points.x2 - layout.chart.points.x1
+    layout.chart.height =
+        layout.chart.points.y2 - layout.chart.points.y1
+    legend.setAttribute('transform', `translate(${xcoord},${ycoord})`)
+    layout.legend = deepObjectMerge(layout.legend, {
+      points: {
+        x1: legend.getBBox().x,
+        x2: legend.getBBox().x + legend.getBBox().width,
+        y1: legend.getBBox().y,
+        y2: legend.getBBox().y + legend.getBBox().height
+      }
+    }) as LayoutItem
+  }
+};
 
-export default addLegend;
+export default addLegend

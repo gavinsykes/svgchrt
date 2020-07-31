@@ -1,7 +1,7 @@
-function clearCanvas(target: HTMLElement) {
+function clearCanvas (target: HTMLElement) {
   while (target.firstChild) {
-    target.removeChild(target.firstChild);
+    target.removeChild(target.firstChild)
   }
 };
 
-export default clearCanvas;
+export default clearCanvas

@@ -1,7 +1,7 @@
-import { SettingsObject } from './defaultSettings';
+import { SettingsObject } from './defaultSettings'
 
 export interface ReturnedCanvas {
-  canvas    : SVGElement;
+  canvas : SVGElement;
   chartArea : SVGGraphicsElement;
 }
 
@@ -13,29 +13,29 @@ interface Points {
 }
 
 interface Margin {
-  top    : number;
-  right  : number;
+  top : number;
+  right : number;
   bottom : number;
-  left   : number;
+  left : number;
 }
 
 export interface LayoutItem {
   height : number;
   margin : Margin;
   points : Points;
-  width  : number;
+  width : number;
 }
 
 export interface LayoutObject {
-  canvas   : LayoutItem;
-  chart    : LayoutItem;
-  legend   : LayoutItem;
+  canvas : LayoutItem;
+  chart : LayoutItem;
+  legend : LayoutItem;
   subtitle : LayoutItem;
-  title    : LayoutItem;
+  title : LayoutItem;
 }
 
 export interface Caller {
-  layout   : LayoutObject;
+  layout : LayoutObject;
   settings : SettingsObject;
-  target   : HTMLElement;
+  target : HTMLElement;
 }

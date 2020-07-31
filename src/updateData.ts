@@ -1,5 +1,5 @@
-function updateData(data = {}): void {
-  data = data;
+function updateData (data = {}): void {
+  data = data
 };
 
-export default updateData;
+export default updateData
