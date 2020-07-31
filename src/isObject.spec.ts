@@ -1,6 +1,6 @@
-import isObject from './isObject'
-import { expect } from 'chai'
-import 'mocha'
+import isObject from './isObject';
+import { expect } from 'chai';
+import 'mocha';
 
 const expectedResults = [
   {
@@ -12,7 +12,7 @@ const expectedResults = [
     eR: false
   },
   {
-    testVal: 'This isn\'t an object',
+    testVal: "This isn't an object",
     eR: false
   },
   {
@@ -39,12 +39,13 @@ const expectedResults = [
     testVal: { 5: { 5: 5 } },
     eR: true
   }
-]
+];
 
-expectedResults.map(t => describe(`isObject(${t.testVal})`, () => {
-  it(`should return ${t.eR}`, () => {
-    const result = isObject(t.testVal)
-    expect(result).to.equal(t.eR)
+expectedResults.map((t) =>
+  describe(`isObject(${t.testVal})`, () => {
+    it(`should return ${t.eR}`, () => {
+      const result = isObject(t.testVal);
+      expect(result).to.equal(t.eR);
+    });
   })
-})
-)
+);

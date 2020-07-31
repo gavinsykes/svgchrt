@@ -1,80 +1,80 @@
 interface PaddingandMargin {
-  top : number;
-  right : number;
-  bottom : number;
-  left : number;
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
 }
 
 export interface LegendItemIcon {
-  cx? : string;
-  cy? : string;
-  d? : string;
-  display : boolean;
-  height? : number;
-  r? : string;
-  rx? : string;
-  ry? : string;
-  shape : string;
-  width? : number;
+  cx?: string;
+  cy?: string;
+  d?: string;
+  display: boolean;
+  height?: number;
+  r?: string;
+  rx?: string;
+  ry?: string;
+  shape: string;
+  width?: number;
 }
 
 interface LegendItem {
-  class? : string;
-  displayName : string;
-  icon? : LegendItemIcon;
-  id? : string;
+  class?: string;
+  displayName: string;
+  icon?: LegendItemIcon;
+  id?: string;
 }
 
 interface LegendBackground {
-  display : boolean;
-  color : string;
-  r : number;
-  rx : number;
-  ry : number;
+  display: boolean;
+  color: string;
+  r: number;
+  rx: number;
+  ry: number;
 }
 
 interface Legend {
-  background : LegendBackground;
-  displaceTitle : boolean;
-  display : boolean;
-  icons : LegendItemIcon;
-  itemMargin : PaddingandMargin;
-  items : LegendItem[],
-  layOverChart : boolean;
-  margin : PaddingandMargin;
-  orientation : string;
-  padding : PaddingandMargin;
-  position : string;
-  title : string;
+  background: LegendBackground;
+  displaceTitle: boolean;
+  display: boolean;
+  icons: LegendItemIcon;
+  itemMargin: PaddingandMargin;
+  items: LegendItem[];
+  layOverChart: boolean;
+  margin: PaddingandMargin;
+  orientation: string;
+  padding: PaddingandMargin;
+  position: string;
+  title: string;
 }
 
 interface Canvas {
-  height : number;
-  padding : PaddingandMargin;
-  viewBox : string;
-  width : number;
+  height: number;
+  padding: PaddingandMargin;
+  viewBox: string;
+  width: number;
 }
 
 interface Chart {
-  margin : PaddingandMargin;
+  margin: PaddingandMargin;
 }
 
 interface Titles {
-  display : boolean;
-  margin : PaddingandMargin;
-  text : string;
+  display: boolean;
+  margin: PaddingandMargin;
+  text: string;
 }
 
 export interface SettingsObject {
-  background : boolean;
-  canvas : Canvas;
-  chart : Chart;
-  description : string;
-  id : string;
-  legend : Legend;
-  subtitle : Titles;
-  target : string;
-  title : Titles;
+  background: boolean;
+  canvas: Canvas;
+  chart: Chart;
+  description: string;
+  id: string;
+  legend: Legend;
+  subtitle: Titles;
+  target: string;
+  title: Titles;
 }
 
 const defaultSettings: SettingsObject = {
@@ -161,6 +161,6 @@ const defaultSettings: SettingsObject = {
     },
     text: ''
   }
-}
+};
 
-export default defaultSettings
+export default defaultSettings;

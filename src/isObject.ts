@@ -1,3 +1,4 @@
-const isObject: (o: any) => boolean = o => o && typeof o === 'object' && !Array.isArray(o)
+const isObject: (o: unknown) => boolean = (o) =>
+  o && typeof o === 'object' && !Array.isArray(o);
 
-export default isObject
+export default isObject;
