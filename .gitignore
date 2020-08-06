@@ -1,3 +1,5 @@
 node_modules
 dist
 reference_to_use_on_twitter_when_publishing.txt
+.nyc_output/
+coverage/
