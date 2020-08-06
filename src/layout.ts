@@ -131,14 +131,14 @@ const layout: { [index: string]: any } = {
   }
 };
 
-type PointsCoords {
+interface PointsCoords {
   x1: number;
   x2: number;
   y1: number;
   y2: number;
 }
 
-type ChartArea {
+interface ChartArea {
   height: number;
   points: PointsCoords;
   width: number;
