@@ -1,4 +1,4 @@
-import deepObjectMerge from './deepObjectMerge';
+import deepObjectMerge from '../src/deepObjectMerge';
 import { expect } from 'chai';
 import 'mocha';
 import defaultSettings from './defaultSettings';

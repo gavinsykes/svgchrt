@@ -1,4 +1,4 @@
-import copyObject from './copyObject';
+import copyObject from '../src/copyObject';
 import { expect } from 'chai';
 import 'mocha';
 

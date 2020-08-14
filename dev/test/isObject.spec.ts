@@ -1,4 +1,4 @@
-import isObject from './isObject';
+import isObject from '../src/isObject';
 import { expect } from 'chai';
 import 'mocha';
 
