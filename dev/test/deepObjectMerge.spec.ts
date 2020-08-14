@@ -1,7 +1,7 @@
 import deepObjectMerge from '../src/deepObjectMerge';
 import { expect } from 'chai';
 import 'mocha';
-import defaultSettings from './src/defaultSettings';
+import defaultSettings from '../src/defaultSettings';
 
 const options = {
   legend: {
