@@ -107,7 +107,7 @@ Chart.render();
 
       Contains 5 items:
 
-      1. color (string), default: `white`
+      1. colour (string), default: `white`
 
          Applies a fill colour to the background `<rect>` element.
 
