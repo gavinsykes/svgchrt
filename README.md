@@ -95,27 +95,43 @@ Chart.render();
 
 1. id (string), defaut: `''`
 
-   Adds an ID to the parent SVG. **Please include an ID**
+   Adds an ID to the parent SVG. **It is strongly recommended to include an ID**
 
 1. legend (object)
 
-   If the legend is set to display, then it will build and display the legend on your chart as dtermined by the below options. It add a `<g>` element with the id and the class `legend`, containing a list of `<g>` elements with the class `legend-item`. Each of these `g.legenditem`s contains a shape (`<rect>` is the default) with the class `legend-item-icon`, dependent on the options, and a `<text>` element with the class `legend-item-text`.
+   If the legend is set to display, then it will build and display the legend on your chart as determined by the below options. It will add a `<g>` element with the id and the class `legend`, containing a list of `<g>` elements with the class `legend-item`. Each of these `g.legenditem`s contains a shape (`<rect>` is the default) with the class `legend-item-icon`, dependent on the options, and a `<text>` element with the class `legend-item-text`.
 
    Contains 12 items:
 
    1. background (object)
 
-      Contains 1 item:
+      Contains 5 items:
+
+      1. color (string), default: `white`
+
+         Applies a fill colour to the background `<rect>` element.
 
       1. display (boolean), default: `false`
 
          Decides whether or not to add a background to the legend. If it is set to true it will add a `<rect>` element with the class `legend-background` for styling with CSS.
 
+      1. r (number), default: 0
+
+         Applies an even radius to the corners of the background `<rect>`.
+
+      1. rx (number), default: 0
+
+         Applies an x-radius to the corners of the background `<rect>`.
+
+      1. ry (number), default: 0
+
+         Applies a y-radius to the corners of the background `<rect>`.
+
    1. displaceTitle (boolean), default: `false`
 
       Decides whether the placement of the legend should have an effect on the positioning of the title and subtitle. If it set to true then if `options.legend.position` is set to `top-left`, `left`, `bottom-left`, `top-right`, `right` or `bottom-right` and the `options.legend.orientation` is set to `vertical` then the title and subtitle will shift (and possibly wrap) into their new smaller container.
 
-      If `options.legend.position` is set to `top` or `bottom` or `options.legend.orientation` is set to `horizontal` then this option is ignored.
+      If `options.legend.position` is set to `top` or `bottom` or `options.legend.orientation` is set to `horizontal` then this option is ignored and treated as false.
 
    1. display (boolean), default: `false`
 
@@ -125,7 +141,19 @@ Chart.render();
 
       Provides a default for the icons contained in each legend item.
 
-      Contains 4 items:
+      Contains 9 items:
+
+      1. cx (integer), default: `7`
+
+         Determines the x-coordinate of the centre of the icons (relative to the legend item's co-ordinate space).
+
+         **N.B.** The `cx` property is only applicable to certain SVG elements, the <circle> and the <ellipse>.
+
+      1. cy (integer), default: `7`
+
+         Determines the y-coordinate of the centre of the icons (relative to the legend item's co-ordinate space).
+
+         **N.B.** The `cy` property is only applicable to certain SVG elements, the <circle> and the <ellipse>.
 
       1. display (boolean), default: `false`
 
@@ -136,6 +164,24 @@ Chart.render();
          Determines the height of the icons in pixels.
 
          **N.B.** The `height` property is only applicable to certain SVG elements, in this case the `shape` beneath this defaults to `rect` which takes a height property.
+
+      1. r (integer), default: `7`
+
+         Determines the radius of the icons.
+
+         **N.B.** The `r` property is only applicable to the <circle>.
+
+      1. rx (integer), default: `7`
+
+         Determines the x-radius of the icons.
+
+         **N.B.** The `rx` property is only applicable to the <ellipse>.
+
+      1. ry (integer), default: `7`
+
+         Determines the y-radius of the icons.
+
+         **N.B.** The `ry` property is only applicable to the <ellipse>.
 
       1. shape (string), default: `'rect'`
 
@@ -149,7 +195,7 @@ Chart.render();
 
    1. itemMargin (object)
 
-      Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `10` and provides a margin between each legend item to allow them to be visually separate from each other.
+      Contains 4 items: `top`, `right`, `bottom` and `left`, each of which defaults to `5` and provides a margin between each legend item to allow them to be visually separate from each other.
 
    1. items (array), default: `[]`
 
@@ -191,7 +237,21 @@ Chart.render();
 
 1. subtitle (object)
 
-   Contains 3 items:
+   Contains 4 items:
+
+   1. appendToTitle (object)
+
+      Contains 2 items:
+
+      1. append (boolean), default: `false`
+
+         If set to true, this appends the text content of the subtitle (if there is any) to the visualisation's `<title>` element.
+
+         **N.B** This does not do anything visually to the visualisation. It may be used to adjust what screen readers see as the title of the visualisation.
+
+      1. join (string), default: `' - '`
+
+         If the criteria are met to append the subtitle to the title, this string will sit between them. As an example with the default string the title presented to assistive technologies would be `Title - Subtitle`. You should have at least a space, as an empty string will yield `TitleSubtitle`.
 
    1. display (boolean), default: `false`
 
@@ -229,4 +289,4 @@ Chart.render();
 
       Contains the text to display as the title, if it is not an empty string and `options.title.display` is set to `true`, it will provide a `<text>` element with the class of `chart-title` for styling with CSS. Other attributes will be `dy="1em"`, `text-anchor="middle"` and `x` and `y` which the library will calculate. Should the title be too long to fit onto a single line, the `<text>` element will contain 2 or more `<tspan>` elements.
 
-      If it is not an empty string then, regardless of whether `options.title.display` is true, it will add a `<title>` element to your SVG to allow assistvie technologies such as screenreaders to see it.
+      If it is not an empty string then, regardless of whether `options.title.display` is true, it will add a `<title>` element to your SVG to allow assistive technologies such as screenreaders to see it.

@@ -150,7 +150,10 @@ const defaultSettings: SettingsObject = {
     title         : ''
   } as Legend,
   subtitle    : {
-    appendToTitle : false,
+    appendToTitle : {
+      append : false,
+      join   : ` - `,
+    },
     display       : false,
     margin        : {
       top    : 10,
