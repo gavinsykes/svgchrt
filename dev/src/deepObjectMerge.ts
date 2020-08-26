@@ -4,17 +4,17 @@ import { LegendItemIcon } from './defaultSettings';
 import { LayoutItem } from './interfaces';
 
 function deepObjectMerge(
-  original: unknown,
-  newobj: { [index: string]: any }
-): object | LegendItemIcon | LayoutItem {
-  if (!isObject(newobj)) return original as object;
-  const returnedObj: { [index: string]: unknown } = copyObject(original) as { [index: string]: any };
-  for (const key in newobj as object) {
+  original: Record<string, unknown>,
+  newobj: Record<string, unknown>
+): Record<string, unknown> {
+  if (!isObject(newobj)) return original as Record<string, unknown>;
+  const returnedObj: Record<string, unknown> = copyObject(original) as Record<string, unknown>;
+  for (const key in newobj as Record<string, unknown>) {
     if (isObject(newobj[key])) {
       if (!returnedObj[key]) {
         Object.assign(returnedObj, { [key]: newobj[key] });
       } else {
-        returnedObj[key] = deepObjectMerge(returnedObj[key], newobj[key]);
+        returnedObj[key] = deepObjectMerge(returnedObj[key] as Record<string, unknown>, newobj[key] as Record<string, unknown>);
       }
     } else {
       Object.assign(returnedObj, { [key]: newobj[key] });

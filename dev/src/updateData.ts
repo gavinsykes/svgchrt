@@ -1,5 +1,5 @@
 function updateData(data = {}): void {
-  data = data;
+  // data = data;
 }
 
 export default updateData;

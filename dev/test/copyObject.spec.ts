@@ -24,8 +24,6 @@ const original = {
 
 const copied: { [index: string]: any } = copyObject(original) as { [index: string]: any };
 
-console.log(`[3,4] === [3,4]? ${[3, 4] === [3, 4]}`);
-
 copied.a = 1;
 copied.b = 'b';
 copied.c = [3, 4];

@@ -1,39 +1,39 @@
-interface PaddingandMargin {
+interface PaddingandMargin extends Record<string, unknown> {
   top: number;
   right: number;
   bottom: number;
   left: number;
 }
 
-export interface LegendItemIcon {
-  cx?: string;
-  cy?: string;
+export interface LegendItemIcon extends Record<string, unknown> {
+  cx?: number;
+  cy?: number;
   d?: string;
   display: boolean;
   height?: number;
-  r?: string;
-  rx?: string;
-  ry?: string;
+  r?: number;
+  rx?: number;
+  ry?: number;
   shape: string;
   width?: number;
 }
 
-interface LegendItem {
+interface LegendItem extends Record<string, unknown> {
   class?: string;
   displayName: string;
   icon?: LegendItemIcon;
   id?: string;
 }
 
-interface LegendBackground {
+interface LegendBackground extends Record<string, unknown> {
   display: boolean;
-  color: string;
+  colour: string;
   r: number;
   rx: number;
   ry: number;
 }
 
-interface Legend {
+interface Legend extends Record<string, unknown> {
   background: LegendBackground;
   displaceTitle: boolean;
   display: boolean;
@@ -48,35 +48,40 @@ interface Legend {
   title: string;
 }
 
-interface Canvas {
+interface Canvas extends Record<string, unknown> {
   height: number;
   padding: PaddingandMargin;
   viewBox: string;
   width: number;
 }
 
-interface Chart {
+interface Chart extends Record<string, unknown> {
   margin: PaddingandMargin;
 }
 
-interface Title {
+interface Title extends Record<string, unknown> {
   display: boolean;
   margin: PaddingandMargin;
   text: string;
 }
 
-interface Subtitle extends Title {
-  appendToTitle: boolean;
+interface TitleAppendage extends Record<string, unknown> {
+  append: boolean;
+  join: string;
 }
 
-export interface SettingsObject {
+interface Subtitle extends Title {
+  appendToTitle: TitleAppendage;
+}
+
+export interface SettingsObject extends Record<string, unknown> {
   background: boolean;
   canvas: Canvas;
   chart: Chart;
   description: string;
   id: string;
   legend: Legend;
-  subtitle: Subitle;
+  subtitle: Subtitle;
   target: string;
   title: Title;
 }
@@ -106,11 +111,11 @@ const defaultSettings: SettingsObject = {
   id          : '',
   legend      : {
     background    : {
-      color   : 'white',
-      display : false,
-      r       : 0,
-      rx      : 0,
-      ry      : 0
+      colour   : 'white',
+      display  : false,
+      r        : 0,
+      rx       : 0,
+      ry       : 0
     },
     displaceTitle : false,
     display       : false,

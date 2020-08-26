@@ -1,11 +1,54 @@
 import defaultSettings from './defaultSettings';
 
-const layout: { [index: string]: any } = {
-  get: function (): object {
+interface PaddingandMargin extends Record<string, unknown> {
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+}
+
+interface Points extends Record<string, unknown> {
+  x1: number;
+  x2: number;
+  y1: number;
+  y2: number;
+}
+
+interface CanvasLayout extends Record<string, unknown> {
+  height: number;
+  padding: PaddingandMargin;
+  width: number;
+}
+
+interface ChartLayout extends Record<string, unknown> {
+  height: number;
+  margin: PaddingandMargin;
+  points: Points;
+  width: number;
+}
+
+interface LegendLayout extends ChartLayout {}
+
+interface SubtitleLayout extends ChartLayout {}
+
+interface TitleLayout extends ChartLayout {}
+
+interface LayoutObject extends Record<string, unknown> {
+  get: Function;
+  set: Function;
+  canvas: CanvasLayout;
+  chart: ChartLayout;
+  legend: LegendLayout;
+  subtitle: SubtitleLayout;
+  title: TitleLayout;
+}
+
+const layout: LayoutObject = {
+  get: function (): LayoutObject {
     return this;
   },
   set: function (
-    newState: object | string | number,
+    newState: Record<string, unknown> | string | number,
     ...propChain: string[]
   ): void {
     switch (propChain.length) {
@@ -66,7 +109,6 @@ const layout: { [index: string]: any } = {
   },
   legend: {
     height: 0,
-    items: [],
     margin: { top: 10, right: 10, bottom: 10, left: 10 },
     points: {
       x1: Math.max(
@@ -94,7 +136,6 @@ const layout: { [index: string]: any } = {
           0
         )
     },
-    position: 'bottom',
     width: 0
   },
   subtitle: {

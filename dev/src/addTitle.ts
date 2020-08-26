@@ -92,7 +92,7 @@ function addTitle(settings = defaultSettings, canvas: SVGElement): void {
                 ))
           : 0);
       svgWrapText(title, titleWidth);
-      const newLayoutTitle = deepObjectMerge(layout.title, {
+      layout.title = deepObjectMerge(layout.title, {
         height: title.getBBox().height,
         points: {
           x1: title.getBBox().x,
@@ -100,8 +100,7 @@ function addTitle(settings = defaultSettings, canvas: SVGElement): void {
           y2: title.getBBox().y + title.getBBox().height
         },
         width: title.getBBox().width
-      }) as LayoutItem;
-      layout.title = newLayoutTitle;
+      });
       layout.subtitle.points.y1 =
         layout.title.points.y2 +
         Math.max(layout.title.margin.bottom, layout.subtitle.margin.top, 0);

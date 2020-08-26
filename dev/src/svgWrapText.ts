@@ -14,17 +14,10 @@ function svgWrapText(item: SVGTextElement, width: number): void {
   const x = item.getAttribute('x');
   const y = item.getAttribute('y');
   const dy = {
-    // @ts-ignore: Object is possibly 'null'.
     value: parseFloat(
-      // @ts-ignore: Object is possibly 'null'.
-      (item as SVGTextElement)?.getAttribute('dy').match(/[0-9.]/)[0]
+      item.getAttribute('dy').match(/[0-9.]/)[0]
     ) as number,
-    // @ts-ignore: Object is possibly 'null'.
-    units: (item as SVGTextElement)
-      // @ts-ignore: Object is possibly 'null'.
-      ?.getAttribute('dy')
-      // @ts-ignore: Object is possibly 'null'.
-      ?.match(/[A-Za-z%]+/)[0] as string
+    units: item.getAttribute('dy').match(/[A-Za-z%]+/)[0] as string
   };
   item.textContent = null;
   let tspan: SVGTextElement = appendSVGChild('tspan', item, {

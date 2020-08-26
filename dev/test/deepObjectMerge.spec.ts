@@ -5,6 +5,9 @@ import defaultSettings from '../src/defaultSettings';
 
 const options = {
   legend: {
+    background: {
+      colour: 'white'
+    },
     displaceTitle: false,
     display: true,
     icons: {
@@ -107,9 +110,9 @@ describe('mergedSettings.legend.icons.display', () => {
     expect(mergedSettings.legend.icons.display).to.equal(true);
   });
 });
-describe('mergedSettings.legend.background.color', () => {
+describe('mergedSettings.legend.background.colour', () => {
   it('should be false', () => {
-    expect(mergedSettings.legend.background.color).to.equal('white');
+    expect(mergedSettings.legend.background.colour).to.equal('white');
   });
 });
 describe('obj1.b', () => {

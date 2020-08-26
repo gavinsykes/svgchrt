@@ -20,7 +20,7 @@ function addLegend(
     if (settings.legend.background.display) {
       legendBackground = appendSVGChild('rect', legend, {
         class: 'legend-background',
-        fill: settings.legend.background.color,
+        fill: settings.legend.background.colour,
         rx: settings.legend.background.rx || settings.legend.background.r || 0,
         ry: settings.legend.background.ry || settings.legend.background.r || 0
       }) as SVGGraphicsElement;
@@ -236,7 +236,7 @@ function addLegend(
     layout.legend = deepObjectMerge(layout.legend, {
       height: legend.getBBox().height,
       width: legend.getBBox().width
-    }) as LayoutItem;
+    });
     let xcoord = 0;
     let ycoord = 0;
     switch (settings.legend.position) {
