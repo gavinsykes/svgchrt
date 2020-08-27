@@ -3,6 +3,8 @@ SVGChrt
 
 ![npm](https://img.shields.io/npm/v/svgchrt)
 ![npm](https://img.shields.io/npm/dm/svgchrt)
+![Travis (.com)](https://img.shields.io/travis/com/gavinsykes/svgchrt)
+[![codecov](https://codecov.io/gh/gavinsykes/svgchrt/branch/master/graph/badge.svg)](https://codecov.io/gh/gavinsykes/svgchrt)
 ![GitHub top language](https://img.shields.io/github/languages/top/gavinsykes/svgchrt)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gavinsykes/svgchrt)
 ![NPM](https://img.shields.io/npm/l/svgchrt)
