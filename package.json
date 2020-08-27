@@ -58,6 +58,7 @@
     "clean-slate-protocol-sir": "shx rm -rf coverage dist docs node_modules .nyc_output",
     "docs": "typedoc --theme minimal --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src",
     "lint": "npx eslint ./dev/**/*",
+    "lint:fix": "npx eslint ./dev/**/* --fix",
     "lint:prettier": "npm run lint && npm run prettier",
     "postversion": "git push origin master && git push origin master --tags && npm publish",
     "prettier": "npx prettier --config .prettierrc 'dev/**/*.ts' --write",
