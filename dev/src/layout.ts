@@ -27,15 +27,15 @@ interface ChartLayout extends Record<string, unknown> {
   width: number;
 }
 
-interface LegendLayout extends ChartLayout {}
+export type LegendLayout = ChartLayout
 
-interface SubtitleLayout extends ChartLayout {}
+export type SubtitleLayout = ChartLayout
 
-interface TitleLayout extends ChartLayout {}
+export type TitleLayout = ChartLayout
 
 interface LayoutObject extends Record<string, unknown> {
-  get: Function;
-  set: Function;
+  get: () => LayoutObject;
+  set: (newState: Record<string, unknown> | string | number, ...propChain: string[]) => void;
   canvas: CanvasLayout;
   chart: ChartLayout;
   legend: LegendLayout;
@@ -51,25 +51,12 @@ const layout: LayoutObject = {
     newState: Record<string, unknown> | string | number,
     ...propChain: string[]
   ): void {
-    switch (propChain.length) {
-      case 1:
-        this[propChain[0]] = newState;
-        break;
-      case 2:
-        this[propChain[0]][propChain[1]] = newState;
-        break;
-      case 3:
-        this[propChain[0]][propChain[1]][propChain[2]] = newState;
-        break;
-      case 4:
-        this[propChain[0]][propChain[1]][propChain[2]][propChain[3]] = newState;
-        break;
-      case 5:
-        this[propChain[0]][propChain[1]][propChain[2]][propChain[3]][
-          propChain[4]
-        ] = newState;
-        break;
-    }
+    /* propChain.reduce((a, b, level) => {
+      if (level === path.length) {
+        a[b] = newState;
+      }
+      return a[b];
+    }, this); */
   },
   canvas: {
     height: defaultSettings.canvas.height,

@@ -4,7 +4,7 @@ function svgWrapText(item: SVGTextElement, width: number): void {
   if (item.getComputedTextLength() < width) {
     return;
   }
-  const words: string[] = (item as SVGTextElement)?.textContent
+  const words: string[] = item?.textContent
     ?.split(/\s+/)
     .reverse() as string[];
   let word: string;
@@ -13,11 +13,12 @@ function svgWrapText(item: SVGTextElement, width: number): void {
   const lineHeight = 1.1;
   const x = item.getAttribute('x');
   const y = item.getAttribute('y');
+  const dyval: string = item.getAttribute('dy') ? item.getAttribute('dy')! : '0' ;
+  const value: number = parseFloat(dyval.match(/[0-9.]/)![0]);
+  const units: string = dyval.match(/[A-Za-z%]+/)![0];
   const dy = {
-    value: parseFloat(
-      item.getAttribute('dy').match(/[0-9.]/)[0]
-    ) as number,
-    units: item.getAttribute('dy').match(/[A-Za-z%]+/)[0] as string
+    value: value,
+    units: units
   };
   item.textContent = null;
   let tspan: SVGTextElement = appendSVGChild('tspan', item, {

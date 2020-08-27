@@ -2,8 +2,7 @@ import appendSVGChild from './appendSVGChild';
 import deepObjectMerge from './deepObjectMerge';
 import defaultSettings from './defaultSettings';
 import svgWrapText from './svgWrapText';
-import { LayoutItem } from './interfaces';
-import layout from './layout';
+import layout, { SubtitleLayout } from './layout';
 
 function addSubitle(settings = defaultSettings, canvas: SVGElement): void {
   if (settings.subtitle.display) {
@@ -86,7 +85,7 @@ function addSubitle(settings = defaultSettings, canvas: SVGElement): void {
               ))
         : 0);
     svgWrapText(subtitle, subtitleWidth);
-    const newLayoutSubtitle = deepObjectMerge(layout.subtitle, {
+    layout.subtitle = deepObjectMerge(layout.subtitle, {
       height: subtitle.getBBox().height,
       points: {
         x1: subtitle.getBBox().x,
@@ -94,8 +93,7 @@ function addSubitle(settings = defaultSettings, canvas: SVGElement): void {
         y2: subtitle.getBBox().y + subtitle.getBBox().height
       },
       width: subtitle.getBBox().width
-    }) as LayoutItem;
-    layout.subtitle = newLayoutSubtitle;
+    }) as SubtitleLayout;
     layout.chart.points.y1 =
       layout.subtitle.points.y2 +
       Math.max(layout.subtitle.margin.bottom, layout.chart.margin.top, 0);

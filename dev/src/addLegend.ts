@@ -4,8 +4,7 @@ import defaultSettings, {
   SettingsObject,
   LegendItemIcon
 } from './defaultSettings';
-import { LayoutItem } from './interfaces';
-import layout from './layout';
+import layout, { LegendLayout } from './layout';
 
 function addLegend(
   settings: SettingsObject = defaultSettings,
@@ -236,7 +235,7 @@ function addLegend(
     layout.legend = deepObjectMerge(layout.legend, {
       height: legend.getBBox().height,
       width: legend.getBBox().width
-    });
+    }) as LegendLayout;
     let xcoord = 0;
     let ycoord = 0;
     switch (settings.legend.position) {
@@ -483,7 +482,7 @@ function addLegend(
         y1: legend.getBBox().y,
         y2: legend.getBBox().y + legend.getBBox().height
       }
-    }) as LayoutItem;
+    }) as LegendLayout;
   }
 }
 

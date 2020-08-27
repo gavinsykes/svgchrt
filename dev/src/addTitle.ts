@@ -2,8 +2,7 @@ import appendSVGChild from './appendSVGChild';
 import deepObjectMerge from './deepObjectMerge';
 import defaultSettings from './defaultSettings';
 import svgWrapText from './svgWrapText';
-import { LayoutItem } from './interfaces';
-import layout from './layout';
+import layout, { TitleLayout } from './layout';
 
 function addTitle(settings = defaultSettings, canvas: SVGElement): void {
   if (settings.title.text) {
@@ -100,7 +99,7 @@ function addTitle(settings = defaultSettings, canvas: SVGElement): void {
           y2: title.getBBox().y + title.getBBox().height
         },
         width: title.getBBox().width
-      });
+      }) as TitleLayout;
       layout.subtitle.points.y1 =
         layout.title.points.y2 +
         Math.max(layout.title.margin.bottom, layout.subtitle.margin.top, 0);

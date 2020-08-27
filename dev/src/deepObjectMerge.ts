@@ -1,7 +1,5 @@
 import isObject from './isObject';
 import copyObject from './copyObject';
-import { LegendItemIcon } from './defaultSettings';
-import { LayoutItem } from './interfaces';
 
 function deepObjectMerge(
   original: Record<string, unknown>,
