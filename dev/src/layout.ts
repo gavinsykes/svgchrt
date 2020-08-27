@@ -27,15 +27,18 @@ interface ChartLayout extends Record<string, unknown> {
   width: number;
 }
 
-export type LegendLayout = ChartLayout
+export type LegendLayout = ChartLayout;
 
-export type SubtitleLayout = ChartLayout
+export type SubtitleLayout = ChartLayout;
 
-export type TitleLayout = ChartLayout
+export type TitleLayout = ChartLayout;
 
 interface LayoutObject extends Record<string, unknown> {
   get: () => LayoutObject;
-  set: (newState: Record<string, unknown> | string | number, ...propChain: string[]) => void;
+  set: (
+    newState: Record<string, unknown> | string | number,
+    ...propChain: string[]
+  ) => void;
   canvas: CanvasLayout;
   chart: ChartLayout;
   legend: LegendLayout;

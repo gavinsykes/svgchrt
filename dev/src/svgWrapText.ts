@@ -4,16 +4,16 @@ function svgWrapText(item: SVGTextElement, width: number): void {
   if (item.getComputedTextLength() < width) {
     return;
   }
-  const words: string[] = item?.textContent
-    ?.split(/\s+/)
-    .reverse() as string[];
+  const words: string[] = item?.textContent?.split(/\s+/).reverse() as string[];
   let word: string;
   let line: string[] = [];
   let lineNumber = 0;
   const lineHeight = 1.1;
   const x = item.getAttribute('x');
   const y = item.getAttribute('y');
-  const dyval: string = item.getAttribute('dy') ? item.getAttribute('dy')! : '0' ;
+  const dyval: string = item.getAttribute('dy')
+    ? item.getAttribute('dy')!
+    : '0';
   const value: number = parseFloat(dyval.match(/[0-9.]/)![0]);
   const units: string = dyval.match(/[A-Za-z%]+/)![0];
   const dy = {

@@ -22,7 +22,9 @@ const original = {
   }
 };
 
-const copied: { [index: string]: any } = copyObject(original) as { [index: string]: any };
+const copied: { [index: string]: any } = copyObject(original) as {
+  [index: string]: any;
+};
 
 copied.a = 1;
 copied.b = 'b';

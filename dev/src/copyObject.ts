@@ -1,6 +1,8 @@
 import isObject from './isObject';
 
-function copyObject(original: unknown): { [index: string]: unknown } | undefined {
+function copyObject(
+  original: unknown
+): { [index: string]: unknown } | undefined {
   if (!isObject(original)) return undefined;
   const returnedObject: { [index: string]: unknown } = {};
   Object.entries(original as Record<string, unknown>).map(

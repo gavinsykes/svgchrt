@@ -7,9 +7,19 @@ import layout, { TitleLayout } from './layout';
 function addTitle(settings = defaultSettings, canvas: SVGElement): void {
   if (settings.title.text) {
     if (settings.subtitle.text && settings.subtitle.appendToTitle.append) {
-      appendSVGChild('title', canvas, {}, `${settings.title.text}${settings.subtitle.appendToTitle.join}${settings.subtitle.text}`)
+      appendSVGChild(
+        'title',
+        canvas,
+        {},
+        `${settings.title.text}${settings.subtitle.appendToTitle.join}${settings.subtitle.text}`
+      );
     } else {
-      appendSVGChild('title', canvas, {}, settings.title.text) as SVGTitleElement;
+      appendSVGChild(
+        'title',
+        canvas,
+        {},
+        settings.title.text
+      ) as SVGTitleElement;
     }
     if (settings.title.display) {
       const title: SVGTextElement = appendSVGChild(
