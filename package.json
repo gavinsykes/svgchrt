@@ -71,5 +71,5 @@
     "test:prettier": "npm run prettier && npm run test"
   },
   "types": "./dist/main.d.ts",
-  "version": "0.3.5"
+  "version": "0.4.0"
 }
