@@ -63,7 +63,7 @@
     "lint:prettier": "npm run lint && npm run prettier",
     "postversion": "git push origin master && git push origin master --tags && npm publish",
     "prettier": "npx prettier --config .prettierrc 'dev/**/*.ts' --write",
-    "preversion": "npm run build && npm run test:prettier && git commit -m\"Bumping version\"",
+    "preversion": "npm run build && npm run test:prettier",
     "setup": "npm install",
     "test": "mocha -r ts-node/register dev/**/*.spec.ts && alex && npm run lint",
     "test:codecov": "npm run test:cover && bash <(curl -s https://codecov.io/bash)",
