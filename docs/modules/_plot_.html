@@ -2754,19 +2754,22 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/84408c3/dev/src/plot.ts#L19">plot.ts:19</a></li>
+								<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/plot.ts#L17">plot.ts:17</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.</p>
+								<p>plot takes an SVGGraphicsElement as its argument. It generates a <code>&lt;rect&gt;</code> element onto which it applies a fill colour and width and height to cover the whole chartable area.</p>
 							</div>
-							<p>The return value is the generted chart area.</p>
+							<p>The return value is void.</p>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>chartArea: <span class="tsd-signature-type">SVGGraphicsElement</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>the chartable area to represent.</p>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

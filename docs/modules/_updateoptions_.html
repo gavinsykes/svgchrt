@@ -2754,24 +2754,28 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/84408c3/dev/src/updateOptions.ts#L19">updateOptions.ts:19</a></li>
+								<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/updateOptions.ts#L19">updateOptions.ts:19</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.</p>
+								<p>updateOptions takes a Record&lt;string, unknown&gt; as its argument. It merges the current settings of the visualisation with the new options.</p>
 							</div>
-							<p>The return value is the generted chart area.</p>
+							<p>The return value is the new settings.</p>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = {}</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>the new settings to apply to the visualisation.</p>
+								</div>
 								<ul class="tsd-parameters">
 								</ul>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<p>The new settings.</p>
 					</li>
 				</ul>
 			</section>
