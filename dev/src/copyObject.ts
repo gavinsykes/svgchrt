@@ -1,5 +1,20 @@
+/**
+ * @author Gavin Sykes <gavin@gavinsykes.uk> (https://gavinsykes.uk/) [@gavinsykes_uk](https://twitter.com/gavinsykes_uk)
+ * @license MIT
+ */
+
 import isObject from './isObject';
 
+/**
+ * copyObject takes a JvaScript object as its argument and returns an unlinked clone of that object.
+ *
+ * The return value is a clone of the input.
+ *
+ * @param {unknown} original - the object to clone.
+ *
+ * @returns {Record<string, unknown>} - the cloned object.
+ *
+ */
 function copyObject(
   original: unknown
 ): { [index: string]: unknown } | undefined {

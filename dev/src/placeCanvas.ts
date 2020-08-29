@@ -1,9 +1,26 @@
+/**
+ * @author Gavin Sykes <gavin@gavinsykes.uk> (https://gavinsykes.uk/) [@gavinsykes_uk](https://twitter.com/gavinsykes_uk)
+ * @license MIT
+ */
+
 import appendSVGChild from './appendSVGChild';
 import defaultSettings, { SettingsObject } from './defaultSettings';
 import layout from './layout';
 
 import { ReturnedCanvas } from './interfaces';
 
+/**
+ * placeCanvas takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the canvas.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ * @returns {ReturnedCanvas} The returned canvas.
+ *
+ */
 function placeCanvas(
   settings: SettingsObject = defaultSettings,
   target: HTMLElement

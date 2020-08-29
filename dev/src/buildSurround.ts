@@ -1,3 +1,8 @@
+/**
+ * @author Gavin Sykes <gavin@gavinsykes.uk> (https://gavinsykes.uk/) [@gavinsykes_uk](https://twitter.com/gavinsykes_uk)
+ * @license MIT
+ */
+
 import addLegend from './addLegend';
 import addSubtitle from './addSubtitle';
 import addTitle from './addTitle';
@@ -7,6 +12,16 @@ import defaultSettings, { SettingsObject } from './defaultSettings';
 
 import { ReturnedCanvas } from './interfaces';
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 function buildSurround(
   settings: SettingsObject = defaultSettings,
   target: HTMLElement

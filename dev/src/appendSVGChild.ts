@@ -1,3 +1,21 @@
+/**
+ * @author Gavin Sykes <gavin@gavinsykes.uk> (https://gavinsykes.uk/) [@gavinsykes_uk](https://twitter.com/gavinsykes_uk)
+ * @license MIT
+ */
+
+/**
+ * appendSVGChild takes a string, HTMLElement or SVGElement, Record<string, unknown> and string as its arguments. It either adds the defined SVG element to an existing SVG or SVG Element, or adds an `<svg>` to a HTML element.
+ *
+ * The return value is the generated SVG element.
+ *
+ * @param {string} elementType - the type of element to add.
+ *
+ * @param {HTMLElement | SVGElement} target - the HTML or SVG element to which to add the element.
+ *
+ * @param {Record<string, unknown>} [attributes = {}] - the attributes to apply to the element.
+ *
+ * @param {string} [text = ''] - if the element is a text element, this is the text to apply.
+ */
 function appendSVGChild(
   elementType: string,
   target: HTMLElement | SVGElement,

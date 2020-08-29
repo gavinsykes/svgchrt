@@ -1,9 +1,23 @@
+/**
+ * @author Gavin Sykes <gavin@gavinsykes.uk> (https://gavinsykes.uk/) [@gavinsykes_uk](https://twitter.com/gavinsykes_uk)
+ * @license MIT
+ */
+
 import appendSVGChild from './appendSVGChild';
 import deepObjectMerge from './deepObjectMerge';
 import defaultSettings from './defaultSettings';
 import svgWrapText from './svgWrapText';
 import layout, { TitleLayout } from './layout';
 
+/**
+ * addTitle takes a SettingsObject and an SVGElement as its arguments. It adds a `<text>` element to the SVG element which may or may not contain more than 1 <tspan> element.
+ *
+ * The return value is void.
+ *
+ * @param {SettingsObject} settings - the settings object in which the function looks for the title to add.
+ *
+ * @param {SVGElement} canvas - the SVG element to which to add the title.
+ */
 function addTitle(settings = defaultSettings, canvas: SVGElement): void {
   if (settings.title.text) {
     if (settings.subtitle.text && settings.subtitle.appendToTitle.append) {

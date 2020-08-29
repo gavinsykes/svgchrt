@@ -1,3 +1,18 @@
+/**
+ * @author Gavin Sykes <gavin@gavinsykes.uk> (https://gavinsykes.uk/) [@gavinsykes_uk](https://twitter.com/gavinsykes_uk)
+ * @license MIT
+ */
+
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 interface PaddingandMargin extends Record<string, unknown> {
   top: number;
   right: number;
@@ -5,6 +20,16 @@ interface PaddingandMargin extends Record<string, unknown> {
   left: number;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 export interface LegendItemIcon extends Record<string, unknown> {
   cx?: number;
   cy?: number;
@@ -18,6 +43,16 @@ export interface LegendItemIcon extends Record<string, unknown> {
   width?: number;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 interface LegendItem extends Record<string, unknown> {
   class?: string;
   displayName: string;
@@ -25,6 +60,16 @@ interface LegendItem extends Record<string, unknown> {
   id?: string;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 interface LegendBackground extends Record<string, unknown> {
   display: boolean;
   colour: string;
@@ -33,6 +78,16 @@ interface LegendBackground extends Record<string, unknown> {
   ry: number;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 interface Legend extends Record<string, unknown> {
   background: LegendBackground;
   displaceTitle: boolean;
@@ -48,6 +103,16 @@ interface Legend extends Record<string, unknown> {
   title: string;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 interface Canvas extends Record<string, unknown> {
   height: number;
   padding: PaddingandMargin;
@@ -55,25 +120,75 @@ interface Canvas extends Record<string, unknown> {
   width: number;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 interface Chart extends Record<string, unknown> {
   margin: PaddingandMargin;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 interface Title extends Record<string, unknown> {
   display: boolean;
   margin: PaddingandMargin;
   text: string;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 interface TitleAppendage extends Record<string, unknown> {
   append: boolean;
   join: string;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 interface Subtitle extends Title {
   appendToTitle: TitleAppendage;
 }
 
+/**
+ * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ *
+ * The return value is the generted chart area.
+ *
+ * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ *
+ * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ *
+ */
 export interface SettingsObject extends Record<string, unknown> {
   background: boolean;
   canvas: Canvas;

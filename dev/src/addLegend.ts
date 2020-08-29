@@ -1,3 +1,8 @@
+/**
+ * @author Gavin Sykes <gavin@gavinsykes.uk> (https://gavinsykes.uk/) [@gavinsykes_uk](https://twitter.com/gavinsykes_uk)
+ * @license MIT
+ */
+
 import appendSVGChild from './appendSVGChild';
 import deepObjectMerge from './deepObjectMerge';
 import defaultSettings, {
@@ -6,6 +11,15 @@ import defaultSettings, {
 } from './defaultSettings';
 import layout, { LegendLayout } from './layout';
 
+/**
+ * addLegend takes a SettingsObject and an SVGElement as its arguments. It adds a `<g>` element to the SVG element with class `legend`.
+ *
+ * The return value is void.
+ *
+ * @param {SettingsObject} settings - the settings object in which the function looks for the settings with which to add the legend.
+ *
+ * @param {SVGElement} canvas - the SVG element to which to add the legend.
+ */
 function addLegend(
   settings: SettingsObject = defaultSettings,
   canvas: SVGElement
