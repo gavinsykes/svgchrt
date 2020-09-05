@@ -2731,21 +2731,21 @@ img {
 		<li class="current tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 			<a href="_layout_.chartlayout.html" class="tsd-kind-icon">Chart<wbr>Layout</a>
 			<ul>
-				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 					<a href="_layout_.chartlayout.html#height" class="tsd-kind-icon">height</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 					<a href="_layout_.chartlayout.html#margin" class="tsd-kind-icon">margin</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 					<a href="_layout_.chartlayout.html#points" class="tsd-kind-icon">points</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 					<a href="_layout_.chartlayout.html#width" class="tsd-kind-icon">width</a>
 				</li>
 			</ul>
 		</li>
-		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+		<li class=" tsd-kind-interface tsd-parent-kind-module">
 			<a href="_layout_.layoutobject.html" class="tsd-kind-icon">Layout<wbr>Object</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
@@ -2753,9 +2753,6 @@ img {
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 			<a href="_layout_.points.html" class="tsd-kind-icon">Points</a>
-		</li>
-		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-			<a href="_layout_.pointscoords.html" class="tsd-kind-icon">Points<wbr>Coords</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 			<a href="../modules/_layout_.html#legendlayout" class="tsd-kind-icon">Legend<wbr>Layout</a>
@@ -2779,24 +2776,15 @@ img {
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.</p>
+					<p>interface ChartLayout provides the height, margin, points and width of the chartable area.</p>
 				</div>
-				<p>The return value is the generted chart area.</p>
-				<dl class="tsd-comment-tags">
-					<dt>param</dt>
-					<dd><p>the settings to apply to the visualisation.</p>
-					</dd>
-					<dt>param</dt>
-					<dd><p>the HTML element in which to build the visualisation.</p>
-					</dd>
-				</dl>
 			</div>
 		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="tsd-signature-symbol">{}</span>
+					<a href="_layout_.chartarea.html" class="tsd-signature-type">ChartArea</a>
 					<ul class="tsd-hierarchy">
 						<li>
 							<span class="target">ChartLayout</span>
@@ -2812,10 +2800,10 @@ img {
 					<section class="tsd-index-section tsd-is-not-exported">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_layout_.chartlayout.html#height" class="tsd-kind-icon">height</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_layout_.chartlayout.html#height" class="tsd-kind-icon">height</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_layout_.chartlayout.html#margin" class="tsd-kind-icon">margin</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_layout_.chartlayout.html#points" class="tsd-kind-icon">points</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_layout_.chartlayout.html#width" class="tsd-kind-icon">width</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_layout_.chartlayout.html#points" class="tsd-kind-icon">points</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_layout_.chartlayout.html#width" class="tsd-kind-icon">width</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2823,13 +2811,14 @@ img {
 		</section>
 		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 			<h2>Properties</h2>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 				<a name="height" class="tsd-anchor"></a>
 				<h3>height</h3>
 				<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
+					<p>Inherited from <a href="_layout_.chartarea.html">ChartArea</a>.<a href="_layout_.chartarea.html#height">height</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/layout.ts#L69">layout.ts:69</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/layout.ts#L41">layout.ts:41</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2839,27 +2828,29 @@ img {
 				<div class="tsd-signature tsd-kind-icon">margin<span class="tsd-signature-symbol">:</span> <a href="_defaultsettings_.paddingandmargin.html" class="tsd-signature-type">PaddingandMargin</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/layout.ts#L70">layout.ts:70</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/layout.ts#L51">layout.ts:51</a></li>
 					</ul>
 				</aside>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 				<a name="points" class="tsd-anchor"></a>
 				<h3>points</h3>
 				<div class="tsd-signature tsd-kind-icon">points<span class="tsd-signature-symbol">:</span> <a href="_layout_.points.html" class="tsd-signature-type">Points</a></div>
 				<aside class="tsd-sources">
+					<p>Inherited from <a href="_layout_.chartarea.html">ChartArea</a>.<a href="_layout_.chartarea.html#points">points</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/layout.ts#L71">layout.ts:71</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/layout.ts#L42">layout.ts:42</a></li>
 					</ul>
 				</aside>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 				<a name="width" class="tsd-anchor"></a>
 				<h3>width</h3>
 				<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
+					<p>Inherited from <a href="_layout_.chartarea.html">ChartArea</a>.<a href="_layout_.chartarea.html#width">width</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/layout.ts#L72">layout.ts:72</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/layout.ts#L43">layout.ts:43</a></li>
 					</ul>
 				</aside>
 			</section>

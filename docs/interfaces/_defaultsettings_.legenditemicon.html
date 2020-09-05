@@ -2723,13 +2723,10 @@ img {
 <nav class="tsd-navigation secondary">
 	<ul>
 		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-			<a href="_defaultsettings_.canvas.html" class="tsd-kind-icon">Canvas</a>
+			<a href="_defaultsettings_.canvassettings.html" class="tsd-kind-icon">Canvas<wbr>Settings</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-			<a href="_defaultsettings_.chart.html" class="tsd-kind-icon">Chart</a>
-		</li>
-		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-			<a href="_defaultsettings_.legend.html" class="tsd-kind-icon">Legend</a>
+			<a href="_defaultsettings_.chartsettings.html" class="tsd-kind-icon">Chart<wbr>Settings</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 			<a href="_defaultsettings_.legendbackground.html" class="tsd-kind-icon">Legend<wbr>Background</a>
@@ -2773,19 +2770,22 @@ img {
 			</ul>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+			<a href="_defaultsettings_.legendsettings.html" class="tsd-kind-icon">Legend<wbr>Settings</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 			<a href="_defaultsettings_.paddingandmargin.html" class="tsd-kind-icon">Paddingand<wbr>Margin</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-module">
 			<a href="_defaultsettings_.settingsobject.html" class="tsd-kind-icon">Settings<wbr>Object</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-			<a href="_defaultsettings_.subtitle.html" class="tsd-kind-icon">Subtitle</a>
-		</li>
-		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-			<a href="_defaultsettings_.title.html" class="tsd-kind-icon">Title</a>
+			<a href="_defaultsettings_.subtitlesettings.html" class="tsd-kind-icon">Subtitle<wbr>Settings</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 			<a href="_defaultsettings_.titleappendage.html" class="tsd-kind-icon">Title<wbr>Appendage</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+			<a href="_defaultsettings_.titlesettings.html" class="tsd-kind-icon">Title<wbr>Settings</a>
 		</li>
 		<li class=" tsd-kind-object-literal tsd-parent-kind-module">
 			<a href="../modules/_defaultsettings_.html#defaultsettings" class="tsd-kind-icon">default<wbr>Settings</a>
@@ -2797,17 +2797,13 @@ img {
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.</p>
+					<p>interface LegendItemIcon is for the icons on the displayed Legend.</p>
 				</div>
-				<p>The return value is the generted chart area.</p>
-				<dl class="tsd-comment-tags">
-					<dt>param</dt>
-					<dd><p>the settings to apply to the visualisation.</p>
-					</dd>
-					<dt>param</dt>
-					<dd><p>the HTML element in which to build the visualisation.</p>
-					</dd>
-				</dl>
+				<p>The required values in any instance are display and shape. Depending on which shape is chosen then the nature os SVG means that others will also be required.</p>
+				<p>rect (default) - width and height will be required. rx and ry are optional.</p>
+				<p>circle - cx, cy and r will be required.</p>
+				<p>ellipse - cx, cy, rx and ry will be required.</p>
+				<p>path - d is required.</p>
 			</div>
 		</section>
 		<section class="tsd-panel tsd-hierarchy">
@@ -2853,7 +2849,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">cx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L34">defaultSettings.ts:34</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L32">defaultSettings.ts:32</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2863,7 +2859,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">cy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L35">defaultSettings.ts:35</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L33">defaultSettings.ts:33</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2873,7 +2869,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">d<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L36">defaultSettings.ts:36</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L34">defaultSettings.ts:34</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2883,7 +2879,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">display<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L37">defaultSettings.ts:37</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L35">defaultSettings.ts:35</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2893,7 +2889,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L38">defaultSettings.ts:38</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L36">defaultSettings.ts:36</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2903,7 +2899,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">r<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L39">defaultSettings.ts:39</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L37">defaultSettings.ts:37</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2913,7 +2909,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">rx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L40">defaultSettings.ts:40</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L38">defaultSettings.ts:38</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2923,7 +2919,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">ry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L41">defaultSettings.ts:41</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L39">defaultSettings.ts:39</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2933,7 +2929,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">shape<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L42">defaultSettings.ts:42</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L40">defaultSettings.ts:40</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2943,7 +2939,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/4bb70d1/dev/src/defaultSettings.ts#L43">defaultSettings.ts:43</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/86372b6/dev/src/defaultSettings.ts#L41">defaultSettings.ts:41</a></li>
 					</ul>
 				</aside>
 			</section>
