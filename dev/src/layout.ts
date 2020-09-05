@@ -6,13 +6,7 @@
 import defaultSettings from './defaultSettings';
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface PaddingandMargin provides the inner padding and/or outer margin of an item, its 4 values are top, right, bottom and left.
  *
  */
 interface PaddingandMargin extends Record<string, unknown> {
@@ -23,13 +17,7 @@ interface PaddingandMargin extends Record<string, unknown> {
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface Points provides the co-ordinates of each point of an item, in the format x1, x2, y1, y2.
  *
  */
 interface Points extends Record<string, unknown> {
@@ -40,13 +28,7 @@ interface Points extends Record<string, unknown> {
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface CanvasLayout provides the height, padding and width of the canvas.
  *
  */
 interface CanvasLayout extends Record<string, unknown> {
@@ -55,60 +37,43 @@ interface CanvasLayout extends Record<string, unknown> {
   width: number;
 }
 
-/**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
- *
- */
-interface ChartLayout extends Record<string, unknown> {
+interface ChartArea extends Record<string, unknown> {
   height: number;
-  margin: PaddingandMargin;
   points: Points;
   width: number;
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ * interface ChartLayout provides the height, margin, points and width of the chartable area.
  *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ */
+interface ChartLayout extends ChartArea {
+  margin: PaddingandMargin;
+}
+
+/**
+ * interface LegendLayout is currently equivalent to ChartLayout.
  *
  */
 export type LegendLayout = ChartLayout;
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface SubtitleLayout is currently equivalent to ChartLayout.
  *
  */
 export type SubtitleLayout = ChartLayout;
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface TitleLayout is currently equivalent to ChartLayout.
  *
  */
 export type TitleLayout = ChartLayout;
 
-interface LayoutObject extends Record<string, unknown> {
+/**
+ * interface LayoutObject provides the shape of the entire visualisation's layout. Its containes a getter, setter, and a CanvasLayout, ChartLayout, LegendLayout, SubtitleLayout and TitleLayout.
+ *
+ */
+export interface LayoutObject extends Record<string, unknown> {
   get: () => LayoutObject;
   set: (
     newState: Record<string, unknown> | string | number,
@@ -236,19 +201,6 @@ const layout: LayoutObject = {
     width: 0
   }
 };
-
-interface PointsCoords {
-  x1: number;
-  x2: number;
-  y1: number;
-  y2: number;
-}
-
-interface ChartArea {
-  height: number;
-  points: PointsCoords;
-  width: number;
-}
 
 export function getChartArea(): ChartArea {
   const l = layout.get().chart;

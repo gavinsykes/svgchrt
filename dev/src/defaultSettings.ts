@@ -4,13 +4,7 @@
  */
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface PaddingandMargin is for use to determine either the padding or margin of an item, with numeric values for top, right, bottom and left.
  *
  */
 interface PaddingandMargin extends Record<string, unknown> {
@@ -21,13 +15,17 @@ interface PaddingandMargin extends Record<string, unknown> {
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ * interface LegendItemIcon is for the icons on the displayed Legend.
  *
- * The return value is the generted chart area.
+ * The required values in any instance are display and shape. Depending on which shape is chosen then the nature os SVG means that others will also be required.
  *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
+ * rect (default) - width and height will be required. rx and ry are optional.
  *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * circle - cx, cy and r will be required.
+ *
+ * ellipse - cx, cy, rx and ry will be required.
+ *
+ * path - d is required.
  *
  */
 export interface LegendItemIcon extends Record<string, unknown> {
@@ -44,13 +42,9 @@ export interface LegendItemIcon extends Record<string, unknown> {
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ * interface LegendItem is for each item in the displayed Legend.
  *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * The required value is the displayName and the optional ones are class, icon and id.
  *
  */
 interface LegendItem extends Record<string, unknown> {
@@ -61,34 +55,24 @@ interface LegendItem extends Record<string, unknown> {
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
+ * interface LegendBackground is for the background of the displayed Legend.
  *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * The required value is display and the optional values are colour, r, rx and ry.
  *
  */
 interface LegendBackground extends Record<string, unknown> {
   display: boolean;
-  colour: string;
-  r: number;
-  rx: number;
-  ry: number;
+  colour?: string;
+  r?: number;
+  rx?: number;
+  ry?: number;
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface Legend provides all the information surrounding the visualisation's legend.
  *
  */
-interface Legend extends Record<string, unknown> {
+interface LegendSettings extends Record<string, unknown> {
   background: LegendBackground;
   displaceTitle: boolean;
   display: boolean;
@@ -104,16 +88,10 @@ interface Legend extends Record<string, unknown> {
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface CanvasSettings is for the canvas settings.
  *
  */
-interface Canvas extends Record<string, unknown> {
+interface CanvasSettings extends Record<string, unknown> {
   height: number;
   padding: PaddingandMargin;
   viewBox: string;
@@ -121,43 +99,25 @@ interface Canvas extends Record<string, unknown> {
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface ChartSettings is for the chart settings.
  *
  */
-interface Chart extends Record<string, unknown> {
+interface ChartSettings extends Record<string, unknown> {
   margin: PaddingandMargin;
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface TitleSettings is for the title settings.
  *
  */
-interface Title extends Record<string, unknown> {
+interface TitleSettings extends Record<string, unknown> {
   display: boolean;
   margin: PaddingandMargin;
   text: string;
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface TitleAppendage is for the join between the title and subtitle.
  *
  */
 interface TitleAppendage extends Record<string, unknown> {
@@ -166,39 +126,27 @@ interface TitleAppendage extends Record<string, unknown> {
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface SubtitleSettings is for the subtitle settings.
  *
  */
-interface Subtitle extends Title {
+interface SubtitleSettings extends TitleSettings {
   appendToTitle: TitleAppendage;
 }
 
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
+ * interface SettingsObject is for the settings object.
  *
  */
 export interface SettingsObject extends Record<string, unknown> {
   background: boolean;
-  canvas: Canvas;
-  chart: Chart;
+  canvas: CanvasSettings;
+  chart: ChartSettings;
   description: string;
   id: string;
-  legend: Legend;
-  subtitle: Subtitle;
+  legend: LegendSettings;
+  subtitle: SubtitleSettings;
   target: string;
-  title: Title;
+  title: TitleSettings;
 }
 
 const defaultSettings: SettingsObject = {
@@ -213,7 +161,7 @@ const defaultSettings: SettingsObject = {
     },
     viewBox: '0 0 960 500',
     width: 960
-  } as Canvas,
+  },
   chart: {
     margin: {
       top: 10,
@@ -221,7 +169,7 @@ const defaultSettings: SettingsObject = {
       bottom: 10,
       left: 10
     }
-  } as Chart,
+  },
   description: '',
   id: '',
   legend: {
@@ -244,7 +192,7 @@ const defaultSettings: SettingsObject = {
       ry: 7,
       shape: 'rect',
       width: 14
-    } as LegendItemIcon,
+    },
     itemMargin: {
       top: 5,
       right: 5,
@@ -268,7 +216,7 @@ const defaultSettings: SettingsObject = {
     },
     position: 'right',
     title: ''
-  } as Legend,
+  },
   subtitle: {
     appendToTitle: {
       append: false,
