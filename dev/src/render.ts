@@ -21,9 +21,9 @@ function render(
   settings: SettingsObject = defaultSettings,
   target: HTMLElement
 ): void {
-  const c: SVGGraphicsElement = buildSurround(settings, target);
+  const c = buildSurround(settings, target);
   if (plot instanceof Function) {
-    plot(c);
+    plot(c.chartArea);
   }
 }
 

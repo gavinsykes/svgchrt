@@ -25,7 +25,7 @@ import { ReturnedCanvas } from './interfaces';
 function buildSurround(
   settings: SettingsObject = defaultSettings,
   target: HTMLElement
-): SVGGraphicsElement {
+): ReturnedCanvas {
   clearCanvas(target);
   const c: ReturnedCanvas = placeCanvas(settings, target);
   if (

@@ -24,10 +24,10 @@ import render from './render';
  */
 class SVGChrt {
   // Exposed selectable elements
-  canvas: SVGGraphicsElement | null;
+  canvas: SVGElement | null;
   chartArea: SVGGraphicsElement | null;
   /*
-    Canvas - 
+    Canvas - done-ish
     ChartArea - done
     Title
     Subtitle
@@ -44,10 +44,10 @@ class SVGChrt {
   settings: SettingsObject;
   target: HTMLElement;
   data: Record<string, unknown>;
-  constructor(options = {}, data = {}) {
+  constructor(options: Record<string, unknown> = {}, data: Record<string, unknown> = {}) {
     this.settings = deepObjectMerge(
-      this.defaultSettings,
-      {canvas:{viewBox:`0 0 ${options.canvas.width} ${options.canvas.height}`}},
+      deepObjectMerge(this.defaultSettings,
+      {canvas:{viewBox: `0 0 960 500`}} as Record<string, unknown>),
       options
     ) as SettingsObject;
     this.target = /^#\w*/i.test(this.settings.target)
