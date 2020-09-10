@@ -44,10 +44,14 @@ class SVGChrt {
   settings: SettingsObject;
   target: HTMLElement;
   data: Record<string, unknown>;
-  constructor(options: Record<string, unknown> = {}, data: Record<string, unknown> = {}) {
+  constructor(
+    options: Record<string, unknown> = {},
+    data: Record<string, unknown> = {}
+  ) {
     this.settings = deepObjectMerge(
-      deepObjectMerge(this.defaultSettings,
-      {canvas:{viewBox: `0 0 960 500`}} as Record<string, unknown>),
+      deepObjectMerge(this.defaultSettings, {
+        canvas: { viewBox: `0 0 960 500` }
+      } as Record<string, unknown>),
       options
     ) as SettingsObject;
     this.target = /^#\w*/i.test(this.settings.target)
