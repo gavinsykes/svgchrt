@@ -46,9 +46,7 @@ function addLegend(
               ? settings.legend.items[i].class
               : ''
           }`,
-          id: `${
-            settings.legend.items[i]?.id ? settings.legend.items[i].id : ''
-          }`
+          id: settings.legend.items[i]?.id ? `${settings.id ? settings.id + '-' : ''}legend-item-${settings.legend.items[i].id}` : ''
         }) as SVGGraphicsElement
     );
     const maxWidth: number =

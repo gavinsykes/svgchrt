@@ -48,7 +48,7 @@ function buildSurround(
     addSubtitle(settings, c.canvas);
     addLegend(settings, c.canvas);
   }
-  return c.chartArea;
+  return c;
 }
 
 export default buildSurround;

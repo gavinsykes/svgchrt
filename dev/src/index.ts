@@ -23,6 +23,17 @@ import render from './render';
  *
  */
 class SVGChrt {
+  // Exposed selectable elements
+  canvas: SVGGraphicsElement | null;
+  chartArea: SVGGraphicsElement | null;
+  /*
+    Canvas - 
+    ChartArea - done
+    Title
+    Subtitle
+    Legend
+    Each legend item 
+  */
   defaultSettings = defaultSettings;
   layout = initialLayout;
   appendSVGChild = appendSVGChild;
@@ -32,16 +43,17 @@ class SVGChrt {
   getChartArea = getChartArea;
   settings: SettingsObject;
   target: HTMLElement;
-  chartArea: SVGGraphicsElement | null;
   data: Record<string, unknown>;
   constructor(options = {}, data = {}) {
     this.settings = deepObjectMerge(
       this.defaultSettings,
+      {canvas:{viewBox:`0 0 ${options.canvas.width} ${options.canvas.height}`}},
       options
     ) as SettingsObject;
     this.target = /^#\w*/i.test(this.settings.target)
       ? (document.querySelector(this.settings.target) as HTMLElement)
       : (document.querySelector(`#${this.settings.target}`) as HTMLElement);
+    this.canvas = null;
     this.chartArea = null;
     this.data = data;
   }
@@ -60,7 +72,9 @@ class SVGChrt {
       );
       return;
     }
-    this.chartArea = buildSurround(this.settings, this.target);
+    const c = buildSurround(this.settings, this.target);
+    this.chartArea = c.chartArea;
+    this.canvas = c.canvas;
     if (this.plot instanceof Function) {
       this.plot(this.chartArea);
       this.placePlot(this.chartArea);
