@@ -40,13 +40,17 @@ function buildSurround(
     settings.legend.orientation === 'vertical' &&
     settings.legend.displaceTitle
   ) {
-    addLegend(settings, c.canvas);
+    if (settings.legend.display && settings.legend.items.length === 0) {
+      addLegend(settings, c.canvas);
+    }
     addTitle(settings, c.canvas);
     addSubtitle(settings, c.canvas);
   } else {
     addTitle(settings, c.canvas);
     addSubtitle(settings, c.canvas);
-    addLegend(settings, c.canvas);
+    if (settings.legend.display && settings.legend.items.length === 0) {
+      addLegend(settings, c.canvas);
+    }
   }
   return c;
 }
