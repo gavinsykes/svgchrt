@@ -233,14 +233,14 @@ const defaultSettings: SettingsObject = {
       bottom: 10,
       left: 10
     },
-    orientation: 'vertical',
+    orientation: LegendOrientation.Vertical,
     padding: {
       top: 0,
       right: 0,
       bottom: 0,
       left: 0
     },
-    position: 'right',
+    position: LegendPosition.Right,
     title: ''
   },
   subtitle: {
