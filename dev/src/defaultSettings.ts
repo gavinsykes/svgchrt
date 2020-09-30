@@ -14,13 +14,12 @@ interface PaddingandMargin extends Record<string, unknown> {
   left: number;
 }
 
-
 enum LegendItemIconShape {
   Circle = 'circle',
   Ellipse = 'ellipse',
   Line = 'line',
   Path = 'path',
-  Polygon=  'polygon',
+  Polygon = 'polygon',
   Polyline = 'polyline',
   Rect = 'rect'
 }
@@ -91,7 +90,7 @@ enum LegendPosition {
   BottomRight = 'bottom-right',
   Bottom = 'bottom',
   BottomLeft = 'bottom-left',
-  Left = 'left',
+  Left = 'left'
 }
 
 /**
