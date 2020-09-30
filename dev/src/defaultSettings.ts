@@ -14,6 +14,16 @@ interface PaddingandMargin extends Record<string, unknown> {
   left: number;
 }
 
+
+enum LegendItemIconShape {
+  Circle = 'circle',
+  Ellipse = 'ellipse',
+  Line = 'line',
+  Path = 'path',
+  Polygon=  'polygon',
+  Polyline = 'polyline',
+  Rect = 'rect'
+}
 /**
  * interface LegendItemIcon is for the icons on the displayed Legend.
  *
@@ -68,6 +78,22 @@ interface LegendBackground extends Record<string, unknown> {
   ry?: number;
 }
 
+enum LegendOrientation {
+  Horizontal = 'horizontal',
+  Vertical = 'vertical'
+}
+
+enum LegendPosition {
+  TopLeft = 'top-left',
+  Top = 'top',
+  TopRight = 'top-right',
+  Right = 'right',
+  BottomRight = 'bottom-right',
+  Bottom = 'bottom',
+  BottomLeft = 'bottom-left',
+  Left = 'left',
+}
+
 /**
  * interface Legend provides all the information surrounding the visualisation's legend.
  *
@@ -81,9 +107,9 @@ interface LegendSettings extends Record<string, unknown> {
   items: LegendItem[];
   layOverChart: boolean;
   margin: PaddingandMargin;
-  orientation: string;
+  orientation: LegendOrientation;
   padding: PaddingandMargin;
-  position: string;
+  position: LegendPosition;
   title: string;
 }
 
