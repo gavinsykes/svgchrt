@@ -14,7 +14,7 @@ module.exports = {
   output  : {
     filename      : 'index.js',
     library       : 'SVGChrt',
-    libraryTarget : 'var',
+    libraryTarget : 'umd',
     path          : path.resolve(__dirname, 'dist')
   },
   resolve : {
