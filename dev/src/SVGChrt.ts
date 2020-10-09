@@ -4,7 +4,7 @@
  */
 
 import defaultSettings, { SettingsObject } from './defaultSettings';
-import initialLayout, { getChartArea, LayoutObject } from './layout';
+import initialLayout, { getChartArea } from './layout';
 import deepObjectMerge from './deepObjectMerge';
 import appendSVGChild from './appendSVGChild';
 import plot from './plot';

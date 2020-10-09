@@ -46,7 +46,7 @@ export interface LegendItemIcon extends Record<string, unknown> {
   r?: number;
   rx?: number;
   ry?: number;
-  shape: string;
+  shape: LegendItemIconShape;
   width?: number;
 }
 

@@ -39,7 +39,7 @@ function addLegend(
       }) as SVGGraphicsElement;
     }
     const legendItems: SVGGraphicsElement[] = settings.legend.items.map(
-      (c, i) =>
+      (_, i) =>
         appendSVGChild('g', legend, {
           class: `legend-item ${
             settings.legend.items[i]?.class
