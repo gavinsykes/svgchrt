@@ -12,7 +12,7 @@ module.exports = {
     ]
   },
   output  : {
-    filename      : 'main.js',
+    filename      : 'index.js',
     library       : 'SVGChrt',
     libraryTarget : 'var',
     path          : path.resolve(__dirname, 'dist')
