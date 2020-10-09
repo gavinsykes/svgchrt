@@ -3,6 +3,6 @@
  * @license MIT
  */
 
-import SVGChrt from './SVGChrt';
+import { SVGChrt } from './SVGChrt';
 
-export SVGChrt;
+export { SVGChrt };
