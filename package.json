@@ -44,7 +44,7 @@
     "visualization"
   ],
   "license": "MIT",
-  "main": "./dist/main.js",
+  "main": "./dist/index.js",
   "name": "svgchrt",
   "repository": {
     "type": "git",
