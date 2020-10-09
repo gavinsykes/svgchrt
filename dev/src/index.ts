@@ -5,4 +5,4 @@
 
 import SVGChrt from './SVGChrt';
 
-export default SVGChrt;
+export SVGChrt;
