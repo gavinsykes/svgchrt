@@ -34,7 +34,7 @@ interface SCConstructor {
  * @param {HTMLElement} target - the HTML element in which to build the visualisation.
  *
  */
-export default class SVGChrt /* implements SC */ {
+export class SVGChrt /* implements SC */ {
   // Exposed selectable elements
   canvas: SVGElement | null;
   chartArea: SVGGraphicsElement | null;

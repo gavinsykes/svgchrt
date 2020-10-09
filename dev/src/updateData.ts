@@ -11,7 +11,9 @@
  * @param {Record<string, unknown>} data - the new data.
  *
  */
-function updateData(data: Record<string, unknown>[] = []): Record<string, unknown>[] {
+function updateData(
+  data: Record<string, unknown>[] = []
+): Record<string, unknown>[] {
   return data;
   // The line above does nothing yet other than to shut the TypeScript compiler up
 }
