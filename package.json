@@ -73,5 +73,5 @@
     "update:major": "npx npm-check-updates -u && npm install"
   },
   "types": "./dist/src/index.d.ts",
-  "version": "0.5.13"
+  "version": "0.5.14"
 }
