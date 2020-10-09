@@ -215,7 +215,7 @@ const defaultSettings: SettingsObject = {
       r: 7,
       rx: 7,
       ry: 7,
-      shape: 'rect',
+      shape: LegendItemIconShape.Rect,
       width: 14
     },
     itemMargin: {

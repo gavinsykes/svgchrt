@@ -2,11 +2,11 @@ import copyObject from '../src/copyObject';
 import { expect } from 'chai';
 import 'mocha';
 
-function arrayCompare(arr1: Array<any>, arr2: Array<any>): boolean {
+function arrayCompare(arr1: Array<unknown>, arr2: Array<unknown>): boolean {
   if (!Array.isArray(arr1) || !Array.isArray(arr2)) return false;
   if (!arr1.length || !arr2.length) return false;
   let result = true;
-  arr1.map((c, i, a) => {
+  arr1.map((c, i) => {
     if (c !== arr2[i]) result = false;
   });
   return result;

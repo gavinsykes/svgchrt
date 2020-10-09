@@ -72,22 +72,6 @@ const obj2 = {
   f: 2,
   g: 3
 };
-const obj3 = {
-  d: {
-    a: 11,
-    b: 20.1
-  }
-};
-const obj4 = {
-  d: {
-    a: 12,
-    b: 22,
-    c: 23
-  }
-};
-const obj5 = {};
-const obj6 = {};
-const obj7 = {};
 
 const merged12: { [index: string]: any } = deepObjectMerge(obj1, obj2);
 const mergedSettings: { [index: string]: any } = deepObjectMerge(

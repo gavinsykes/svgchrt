@@ -75,10 +75,10 @@ export type TitleLayout = ChartLayout;
  */
 export interface LayoutObject extends Record<string, unknown> {
   get: () => LayoutObject;
-  set: (
+  /* set: (
     newState: Record<string, unknown> | string | number,
     ...propChain: string[]
-  ) => void;
+  ) => void; */
   canvas: CanvasLayout;
   chart: ChartLayout;
   legend: LegendLayout;
@@ -90,17 +90,17 @@ const layout: LayoutObject = {
   get: function (): LayoutObject {
     return this;
   },
-  set: function (
+  /* set: function (
     newState: Record<string, unknown> | string | number,
     ...propChain: string[]
   ): void {
-    /* propChain.reduce((a, b, level) => {
+    propChain.reduce((a, b, level) => {
       if (level === path.length) {
         a[b] = newState;
       }
       return a[b];
-    }, this); */
-  },
+    }, this);
+  }, */
   canvas: {
     height: defaultSettings.canvas.height,
     padding: defaultSettings.canvas.padding,
