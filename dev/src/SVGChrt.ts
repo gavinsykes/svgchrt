@@ -4,7 +4,7 @@
  */
 
 import defaultSettings, { SettingsObject } from './defaultSettings';
-import initialLayout, { getChartArea } from './layout';
+import initialLayout, { getChartArea, LayoutObject } from './layout';
 import deepObjectMerge from './deepObjectMerge';
 import appendSVGChild from './appendSVGChild';
 import plot from './plot';
@@ -12,6 +12,16 @@ import placePlot from './placePlot';
 import buildSurround from './buildSurround';
 import render from './render';
 
+interface SC {
+  new(options: Record<string, unknown>,data: Record<string, unknown>) : SC,
+  canvas : SVGElement | null,
+  chartArea: SVGGraphicsElement | null,
+  defaultSettings: SettingsObject,
+  layout: LayoutObject,
+  settings: SettingsObject,
+  target: HTMLElement,
+  data: Record<string, unknown>
+}
 /**
  * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
  *
@@ -22,7 +32,7 @@ import render from './render';
  * @param {HTMLElement} target - the HTML element in which to build the visualisation.
  *
  */
-export default class SVGChrt {
+export default class SVGChrt implements SC {
   // Exposed selectable elements
   canvas: SVGElement | null;
   chartArea: SVGGraphicsElement | null;
