@@ -13,11 +13,7 @@ module.exports = {
   },
   output  : {
     filename      : 'index.js',
-    library       : {
-      root: 'SVGChrt',
-      amd: 'svgchrt',
-      commonjs: 'svgchrt'
-    },
+    library       : 'svgchrt',
     libraryTarget : 'umd',
     path          : path.resolve(__dirname, 'dist')
   },
