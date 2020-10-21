@@ -13,8 +13,8 @@ module.exports = {
   },
   output  : {
     filename      : 'index.js',
-    library       : 'svgchrt',
-    libraryTarget : 'umd',
+    library       : 'SVGChrt',
+    libraryTarget : 'var',
     path          : path.resolve(__dirname, 'dist')
   },
   resolve : {
