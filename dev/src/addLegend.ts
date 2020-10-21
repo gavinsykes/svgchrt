@@ -24,7 +24,7 @@ function addLegend(
   settings: SettingsObject = defaultSettings,
   canvas: SVGElement
 ): void {
-  if (settings.legend.display && settings.legend.items.length === 0) {
+  if (settings.legend.display && settings.legend.items.length > 0) {
     const legend: SVGGraphicsElement = appendSVGChild('g', canvas, {
       class: 'legend',
       id: `${settings.id ? settings.id + '-' : ''}legend`
