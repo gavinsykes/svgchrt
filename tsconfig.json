@@ -68,8 +68,8 @@
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
   "exclude": [
-    "./src/test/**/*.spec.ts",
-    "./src/**/*.spec.ts"
+    "./dev/test/**/*.spec.ts",
+    "./dev/**/*.spec.ts"
   ],                                          /* Exclude specific files from being compiled i.e. test files */
   "typedocOptions" : {
     "exclude": ["node_modules"],
