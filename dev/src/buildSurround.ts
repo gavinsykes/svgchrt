@@ -40,7 +40,7 @@ function buildSurround(
     settings.legend.orientation === 'vertical' &&
     settings.legend.displaceTitle
   ) {
-    if (settings.legend.display && settings.legend.items.length === 0) {
+    if (settings.legend.display && settings.legend.items.length > 0) {
       addLegend(settings, c.canvas);
     }
     addTitle(settings, c.canvas);
@@ -48,7 +48,7 @@ function buildSurround(
   } else {
     addTitle(settings, c.canvas);
     addSubtitle(settings, c.canvas);
-    if (settings.legend.display && settings.legend.items.length === 0) {
+    if (settings.legend.display && settings.legend.items.length > 0) {
       addLegend(settings, c.canvas);
     }
   }
