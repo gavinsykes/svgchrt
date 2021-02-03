@@ -3,8 +3,9 @@
  * @license MIT
  */
 
+import { SettingsObject } from './interfaces';
 import buildSurround from './buildSurround';
-import defaultSettings, { SettingsObject } from './defaultSettings';
+import defaultSettings from './defaultSettings';
 import plot from './plot';
 
 /**

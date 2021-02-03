@@ -73,8 +73,8 @@ const obj2 = {
   g: 3
 };
 
-const merged12: { [index: string]: any } = deepObjectMerge(obj1, obj2);
-const mergedSettings: { [index: string]: any } = deepObjectMerge(
+const merged12: { [index: string]: unknown } = deepObjectMerge(obj1, obj2);
+const mergedSettings: { [index: string]: unknown } = deepObjectMerge(
   defaultSettings,
   options
 );

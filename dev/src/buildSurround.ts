@@ -3,14 +3,13 @@
  * @license MIT
  */
 
+import { SettingsObject, ReturnedCanvas } from './interfaces';
 import addLegend from './addLegend';
 import addSubtitle from './addSubtitle';
 import addTitle from './addTitle';
 import clearCanvas from './clearCanvas';
 import placeCanvas from './placeCanvas';
-import defaultSettings, { SettingsObject } from './defaultSettings';
-
-import { ReturnedCanvas } from './interfaces';
+import defaultSettings from './defaultSettings';
 
 /**
  * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.

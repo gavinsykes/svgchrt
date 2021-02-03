@@ -4,103 +4,33 @@
  */
 
 import defaultSettings from './defaultSettings';
-
-/**
- * interface PaddingandMargin provides the inner padding and/or outer margin of an item, its 4 values are top, right, bottom and left.
- *
- */
-interface PaddingandMargin extends Record<string, unknown> {
-  top: number;
-  right: number;
-  bottom: number;
-  left: number;
-}
-
-/**
- * interface Points provides the co-ordinates of each point of an item, in the format x1, x2, y1, y2.
- *
- */
-interface Points extends Record<string, unknown> {
-  x1: number;
-  x2: number;
-  y1: number;
-  y2: number;
-}
-
-/**
- * interface CanvasLayout provides the height, padding and width of the canvas.
- *
- */
-interface CanvasLayout extends Record<string, unknown> {
-  height: number;
-  padding: PaddingandMargin;
-  width: number;
-}
-
-interface ChartArea extends Record<string, unknown> {
-  height: number;
-  points: Points;
-  width: number;
-}
-
-/**
- * interface ChartLayout provides the height, margin, points and width of the chartable area.
- *
- */
-interface ChartLayout extends ChartArea {
-  margin: PaddingandMargin;
-}
-
-/**
- * interface LegendLayout is currently equivalent to ChartLayout.
- *
- */
-export type LegendLayout = ChartLayout;
-
-/**
- * interface SubtitleLayout is currently equivalent to ChartLayout.
- *
- */
-export type SubtitleLayout = ChartLayout;
-
-/**
- * interface TitleLayout is currently equivalent to ChartLayout.
- *
- */
-export type TitleLayout = ChartLayout;
-
-/**
- * interface LayoutObject provides the shape of the entire visualisation's layout. Its containes a getter, setter, and a CanvasLayout, ChartLayout, LegendLayout, SubtitleLayout and TitleLayout.
- *
- */
-export interface LayoutObject extends Record<string, unknown> {
-  get: () => LayoutObject;
-  /* set: (
-    newState: Record<string, unknown> | string | number,
-    ...propChain: string[]
-  ) => void; */
-  canvas: CanvasLayout;
-  chart: ChartLayout;
-  legend: LegendLayout;
-  subtitle: SubtitleLayout;
-  title: TitleLayout;
-}
+import { LayoutObject, ChartArea } from './interfaces';
 
 const layout: LayoutObject = {
   get: function (): LayoutObject {
     return this;
   },
-  /* set: function (
-    newState: Record<string, unknown> | string | number,
-    ...propChain: string[]
+  set: function (
+    propChain: string,
+    newState: Record<string, unknown> | string | number
   ): void {
-    propChain.reduce((a, b, level) => {
-      if (level === path.length) {
-        a[b] = newState;
+    if (['get', 'set'].includes(propChain)) {
+      console.warn(
+        "Please don't attempt to change the getter or setter functions in the layout object!"
+      );
+      return;
+    }
+    if (propChain === '') return;
+    propChain.split('.').reduce((original, nuevo, level) => {
+      if (!(nuevo in original)) {
+        original[nuevo] = {};
       }
-      return a[b];
+      if (level === propChain.split('.').length - 1) {
+        original[nuevo] = newState;
+      }
+      return original[nuevo];
     }, this);
-  }, */
+  },
   canvas: {
     height: defaultSettings.canvas.height,
     padding: defaultSettings.canvas.padding,

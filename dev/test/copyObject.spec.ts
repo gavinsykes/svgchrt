@@ -22,8 +22,8 @@ const original = {
   }
 };
 
-const copied: { [index: string]: any } = copyObject(original) as {
-  [index: string]: any;
+const copied: { [index: string]: unknown } = copyObject(original) as {
+  [index: string]: unknown;
 };
 
 copied.a = 1;

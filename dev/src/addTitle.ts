@@ -4,10 +4,9 @@
  */
 
 import appendSVGChild from './appendSVGChild';
-import deepObjectMerge from './deepObjectMerge';
 import defaultSettings from './defaultSettings';
 import svgWrapText from './svgWrapText';
-import layout, { TitleLayout } from './layout';
+import layout from './layout';
 
 /**
  * addTitle takes a SettingsObject and an SVGElement as its arguments. It adds a `<text>` element to the SVG element which may or may not contain more than 1 <tspan> element.
@@ -20,21 +19,17 @@ import layout, { TitleLayout } from './layout';
  */
 function addTitle(settings = defaultSettings, canvas: SVGElement): void {
   if (settings.title.text) {
-    if (settings.subtitle.text && settings.subtitle.appendToTitle.append) {
-      appendSVGChild(
-        'title',
-        canvas,
-        {},
-        `${settings.title.text}${settings.subtitle.appendToTitle.join}${settings.subtitle.text}`
-      );
-    } else {
-      appendSVGChild(
-        'title',
-        canvas,
-        {},
-        settings.title.text
-      ) as SVGTitleElement;
-    }
+    appendSVGChild(
+      'title',
+      canvas,
+      {},
+      `${settings.title.text}${
+        settings.subtitle.appendToTitle.append
+          ? settings.subtitle.appendToTitle.join +
+            settings.subtitle.appendToTitle.join
+          : ''
+      }`
+    ) as SVGTitleElement;
     if (settings.title.display) {
       const title: SVGTextElement = appendSVGChild(
         'text',
@@ -43,8 +38,8 @@ function addTitle(settings = defaultSettings, canvas: SVGElement): void {
           'class': 'chart-title',
           'dy': '1em',
           'text-anchor': 'middle',
-          'x': layout.canvas.width / 2,
-          'y': layout.title.points.y1
+          'x': layout.get().canvas.width / 2,
+          'y': layout.get().title.points.y1
         },
         settings.title.text
       ) as SVGTextElement;
@@ -55,11 +50,11 @@ function addTitle(settings = defaultSettings, canvas: SVGElement): void {
           title.setAttribute(
             'x',
             (
-              (layout.canvas.width +
-                layout.legend.width +
+              (layout.get().canvas.width +
+                layout.get().legend.width +
                 Math.max(
-                  layout.title.margin.left,
-                  layout.legend.margin.right,
+                  layout.get().title.margin.left,
+                  layout.get().legend.margin.right,
                   0
                 )) /
               2
@@ -70,11 +65,11 @@ function addTitle(settings = defaultSettings, canvas: SVGElement): void {
           title.setAttribute(
             'x',
             (
-              (layout.canvas.width -
-                layout.legend.width -
+              (layout.get().canvas.width -
+                layout.get().legend.width -
                 Math.max(
-                  layout.title.margin.right,
-                  layout.legend.margin.left,
+                  layout.get().title.margin.right,
+                  layout.get().legend.margin.left,
                   0
                 )) /
               2
@@ -83,7 +78,7 @@ function addTitle(settings = defaultSettings, canvas: SVGElement): void {
         }
       }
       const titleWidth =
-        layout.canvas.width -
+        layout.get().canvas.width -
         Math.max(settings.canvas.padding.left, settings.title.margin.left, 0) -
         Math.max(
           settings.canvas.padding.right,
@@ -91,7 +86,7 @@ function addTitle(settings = defaultSettings, canvas: SVGElement): void {
           0
         ) -
         (settings.legend.displaceTitle
-          ? layout.legend.width +
+          ? layout.get().legend.width +
             (shift === 'left'
               ? Math.max(
                   settings.legend.margin.left,
@@ -115,26 +110,53 @@ function addTitle(settings = defaultSettings, canvas: SVGElement): void {
                 ))
           : 0);
       svgWrapText(title, titleWidth);
-      layout.title = deepObjectMerge(layout.title, {
-        height: title.getBBox().height,
-        points: {
-          x1: title.getBBox().x,
-          x2: title.getBBox().x + title.getBBox().width,
-          y2: title.getBBox().y + title.getBBox().height
-        },
-        width: title.getBBox().width
-      }) as TitleLayout;
-      layout.subtitle.points.y1 =
-        layout.title.points.y2 +
-        Math.max(layout.title.margin.bottom, layout.subtitle.margin.top, 0);
-      layout.chart.points.y1 =
-        layout.title.points.y2 +
-        Math.max(layout.title.margin.bottom, layout.chart.margin.top, 0);
       layout.chart.height = layout.chart.points.y2 - layout.chart.points.y1;
+      layout.set('title.height', title.getBBox().height);
+      layout.set('title.points.x1', title.getBBox().x);
+      layout.set('title.points.x2', title.getBBox().x + title.getBBox().width);
+      layout.set('title.points.y2', title.getBBox().y + title.getBBox().height);
+      layout.set('title.width', title.getBBox().width);
+      layout.set(
+        'subtitle.points.y1',
+        layout.get().title.points.y2 +
+          Math.max(
+            layout.get().title.margin.bottom,
+            layout.get().subtitle.margin.top,
+            0
+          )
+      );
+      layout.set(
+        'chart.points.y1',
+        layout.get().title.points.y2 +
+          Math.max(
+            layout.get().title.margin.bottom,
+            layout.get().chart.margin.top,
+            0
+          )
+      );
+      layout.set(
+        'subtitle.points.y1',
+        layout.get().title.points.y2 +
+          Math.max(
+            layout.get().title.margin.bottom,
+            layout.get().subtitle.margin.top,
+            0
+          )
+      );
+      layout.set(
+        'chart.height',
+        layout.get().chart.points.y2 - layout.get().chart.points.y1
+      );
       if (!settings.legend.displaceTitle) {
-        layout.legend.points.y1 =
-          layout.title.points.y2 +
-          Math.max(layout.title.margin.bottom, layout.legend.margin.top, 0);
+        layout.set(
+          'legend.points.y1',
+          layout.get().title.points.y2 +
+            Math.max(
+              layout.get().title.margin.bottom,
+              layout.get().legend.margin.top,
+              0
+            )
+        );
       }
     }
   } else {

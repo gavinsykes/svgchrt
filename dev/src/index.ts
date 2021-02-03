@@ -3,7 +3,8 @@
  * @license MIT
  */
 
-import defaultSettings, { SettingsObject } from './defaultSettings';
+import { SettingsObject, LayoutObject } from './interfaces';
+import defaultSettings from './defaultSettings';
 import initialLayout, { getChartArea } from './layout';
 import deepObjectMerge from './deepObjectMerge';
 import appendSVGChild from './appendSVGChild';
@@ -11,30 +12,31 @@ import plot from './plot';
 import placePlot from './placePlot';
 import buildSurround from './buildSurround';
 
-/* interface SCInterface {
-  canvas : SVGElement | null;
+interface SCInterface {
+  canvas: SVGElement | null;
   chartArea: SVGGraphicsElement | null;
   defaultSettings: SettingsObject;
   layout: LayoutObject;
   settings: SettingsObject;
   target: HTMLElement;
-  data: Record<string, unknown>;
+  data: Record<string, unknown>[];
 }
 
 interface SCConstructor {
-  new (options: Record<string, unknown>, data: Record<string, unknown>) : SCInterface;
-} */
+  new (
+    options: Record<string, unknown>,
+    data: Record<string, unknown>[]
+  ): SCInterface;
+}
 /**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
+ * SVGChrt.
  *
  * @param {SettingsObject} settings - the settings to apply to the visualisation.
  *
  * @param {HTMLElement} target - the HTML element in which to build the visualisation.
  *
  */
-export class SVGChrt /* implements SC */ {
+export default class SVGChrt implements SCInterface {
   // Exposed selectable elements
   canvas: SVGElement | null;
   chartArea: SVGGraphicsElement | null;
@@ -55,10 +57,10 @@ export class SVGChrt /* implements SC */ {
   getChartArea = getChartArea;
   settings: SettingsObject;
   target: HTMLElement;
-  data: Record<string, unknown>;
+  data: Record<string, unknown>[];
   constructor(
     options: Record<string, unknown> = {},
-    data: Record<string, unknown> = {}
+    data: Record<string, unknown>[] = []
   ) {
     this.settings = deepObjectMerge(
       deepObjectMerge(this.defaultSettings, {

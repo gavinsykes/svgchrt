@@ -3,11 +3,10 @@
  * @license MIT
  */
 
+import { ReturnedCanvas, SettingsObject } from './interfaces';
 import appendSVGChild from './appendSVGChild';
-import defaultSettings, { SettingsObject } from './defaultSettings';
+import defaultSettings from './defaultSettings';
 import layout from './layout';
-
-import { ReturnedCanvas } from './interfaces';
 
 /**
  * placeCanvas takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.

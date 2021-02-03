@@ -3,7 +3,8 @@
  * @license MIT
  */
 
-import defaultSettings, { SettingsObject } from './defaultSettings';
+import { SettingsObject } from './interfaces';
+import defaultSettings from './defaultSettings';
 import initialLayout, { getChartArea } from './layout';
 import deepObjectMerge from './deepObjectMerge';
 import appendSVGChild from './appendSVGChild';
@@ -74,7 +75,7 @@ export class SVGChrt /* implements SC */ {
     this.data = data;
   }
 
-  render() {
+  render(): void {
     if (!this.target) {
       throw new Error(
         `Sorry, ${this.settings.target} doesn't appear to exist in the document. Please use a target <div> or <section> that is already in the document to display your visualisation.`
