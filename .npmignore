@@ -1,5 +1,5 @@
 **/tsconfig.json
 **/webpack.config.js
 node_modules
-src
+dev
 reference_to_use_on_twitter_when_publishing.txt
