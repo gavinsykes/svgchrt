@@ -12,7 +12,7 @@ function arrayCompare(arr1: Array<unknown>, arr2: Array<unknown>): boolean {
   return result;
 }
 
-const original = {
+const original: Record<string,unknown> = {
   a: 'a',
   b: 2,
   c: [1, 2],
@@ -22,22 +22,20 @@ const original = {
   }
 };
 
-const copied: { [index: string]: unknown } = copyObject(original) as {
-  [index: string]: unknown;
-};
+const copied: Record<string,unknown> = copyObject(original) as Record<string,unknown>;
 
 copied.a = 1;
 copied.b = 'b';
 copied.c = [3, 4];
-copied.d.a = 1;
-copied.d.b = 'b';
-copied.d.c = [1, 2, 3, 4];
+(copied.d as Record<string,unknown>).a = 1;
+(copied.d as Record<string,unknown>).b = 'b';
+(copied.d as Record<string,unknown>).c = [1, 2, 3, 4];
 
 original.a = 'aaa';
 original.b = 22;
 original.c = [11, 22];
-original.d.a = 'aaa';
-original.d.b = 22;
+(original.d as Record<string,unknown>).a = 'aaa';
+(original.d as Record<string,unknown>).b = 22;
 
 describe('copied.a', () => {
   it('should be 1', () => {
@@ -53,25 +51,25 @@ describe('copied.b', () => {
 
 describe('copied.c', () => {
   it('should be [3,4]', () => {
-    expect(arrayCompare(copied.c, [3, 4])).to.equal(true);
+    expect(arrayCompare(copied.c as unknown[], [3, 4])).to.equal(true);
   });
 });
 
 describe('copied.d.a', () => {
   it('should be 1', () => {
-    expect(copied.d.a).to.equal(1);
+    expect((copied.d as Record<string,unknown>).a).to.equal(1);
   });
 });
 
 describe('copied.d.b', () => {
   it('should be b', () => {
-    expect(copied.d.b).to.equal('b');
+    expect((copied.d as Record<string,unknown>).b).to.equal('b');
   });
 });
 
 describe('copied.d.c', () => {
   it('should be [1,2,3,4]', () => {
-    expect(arrayCompare(copied.d.c, [1, 2, 3, 4])).to.equal(true);
+    expect(arrayCompare((copied.d as Record<string,unknown>).c as unknown[], [1, 2, 3, 4])).to.equal(true);
   });
 });
 
@@ -89,18 +87,18 @@ describe('original.b', () => {
 
 describe('original.c', () => {
   it('should be [11,22]', () => {
-    expect(arrayCompare(original.c, [11, 22])).to.equal(true);
+    expect(arrayCompare(original.c as unknown[], [11, 22])).to.equal(true);
   });
 });
 
 describe('original.d.a', () => {
   it('should be aaa', () => {
-    expect(original.d.a).to.equal('aaa');
+    expect((original.d as Record<string,unknown>).a).to.equal('aaa');
   });
 });
 
 describe('original.b', () => {
   it('should be 22', () => {
-    expect(original.d.b).to.equal(22);
+    expect((original.d as Record<string,unknown>).b).to.equal(22);
   });
 });
