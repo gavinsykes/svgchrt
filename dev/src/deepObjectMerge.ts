@@ -30,7 +30,7 @@ function deepObjectMerge(
   for (const key in newobj as Record<string, unknown>) {
     if (isObject(newobj[key])) {
       if (!returnedObj[key]) {
-        Object.assign(returnedObj, { [key]: newobj[key] });
+        Object.assign(returnedObj, { [key]: newobj[key] } as Record<string, unknown>);
       } else {
         returnedObj[key] = deepObjectMerge(
           returnedObj[key] as Record<string, unknown>,
@@ -38,7 +38,7 @@ function deepObjectMerge(
         );
       }
     } else {
-      Object.assign(returnedObj, { [key]: newobj[key] });
+      Object.assign(returnedObj, { [key]: newobj[key] } as Record<string, unknown>);
     }
   }
   return returnedObj;
