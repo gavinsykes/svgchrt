@@ -12,8 +12,8 @@ const layout: LayoutObject = {
   },
   set: function (
     propChain: string,
-    newState: Record<string, unknown> | string | number
-  ): LayoutObject | void {
+    newState: unknown
+  ): void {
     if (['get', 'set'].includes(propChain)) {
       console.warn(
         "Please don't attempt to change the getter or setter functions in the layout object!"
@@ -23,25 +23,14 @@ const layout: LayoutObject = {
     if (propChain === '') return;
     propChain
       .split('.')
-      .reduce(
-        (original: Record<string, unknown>, nuevo: string, level: number) => {
-          if (!(nuevo in original)) {
-            original[nuevo] = {};
-          }
-          if (level === propChain.split('.').length - 1) {
-            original[nuevo] = newState;
-          }
-          if (typeof original[nuevo] === 'string')
-            return original[nuevo] as string;
-          if (typeof original[nuevo] === 'number') {
-            return original[nuevo] as number;
-          } else {
-            return original[nuevo] as Record<string, unknown>;
-          }
+      .reduce<Record<string,unknown>>(
+        (original, nuevo, level): Record<string,unknown> => {
+          if (!(nuevo in original)) original[nuevo] = {} as Record<string, unknown>;
+          if (level === propChain.split('.').length - 1) original[nuevo] = newState;
+          return original[nuevo] as Record<string,unknown>;
         },
-        this as Record<string, unknown>
+        this as Record<string,unknown>
       );
-    return this;
   },
   canvas: {
     height: defaultSettings.canvas.height,
