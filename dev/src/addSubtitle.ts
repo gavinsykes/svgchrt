@@ -7,7 +7,8 @@ import appendSVGChild from './appendSVGChild';
 import deepObjectMerge from './deepObjectMerge';
 import defaultSettings from './defaultSettings';
 import svgWrapText from './svgWrapText';
-import layout, { SubtitleLayout } from './layout';
+import {SubtitleLayout} from './interfaces';
+import layout from './layout';
 
 /**
  * addSubtitle takes a SettingsObject and an SVGElement as its arguments. It adds a `<text>` element to the SVG element which may or may not contain more than 1 <tspan> element.
