@@ -12,7 +12,7 @@ const layout: LayoutObject = {
   },
   set: function (
     propChain: string,
-    newState: Record<string, unknown> | string | number | Array<unknown>
+    newState: Record<string, unknown> | string | number
   ): void {
     if (['get', 'set'].includes(propChain)) {
       console.warn(
