@@ -63,7 +63,7 @@
     "lint:fix": "npx eslint ./dev/**/* --fix",
     "lint:prettier": "npm run lint && npm run prettier",
     "postversion": "git push origin master && git push origin master --tags && npm publish",
-    "prettier": "npx prettier --config .prettierrc './dev/**/*.ts' --write",
+    "prettier": "npx prettier --config .prettierrc ./dev/**/*.ts --write",
     "preversion": "npm run build && npm run test:prettier && npm run docs && git add docs && git commit -m\"Bumping version and updating docs\"",
     "setup": "npm install",
     "test": "mocha -r ts-node/register dev/**/*.spec.ts && alex && npm run lint",
