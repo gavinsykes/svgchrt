@@ -47,6 +47,7 @@ const defaultSettings: SettingsObject = {
     icons: {
       cx: 7,
       cy: 7,
+      d: '',
       display: false,
       height: 14,
       r: 7,

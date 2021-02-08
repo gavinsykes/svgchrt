@@ -157,6 +157,10 @@ Chart.render();
 
          **N.B.** The `cy` property is only applicable to certain SVG elements, the `<circle>` and the `<ellipse>`.
 
+      1. d (string), default: `''`
+
+         For `<path>` elements, determines the shape of the path.
+
       1. display (boolean), default: `false`
 
          Determines whether to display an icon.
