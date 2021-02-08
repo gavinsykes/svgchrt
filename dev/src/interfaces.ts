@@ -75,7 +75,7 @@ export interface LayoutObject extends Record<string, unknown> {
   get: () => LayoutObject;
   set: (
     propChain: string,
-    newState: Record<string, unknown> | string | number
+    newState: Record<string, unknown> | string | number | Array<unknown>
   ) => void;
   canvas: CanvasLayout;
   chart: ChartLayout;
