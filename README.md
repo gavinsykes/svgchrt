@@ -149,13 +149,13 @@ Chart.render();
 
          Determines the x-coordinate of the centre of the icons (relative to the legend item's co-ordinate space).
 
-         **N.B.** The `cx` property is only applicable to certain SVG elements, the <circle> and the <ellipse>.
+         **N.B.** The `cx` property is only applicable to certain SVG elements, the `<circle>` and the `<ellipse>`.
 
       1. cy (integer), default: `7`
 
          Determines the y-coordinate of the centre of the icons (relative to the legend item's co-ordinate space).
 
-         **N.B.** The `cy` property is only applicable to certain SVG elements, the <circle> and the <ellipse>.
+         **N.B.** The `cy` property is only applicable to certain SVG elements, the `<circle>` and the `<ellipse>`.
 
       1. display (boolean), default: `false`
 
@@ -171,19 +171,19 @@ Chart.render();
 
          Determines the radius of the icons.
 
-         **N.B.** The `r` property is only applicable to the <circle>.
+         **N.B.** The `r` property is only applicable to the `<circle>`.
 
       1. rx (integer), default: `7`
 
          Determines the x-radius of the icons.
 
-         **N.B.** The `rx` property is only applicable to the <ellipse>.
+         **N.B.** The `rx` property is only applicable to the `<ellipse>`.
 
       1. ry (integer), default: `7`
 
          Determines the y-radius of the icons.
 
-         **N.B.** The `ry` property is only applicable to the <ellipse>.
+         **N.B.** The `ry` property is only applicable to the `<ellipse>`.
 
       1. shape (string), default: `'rect'`
 
