@@ -76,7 +76,7 @@ export interface LayoutObject extends Record<string, unknown> {
   set: (
     propChain: string,
     newState: Record<string, unknown> | string | number
-  ) => void;
+  ) => LayoutObject | void;
   canvas: CanvasLayout;
   chart: ChartLayout;
   legend: LegendLayout;
