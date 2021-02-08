@@ -15,11 +15,9 @@ import isObject from './isObject';
  * @returns {Record<string, unknown>} - the cloned object.
  *
  */
-function copyObject(
-  original: unknown
-): Record<string,unknown> | undefined {
+function copyObject(original: unknown): Record<string, unknown> | undefined {
   if (!isObject(original)) return undefined;
-  const returnedObject: Record<string,unknown> = {};
+  const returnedObject: Record<string, unknown> = {};
   Object.entries(original as Record<string, unknown>).map(
     (c) => (returnedObject[c[0]] = isObject(c[1]) ? copyObject(c[1]) : c[1])
   );

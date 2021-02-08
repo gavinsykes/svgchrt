@@ -73,30 +73,44 @@ const obj2 = {
   g: 3
 };
 
-const merged12: Record<string,unknown> = deepObjectMerge(obj1, obj2);
-const mergedSettings: Record<string,unknown> = deepObjectMerge(
+const merged12: Record<string, unknown> = deepObjectMerge(obj1, obj2);
+const mergedSettings: Record<string, unknown> = deepObjectMerge(
   defaultSettings,
   options
 );
 
 describe('mergedSettings.legend.displaceTitle', () => {
   it('should be false', () => {
-    expect((mergedSettings.legend as Record<string,unknown>).displaceTitle).to.equal(false);
+    expect(
+      (mergedSettings.legend as Record<string, unknown>).displaceTitle
+    ).to.equal(false);
   });
 });
 describe('mergedSettings.legend.display', () => {
   it('should be true', () => {
-    expect((mergedSettings.legend as Record<string,unknown>).display).to.equal(true);
+    expect((mergedSettings.legend as Record<string, unknown>).display).to.equal(
+      true
+    );
   });
 });
 describe('mergedSettings.legend.icons.display', () => {
   it('should be true', () => {
-    expect(((mergedSettings.legend as Record<string,unknown>).icons as Record<string,unknown>).display).to.equal(true);
+    expect(
+      ((mergedSettings.legend as Record<string, unknown>).icons as Record<
+        string,
+        unknown
+      >).display
+    ).to.equal(true);
   });
 });
 describe('mergedSettings.legend.background.colour', () => {
   it('should be false', () => {
-    expect(((mergedSettings.legend as Record<string,unknown>).background as Record<string,unknown>).colour).to.equal('white');
+    expect(
+      ((mergedSettings.legend as Record<string, unknown>).background as Record<
+        string,
+        unknown
+      >).colour
+    ).to.equal('white');
   });
 });
 describe('obj1.b', () => {

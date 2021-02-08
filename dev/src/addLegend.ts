@@ -6,11 +6,7 @@
 import appendSVGChild from './appendSVGChild';
 import deepObjectMerge from './deepObjectMerge';
 import defaultSettings from './defaultSettings';
-import {
-  SettingsObject,
-  LegendItemIcon,
-  LegendLayout
-} from './interfaces';
+import { SettingsObject, LegendItemIcon, LegendLayout } from './interfaces';
 import layout from './layout';
 
 /**

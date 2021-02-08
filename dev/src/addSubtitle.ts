@@ -7,7 +7,7 @@ import appendSVGChild from './appendSVGChild';
 import deepObjectMerge from './deepObjectMerge';
 import defaultSettings from './defaultSettings';
 import svgWrapText from './svgWrapText';
-import {SubtitleLayout} from './interfaces';
+import { SubtitleLayout } from './interfaces';
 import layout from './layout';
 
 /**
