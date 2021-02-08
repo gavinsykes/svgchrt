@@ -22,12 +22,12 @@ interface SCInterface {
   data: Record<string, unknown>[];
 }
 
-interface SCConstructor {
+/* interface SCConstructor {
   new (
     options: Record<string, unknown>,
     data: Record<string, unknown>[]
   ): SCInterface;
-}
+} */
 /**
  * SVGChrt.
  *
