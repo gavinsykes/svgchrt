@@ -21,15 +21,17 @@ const layout: LayoutObject = {
       return;
     }
     if (propChain === '') return;
-    propChain.split('.').reduce((original, nuevo, level) => {
+    propChain.split('.').reduce((original: LayoutObject, nuevo: string, level: number) => {
       if (!(nuevo in original)) {
         original[nuevo] = {};
       }
       if (level === propChain.split('.').length - 1) {
         original[nuevo] = newState;
       }
-      return original[nuevo];
-    }, this);
+      if (typeof original[nuevo] === 'string') return original[nuevo] as string;
+      if (typeof original[nuevo] === 'number') {return original[nuevo] as number} else {
+      return original[nuevo] as Record<string, unknown>}
+    }, this as Record<string, unknown>);
   },
   canvas: {
     height: defaultSettings.canvas.height,
