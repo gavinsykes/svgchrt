@@ -5,11 +5,13 @@
 
 import appendSVGChild from './appendSVGChild';
 import deepObjectMerge from './deepObjectMerge';
-import defaultSettings, {
+import defaultSettings from './defaultSettings';
+import {
   SettingsObject,
-  LegendItemIcon
-} from './defaultSettings';
-import layout, { LegendLayout } from './layout';
+  LegendItemIcon,
+  LegendLayout
+} from './interfaces';
+import layout from './layout';
 
 /**
  * addLegend takes a SettingsObject and an SVGElement as its arguments. It adds a `<g>` element to the SVG element with class `legend`.
