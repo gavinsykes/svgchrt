@@ -4,6 +4,7 @@
  */
 
 import appendSVGChild from './appendSVGChild';
+import {Datum, SettingsObject, SCInterface} from './interfaces';
 import { getChartArea } from './layout';
 
 /**
@@ -14,8 +15,8 @@ import { getChartArea } from './layout';
  * @param {SVGGraphicsElement} chartArea - the chartable area to represent.
  *
  */
-function plot(chartArea: SVGGraphicsElement): void {
-  appendSVGChild('rect', chartArea, {
+function plot(caller: SCInterface, settings: SettingsObject, data: Datum<unknown>[] = []): void {
+  appendSVGChild('rect', caller.chartArea as SVGGraphicsElement, {
     fill: '#F808',
     width: getChartArea().width,
     height: getChartArea().height

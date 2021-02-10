@@ -20,6 +20,7 @@ interface SCInterface {
   settings: SettingsObject;
   target: HTMLElement;
   data: Record<string, unknown>[];
+  plot: (caller: SCInterface, settings: SettingsObject, data: Datum<unknown>[]) => void;
 }
 
 /* interface SCConstructor {
@@ -76,7 +77,7 @@ export default class SVGChrt implements SCInterface {
     this.data = data;
   }
 
-  render() {
+  render(): void {
     if (!this.target) {
       throw new Error(
         `Sorry, ${this.settings.target} doesn't appear to exist in the document. Please use a target <div> or <section> that is already in the document to display your visualisation.`
@@ -94,7 +95,7 @@ export default class SVGChrt implements SCInterface {
     this.chartArea = c.chartArea;
     this.canvas = c.canvas;
     if (this.plot instanceof Function) {
-      this.plot(this.chartArea);
+      this.plot(this,this.settings);
       this.placePlot(this.chartArea);
     }
   }

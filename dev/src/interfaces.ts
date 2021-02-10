@@ -254,3 +254,15 @@ export interface Caller {
   settings: SettingsObject;
   target: HTMLElement;
 }
+
+export interface Datum<T> extends Record<string, T> {}
+export interface SCInterface {
+  canvas: SVGElement | null;
+  chartArea: SVGGraphicsElement | null;
+  defaultSettings: SettingsObject;
+  layout: LayoutObject;
+  settings: SettingsObject;
+  target: HTMLElement;
+  data: Record<string, unknown>[];
+  plot: (caller: SCInterface, settings: SettingsObject, data: Datum<unknown>[]) => void;
+}
