@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { SettingsObject, LayoutObject } from './interfaces';
+import { SettingsObject, LayoutObject, SCInterface } from './interfaces';
 import defaultSettings from './defaultSettings';
 import initialLayout, { getChartArea } from './layout';
 import deepObjectMerge from './deepObjectMerge';
@@ -11,17 +11,6 @@ import appendSVGChild from './appendSVGChild';
 import plot from './plot';
 import placePlot from './placePlot';
 import buildSurround from './buildSurround';
-
-interface SCInterface {
-  canvas: SVGElement | null;
-  chartArea: SVGGraphicsElement | null;
-  defaultSettings: SettingsObject;
-  layout: LayoutObject;
-  settings: SettingsObject;
-  target: HTMLElement;
-  data: Record<string, unknown>[];
-  plot: (caller: SCInterface, settings: SettingsObject, data: Datum<unknown>[]) => void;
-}
 
 /* interface SCConstructor {
   new (
