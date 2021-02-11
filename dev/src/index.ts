@@ -26,7 +26,8 @@ import buildSurround from './buildSurround';
  * @param {HTMLElement} target - the HTML element in which to build the visualisation.
  *
  */
-export default class SVGChrt implements SCInterface {
+module SVGChrt {
+export class SVGChrt implements SCInterface {
   // Exposed selectable elements
   canvas: SVGElement | null;
   chartArea: SVGGraphicsElement | null;
@@ -88,4 +89,5 @@ export default class SVGChrt implements SCInterface {
       this.placePlot(this.chartArea);
     }
   }
+}
 }
