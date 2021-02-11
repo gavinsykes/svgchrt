@@ -99,9 +99,8 @@
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.</p>
+					<p>SVGChrt.</p>
 				</div>
-				<p>The return value is the generted chart area.</p>
 				<dl class="tsd-comment-tags">
 					<dt>param</dt>
 					<dd><p>the settings to apply to the visualisation.</p>
@@ -118,6 +117,12 @@
 				<li>
 					<span class="target">SVGChrt</span>
 				</li>
+			</ul>
+		</section>
+		<section class="tsd-panel">
+			<h3>Implements</h3>
+			<ul class="tsd-hierarchy">
+				<li><a href="../interfaces/_interfaces_.scinterface.html" class="tsd-signature-type">SCInterface</a></li>
 			</ul>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
@@ -162,13 +167,13 @@
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">new SVGChrt<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span>, data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.svgchrt.html" class="tsd-signature-type">SVGChrt</a></li>
+					<li class="tsd-signature tsd-kind-icon">new SVGChrt<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span>, data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_index_.svgchrt.html" class="tsd-signature-type">SVGChrt</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L58">index.ts:58</a></li>
+								<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L50">index.ts:50</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -177,7 +182,7 @@
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> data: <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> data: <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="_index_.svgchrt.html" class="tsd-signature-type">SVGChrt</a></h4>
@@ -193,7 +198,7 @@
 				<div class="tsd-signature tsd-kind-icon">appendSVGChild<span class="tsd-signature-symbol">:</span> <a href="../modules/_appendsvgchild_.html#appendsvgchild" class="tsd-signature-type">appendSVGChild</a><span class="tsd-signature-symbol"> = appendSVGChild</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L51">index.ts:51</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L43">index.ts:43</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -202,8 +207,9 @@
 				<h3>canvas</h3>
 				<div class="tsd-signature tsd-kind-icon">canvas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">SVGElement</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/_interfaces_.scinterface.html">SCInterface</a>.<a href="../interfaces/_interfaces_.scinterface.html#canvas">canvas</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L39">index.ts:39</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L31">index.ts:31</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -212,18 +218,20 @@
 				<h3>chart<wbr>Area</h3>
 				<div class="tsd-signature tsd-kind-icon">chart<wbr>Area<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">SVGGraphicsElement</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/_interfaces_.scinterface.html">SCInterface</a>.<a href="../interfaces/_interfaces_.scinterface.html#chartarea">chartArea</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L40">index.ts:40</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L32">index.ts:32</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 				<a name="data" class="tsd-anchor"></a>
 				<h3>data</h3>
-				<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/_interfaces_.scinterface.html">SCInterface</a>.<a href="../interfaces/_interfaces_.scinterface.html#data">data</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L58">index.ts:58</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L50">index.ts:50</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -233,17 +241,18 @@
 				<div class="tsd-signature tsd-kind-icon">deep<wbr>Object<wbr>Merge<span class="tsd-signature-symbol">:</span> <a href="../modules/_deepobjectmerge_.html#deepobjectmerge" class="tsd-signature-type">deepObjectMerge</a><span class="tsd-signature-symbol"> = deepObjectMerge</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L54">index.ts:54</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L46">index.ts:46</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 				<a name="defaultsettings" class="tsd-anchor"></a>
 				<h3>default<wbr>Settings</h3>
-				<div class="tsd-signature tsd-kind-icon">default<wbr>Settings<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_defaultsettings_.settingsobject.html" class="tsd-signature-type">SettingsObject</a><span class="tsd-signature-symbol"> = defaultSettings</span></div>
+				<div class="tsd-signature tsd-kind-icon">default<wbr>Settings<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_.settingsobject.html" class="tsd-signature-type">SettingsObject</a><span class="tsd-signature-symbol"> = defaultSettings</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/_interfaces_.scinterface.html">SCInterface</a>.<a href="../interfaces/_interfaces_.scinterface.html#defaultsettings">defaultSettings</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L49">index.ts:49</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L41">index.ts:41</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -253,17 +262,18 @@
 				<div class="tsd-signature tsd-kind-icon">get<wbr>Chart<wbr>Area<span class="tsd-signature-symbol">:</span> <a href="../modules/_layout_.html#getchartarea" class="tsd-signature-type">getChartArea</a><span class="tsd-signature-symbol"> = getChartArea</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L55">index.ts:55</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L47">index.ts:47</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 				<a name="layout" class="tsd-anchor"></a>
 				<h3>layout</h3>
-				<div class="tsd-signature tsd-kind-icon">layout<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_layout_.layoutobject.html" class="tsd-signature-type">LayoutObject</a><span class="tsd-signature-symbol"> = initialLayout</span></div>
+				<div class="tsd-signature tsd-kind-icon">layout<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_.layoutobject.html" class="tsd-signature-type">LayoutObject</a><span class="tsd-signature-symbol"> = initialLayout</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/_interfaces_.scinterface.html">SCInterface</a>.<a href="../interfaces/_interfaces_.scinterface.html#layout">layout</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L50">index.ts:50</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L42">index.ts:42</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -273,7 +283,7 @@
 				<div class="tsd-signature tsd-kind-icon">place<wbr>Plot<span class="tsd-signature-symbol">:</span> <a href="../modules/_placeplot_.html#placeplot" class="tsd-signature-type">placePlot</a><span class="tsd-signature-symbol"> = placePlot</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L53">index.ts:53</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L45">index.ts:45</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -282,18 +292,20 @@
 				<h3>plot</h3>
 				<div class="tsd-signature tsd-kind-icon">plot<span class="tsd-signature-symbol">:</span> <a href="../modules/_plot_.html#plot" class="tsd-signature-type">plot</a><span class="tsd-signature-symbol"> = plot</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/_interfaces_.scinterface.html">SCInterface</a>.<a href="../interfaces/_interfaces_.scinterface.html#plot">plot</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L52">index.ts:52</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L44">index.ts:44</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 				<a name="settings" class="tsd-anchor"></a>
 				<h3>settings</h3>
-				<div class="tsd-signature tsd-kind-icon">settings<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_defaultsettings_.settingsobject.html" class="tsd-signature-type">SettingsObject</a></div>
+				<div class="tsd-signature tsd-kind-icon">settings<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_.settingsobject.html" class="tsd-signature-type">SettingsObject</a></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/_interfaces_.scinterface.html">SCInterface</a>.<a href="../interfaces/_interfaces_.scinterface.html#settings">settings</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L56">index.ts:56</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L48">index.ts:48</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -302,8 +314,9 @@
 				<h3>target</h3>
 				<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span></div>
 				<aside class="tsd-sources">
+					<p>Implementation of <a href="../interfaces/_interfaces_.scinterface.html">SCInterface</a>.<a href="../interfaces/_interfaces_.scinterface.html#target">target</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L57">index.ts:57</a></li>
+						<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L49">index.ts:49</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -320,7 +333,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/6a79ea8/dev/src/index.ts#L77">index.ts:77</a></li>
+								<li>Defined in <a href="https://github.com/gavinsykes/svgchrt/blob/f1ad39b/dev/src/index.ts#L69">index.ts:69</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -333,15 +346,16 @@
 				<h2>Legend</h2>
 				<div class="tsd-legend-group">
 					<ul class="tsd-legend">
+						<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+						<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+						<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+						<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+					</ul>
+					<ul class="tsd-legend">
 						<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 						<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 						<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 						<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-					</ul>
-					<ul class="tsd-legend">
-						<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-						<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-						<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 					</ul>
 					<ul class="tsd-legend">
 						<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
