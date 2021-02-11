@@ -21,6 +21,9 @@ function plot(caller: SCInterface, settings: SettingsObject, data: Datum<unknown
     width: getChartArea().width,
     height: getChartArea().height
   });
+  appendSVGChild('text',caller.chartArea as SVGGraphicsElement,{
+    fill : 'black',
+  },`${JSON.stringify(data)} ${JSON.stringify(settings)}`)
 }
 
 export default plot;

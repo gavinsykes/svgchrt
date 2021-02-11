@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { SettingsObject, LayoutObject, SCInterface } from './interfaces';
+import { SettingsObject, SCInterface } from './interfaces';
 import defaultSettings from './defaultSettings';
 import initialLayout, { getChartArea } from './layout';
 import deepObjectMerge from './deepObjectMerge';
