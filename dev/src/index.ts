@@ -84,7 +84,7 @@ export default class SVGChrt implements SCInterface {
     this.chartArea = c.chartArea;
     this.canvas = c.canvas;
     if (this.plot instanceof Function) {
-      this.plot(this,this.settings);
+      this.plot(this, this.settings);
       this.placePlot(this.chartArea);
     }
   }

@@ -4,7 +4,7 @@
  */
 
 import appendSVGChild from './appendSVGChild';
-import {Datum, SettingsObject, SCInterface} from './interfaces';
+import { Datum, SettingsObject, SCInterface } from './interfaces';
 import { getChartArea } from './layout';
 
 /**
@@ -15,15 +15,24 @@ import { getChartArea } from './layout';
  * @param {SVGGraphicsElement} chartArea - the chartable area to represent.
  *
  */
-function plot(caller: SCInterface, settings: SettingsObject, data: Datum<unknown>[] = []): void {
+function plot(
+  caller: SCInterface,
+  settings: SettingsObject,
+  data: Datum<unknown>[] = []
+): void {
   appendSVGChild('rect', caller.chartArea as SVGGraphicsElement, {
     fill: '#F808',
     width: getChartArea().width,
     height: getChartArea().height
   });
-  appendSVGChild('text',caller.chartArea as SVGGraphicsElement,{
-    fill : 'black',
-  },`${JSON.stringify(data)} ${JSON.stringify(settings)}`)
+  appendSVGChild(
+    'text',
+    caller.chartArea as SVGGraphicsElement,
+    {
+      fill: 'black'
+    },
+    `${JSON.stringify(data)} ${JSON.stringify(settings)}`
+  );
 }
 
 export default plot;

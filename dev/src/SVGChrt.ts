@@ -93,7 +93,7 @@ export class SVGChrt /* implements SC */ {
     this.chartArea = c.chartArea;
     this.canvas = c.canvas;
     if (this.plot instanceof Function) {
-      this.plot(this,this.settings,this.data);
+      this.plot(this, this.settings, this.data);
       this.placePlot(this.chartArea);
     }
   }

@@ -7,7 +7,7 @@
  * interface PaddingandMargin provides the inner padding and/or outer margin of an item, its 4 values are top, right, bottom and left.
  *
  */
-export interface PaddingandMargin extends Record<string, unknown> {
+export interface PaddingandMargin extends Record<string, number> {
   top: number;
   right: number;
   bottom: number;
@@ -73,10 +73,7 @@ export type TitleLayout = ChartLayout;
  */
 export interface LayoutObject extends Record<string, unknown> {
   get: () => LayoutObject;
-  set: (
-    propChain: string,
-    newState: unknown
-  ) => void;
+  set: (propChain: string, newState: unknown) => void;
   canvas: CanvasLayout;
   chart: ChartLayout;
   legend: LegendLayout;
@@ -255,7 +252,7 @@ export interface Caller {
   target: HTMLElement;
 }
 
-export interface Datum<T> extends Record<string, T> {}
+export interface Datum<T> implements Record<string, T> {}
 export interface SCInterface {
   canvas: SVGElement | null;
   chartArea: SVGGraphicsElement | null;
@@ -264,5 +261,9 @@ export interface SCInterface {
   settings: SettingsObject;
   target: HTMLElement;
   data: Record<string, unknown>[];
-  plot: (caller: SCInterface, settings: SettingsObject, data: Datum<unknown>[]) => void;
+  plot: (
+    caller: SCInterface,
+    settings: SettingsObject,
+    data: Datum<unknown>[]
+  ) => void;
 }
