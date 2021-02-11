@@ -252,7 +252,7 @@ export interface Caller {
   target: HTMLElement;
 }
 
-export interface Datum<T> implements Record<string, T> {}
+export type Datum<T> = Record<string, T>;
 export interface SCInterface {
   canvas: SVGElement | null;
   chartArea: SVGGraphicsElement | null;
