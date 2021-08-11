@@ -40,8 +40,8 @@ export interface LegendItem extends Record<string, unknown> {
 }
 
 export const buildSurround2 = (): typeof my => {
-  let width: number;
-  let height: number;
+  let width = 960;
+  let height = 500;
   let margin = { top: 0, right: 0, bottom: 0, left: 0 };
   let title: string;
   let subtitle: string;
