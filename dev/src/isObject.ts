@@ -14,6 +14,6 @@
  *
  */
 const isObject: (o: unknown) => boolean = (o: unknown): boolean =>
-   o && typeof o === 'object' && !Array.isArray(o);
+  !!o && typeof o === 'object' && !Array.isArray(o);
 
 export default isObject;
