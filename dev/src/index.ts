@@ -10,130 +10,116 @@ import deepObjectMerge from './deepObjectMerge';
 import appendSVGChild from './appendSVGChild';
 import plot from './plot';
 import placePlot from './placePlot';
-import buildSurround from './buildSurround';
+import buildSurround, {
+  buildSurround2,
+  Margin,
+  LegendItem
+} from './buildSurround';
 
 // UPDATE 5th August 2021 - attempting to reconstruct with a functional approach, in a more D3-esque style
 
-interface Margin extends Record<string, Number> {
-  top: Number;
-  right: Number;
-  bottom: Number;
-  left: Number;
-}
-
 enum LegendOrientation {
-  Horizontal = "horizontal",
-  Vertical = "vertical"
+  Horizontal = 'horizontal',
+  Vertical = 'vertical'
 }
 
 enum LegendPosition {
-  TopLeft     = "top-left",
-  Top         = "top",
-  TopRight    = "top-right",
-  Right       = "right",
-  BottomRight = "bottom-right",
-  Bottom      = "bottom",
-  BottomLeft  = "bottom-left",
-  Left        = "left",
+  TopLeft = 'top-left',
+  Top = 'top',
+  TopRight = 'top-right',
+  Right = 'right',
+  BottomRight = 'bottom-right',
+  Bottom = 'bottom',
+  BottomLeft = 'bottom-left',
+  Left = 'left'
 }
 
-interface LegendItem extends Record<string, unknown> {}
-
-export const chart = () => {
-  let width: Number,
-  height: Number,
-  margin: Margin,
-  title: String,
-  subtitle: String,
-  legendDisplay: Boolean,
-  legendItems: LegendItem[],
-  legendPosition: LegendPosition,
-  legendOrientation: LegendOrientation,
-  target: HTMLDivElement | String;
+export const chart = (): void => {
+  let width: number,
+    height: number,
+    margin: Margin,
+    title: string,
+    subtitle: string,
+    legendDisplay: boolean,
+    legendItems: LegendItem[],
+    legendPosition: LegendPosition,
+    legendOrientation: LegendOrientation,
+    target: SVGElement | string;
   const my = () => {
-    if (target !instanceof HTMLDivElement && target !instanceof String) {
-      // Error, target isn't a div or string
+    if (!(target instanceof SVGElement || target instanceof String)) {
+      // Error, target isn't an SVG or string
     } else if (target instanceof String) {
-      if (document.querySelector(target as string) instanceof HTMLDivElement) {
-        target = document.querySelector(target as string) as HTMLDivElement;
+      if (document.querySelector(target as string) instanceof SVGElement) {
+        target = document.querySelector(target as string) as SVGElement;
       } else {
-        // Error, selector is not a div element
+        // Error, selector is not an SVG element
       }
     }
-    const surround = buildSurround().target(target)
-    .width(width)
-    .height(height)
-    .margin(margin)
-    .title(title)
-    .subtitle(subtitle)
-    .legendDisplay(legendDisplay)
-    .legendItems(legendItems)
-    .legendPosition(legendPosition)
-    .legendOrientation(legendOrientation);
+    const surround = buildSurround()
+      .target(target)
+      .width(width)
+      .height(height)
+      .margin(margin)
+      .title(title)
+      .subtitle(subtitle)
+      .legendDisplay(legendDisplay)
+      .legendItems(legendItems)
+      .legendPosition(legendPosition)
+      .legendOrientation(legendOrientation);
   };
 
-  my.height = function(_?: Number) {
-    return arguments.length
-      ? ((height = _ as Number), my)
-      : height;
-  }
-  
-  my.legendDisplay = function(_?: Boolean) {
-    return arguments.length
-    ? ((legendDisplay = _ as Boolean), my)
-    : legendDisplay;
-  }
+  my.height = function (_?: Number) {
+    return arguments.length ? ((height = _ as Number), my) : height;
+  };
 
-  my.legendItems = function(_?: LegendItem[]) {
+  my.legendDisplay = function (_?: Boolean) {
+    return arguments.length
+      ? ((legendDisplay = _ as Boolean), my)
+      : legendDisplay;
+  };
+
+  my.legendItems = function (_?: LegendItem[]) {
     return arguments.length
       ? ((legendItems = _ as LegendItem[]), my)
       : legendItems;
-  }
-  
-  my.legendOrientation = function(_?: LegendOrientation) {
-    return arguments.length
-    ? ((legendOrientation = _ as LegendOrientation), my)
-    : legendOrientation;
-  }
-  
-  my.legendPosition = function(_?: LegendPosition) {
-    return arguments.length
-    ? ((legendPosition = _ as LegendPosition), my)
-    : legendPosition;
-  }
+  };
 
-  my.margin = function(_?: Margin) {
+  my.legendOrientation = function (_?: LegendOrientation) {
     return arguments.length
-      ? ((margin = _ as Margin), my)
-      : margin;
-  }
+      ? ((legendOrientation = _ as LegendOrientation), my)
+      : legendOrientation;
+  };
 
-  my.subtitle = function(_?: String) {
+  my.legendPosition = function (_?: LegendPosition) {
     return arguments.length
-      ? ((subtitle = _ as String), my)
-      : subtitle;
-  }
-  
-  my.target = function(_?: HTMLDivElement | String) {
+      ? ((legendPosition = _ as LegendPosition), my)
+      : legendPosition;
+  };
+
+  my.margin = function (_?: Margin) {
+    return arguments.length ? ((margin = _ as Margin), my) : margin;
+  };
+
+  my.subtitle = function (_?: String) {
+    return arguments.length ? ((subtitle = _ as String), my) : subtitle;
+  };
+
+  my.target = function (_?: HTMLDivElement | String) {
     return arguments.length
       ? ((target = _ as HTMLDivElement | String), my)
       : target;
-  }
+  };
 
-  my.title = function(_?: String) {
-    return arguments.length
-      ? ((title = _ as String), my)
-      : title;
-  }
+  my.title = function (_?: String) {
+    return arguments.length ? ((title = _ as String), my) : title;
+  };
 
-  my.width = function(_?: Number) {
-    return arguments.length
-      ? ((width = _ as Number), my)
-      : width;
-  }
+  my.width = function (_?: Number) {
+    return arguments.length ? ((width = _ as Number), my) : width;
+  };
 
   return my;
-}; 
+};
 
 /* interface SCConstructor {
   new (
