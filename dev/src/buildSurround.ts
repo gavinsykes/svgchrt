@@ -222,43 +222,43 @@ export const buildSurround = (): typeof my => {
   };
 
   my.margin = function (_: Margin): typeof my | Margin {
-    return arguments.length ? ((margin = _), my as typeof my) : margin;
+    return arguments.length ? ((margin = _), my) : margin;
   };
 
   my.title = function (_: string): typeof my | string {
-    return arguments.length ? ((title = _), my as typeof my) : title;
+    return arguments.length ? ((title = _), my) : title;
   };
 
   my.subtitle = function (_: string): typeof my | string {
-    return arguments.length ? ((subtitle = _), my as typeof my) : subtitle;
+    return arguments.length ? ((subtitle = _), my) : subtitle;
   };
 
   my.width = function (_: number): typeof my | number {
-    return arguments.length ? ((width = _), my as typeof my) : width;
+    return arguments.length ? ((width = _), my) : width;
   };
 
   my.height = function (_: number): typeof my | number {
-    return arguments.length ? ((height = _), my as typeof my) : height;
+    return arguments.length ? ((height = _), my) : height;
   };
 
   my.legendPosition = function (_: LegendPosition): typeof my | LegendPosition {
-    return arguments.length ? ((legendPosition = _), my as typeof my) : legendPosition;
+    return arguments.length ? ((legendPosition = _), my) : legendPosition;
   };
 
   my.legendDisplay = function (_: boolean): typeof my | boolean {
-    return arguments.length ? ((legendDisplay = _), my as typeof my) : legendDisplay;
+    return arguments.length ? ((legendDisplay = _), my) : legendDisplay;
   };
 
   my.legendItems = function (_: LegendItem[]): typeof my | LegendItem[] {
-    return arguments.length ? ((legendItems = _), my as typeof my) : legendItems;
+    return arguments.length ? ((legendItems = _), my) : legendItems;
   };
 
   my.legendOrientation = function (_: LegendOrientation): typeof my | LegendOrientation {
-    return arguments.length ? ((legendOrientation = _), my as typeof my) : legendOrientation;
+    return arguments.length ? ((legendOrientation = _), my) : legendOrientation;
   };
 
   my.target = function (_: SVGElement): typeof my | SVGElement {
-    return arguments.length ? ((target = _), my as typeof my) : target;
+    return arguments.length ? ((target = _), my) : target;
   };
 
   my.chartArea = function () {
