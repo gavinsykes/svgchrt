@@ -3,15 +3,8 @@
  * @license MIT
  */
 
-import { SettingsObject, SCInterface } from './interfaces';
-import defaultSettings from './defaultSettings';
-import initialLayout, { getChartArea } from './layout';
-import deepObjectMerge from './deepObjectMerge';
-import appendSVGChild from './appendSVGChild';
-import plot from './plot';
-import placePlot from './placePlot';
-import buildSurround, {
-  buildSurround2,
+import {
+  buildSurround,
   Margin,
   LegendItem
 } from './buildSurround';
@@ -34,7 +27,7 @@ enum LegendPosition {
   Left = 'left'
 }
 
-export const chart = (): void => {
+export const chart = (): typeof my => {
   let width: number,
     height: number,
     margin: Margin,
@@ -44,9 +37,9 @@ export const chart = (): void => {
     legendItems: LegendItem[],
     legendPosition: LegendPosition,
     legendOrientation: LegendOrientation,
-    target: SVGElement | string;
+    target: SVGElement;
   const my = () => {
-    if (!(target instanceof SVGElement || target instanceof String)) {
+    if (!(target instanceof SVGElement)) {
       // Error, target isn't an SVG or string
     } else if (target instanceof String) {
       if (document.querySelector(target as string) instanceof SVGElement) {
@@ -55,26 +48,26 @@ export const chart = (): void => {
         // Error, selector is not an SVG element
       }
     }
-    const surround = buildSurround()
-      .target(target)
-      .width(width)
-      .height(height)
-      .margin(margin)
-      .title(title)
-      .subtitle(subtitle)
-      .legendDisplay(legendDisplay)
-      .legendItems(legendItems)
-      .legendPosition(legendPosition)
-      .legendOrientation(legendOrientation);
+    ((((((((((buildSurround()
+    .width(width) as typeof my)
+    .margin(margin) as typeof my)
+      .height(height) as typeof my)
+      .target(target) as typeof my)
+      .title(title) as typeof my)
+      .subtitle(subtitle) as typeof my)
+      .legendDisplay(legendDisplay) as typeof my)
+      .legendItems(legendItems) as typeof my)
+      .legendPosition(legendPosition) as typeof my)
+      .legendOrientation(legendOrientation) as typeof my);
   };
 
-  my.height = function (_?: Number) {
-    return arguments.length ? ((height = _ as Number), my) : height;
+  my.height = function (_?: number) {
+    return arguments.length ? ((height = _ as number), my) : height;
   };
 
-  my.legendDisplay = function (_?: Boolean) {
+  my.legendDisplay = function (_?: boolean) {
     return arguments.length
-      ? ((legendDisplay = _ as Boolean), my)
+      ? ((legendDisplay = _ as boolean), my)
       : legendDisplay;
   };
 
@@ -100,101 +93,23 @@ export const chart = (): void => {
     return arguments.length ? ((margin = _ as Margin), my) : margin;
   };
 
-  my.subtitle = function (_?: String) {
-    return arguments.length ? ((subtitle = _ as String), my) : subtitle;
+  my.subtitle = function (_?: string) {
+    return arguments.length ? ((subtitle = _ as string), my) : subtitle;
   };
 
-  my.target = function (_?: HTMLDivElement | String) {
+  my.target = function (_?: SVGElement) {
     return arguments.length
-      ? ((target = _ as HTMLDivElement | String), my)
+      ? ((target = _ as SVGElement), my)
       : target;
   };
 
-  my.title = function (_?: String) {
-    return arguments.length ? ((title = _ as String), my) : title;
+  my.title = function (_?: string) {
+    return arguments.length ? ((title = _ as string), my) : title;
   };
 
-  my.width = function (_?: Number) {
-    return arguments.length ? ((width = _ as Number), my) : width;
+  my.width = function (_?: number) {
+    return arguments.length ? ((width = _ as number), my) : width;
   };
 
   return my;
 };
-
-/* interface SCConstructor {
-  new (
-    options: Record<string, unknown>,
-    data: Record<string, unknown>[]
-  ): SCInterface;
-} */
-/**
- * SVGChrt.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
- *
- */
-export default class SVGChrt implements SCInterface {
-  // Exposed selectable elements
-  canvas: SVGElement | null;
-  chartArea: SVGGraphicsElement | null;
-  /*
-    Canvas - done-ish
-    ChartArea - done
-    Title
-    Subtitle
-    Legend
-    Each legend item 
-  */
-  defaultSettings = defaultSettings;
-  layout = initialLayout;
-  appendSVGChild = appendSVGChild;
-  plot = plot;
-  placePlot = placePlot;
-  deepObjectMerge = deepObjectMerge;
-  getChartArea = getChartArea;
-  settings: SettingsObject;
-  target: HTMLElement;
-  data: Record<string, unknown>[];
-  constructor(
-    options: Record<string, unknown> = {},
-    data: Record<string, unknown>[] = []
-  ) {
-    this.settings = deepObjectMerge(
-      deepObjectMerge(this.defaultSettings, {
-        canvas: { viewBox: `0 0 960 500` }
-      } as Record<string, unknown>),
-      options
-    ) as SettingsObject;
-    this.target = /^#\w*/i.test(this.settings.target)
-      ? (document.querySelector(this.settings.target) as HTMLElement)
-      : (document.querySelector(`#${this.settings.target}`) as HTMLElement);
-    this.canvas = null;
-    this.chartArea = null;
-    this.data = data;
-  }
-
-  render(): void {
-    if (!this.target) {
-      throw new Error(
-        `Sorry, ${this.settings.target} doesn't appear to exist in the document. Please use a target <div> or <section> that is already in the document to display your visualisation.`
-      );
-      return;
-    }
-    const tET = this.target.tagName.toLowerCase();
-    if (!['div', 'section'].includes(tET)) {
-      throw new Error(
-        `Sorry, ${this.settings.target} doesn't appear to be a <div> or <section>. You need to select one of those from the document to display your visualisation.`
-      );
-      return;
-    }
-    const c = buildSurround(this.settings, this.target);
-    this.chartArea = c.chartArea;
-    this.canvas = c.canvas;
-    if (this.plot instanceof Function) {
-      this.plot(this, this.settings);
-      this.placePlot(this.chartArea);
-    }
-  }
-}
