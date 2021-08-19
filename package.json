@@ -48,6 +48,9 @@
   "license": "MIT",
   "main": "./dist/index.js",
   "name": "svgchrt",
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gavinsykes/svgchrt.git"
@@ -65,7 +68,7 @@
     "postversion": "git push origin master && git push origin master --tags && npm publish",
     "prettier": "npx prettier --config .prettierrc ./dev/**/*.ts --write",
     "preversion": "npm run build && npm run test:prettier && npm run docs && git add docs && git commit -m\"Bumping version and updating docs\"",
-    "setup": "npm install",
+    "setup": "npm install --no-optional",
     "test": "mocha -r ts-node/register dev/**/*.spec.ts && alex && npm run lint",
     "test:codecov": "npm run test:cover && bash <(curl -s https://codecov.io/bash)",
     "test:cover": "nyc --reporter=text --reporter=text-lcov --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts",
