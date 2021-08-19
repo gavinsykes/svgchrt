@@ -7,6 +7,7 @@ import {
   LegendPosition,
   LegendOrientation
 } from './interfaces';
+import svgWrapText from './svgWrapText';
 
 export interface Margin extends Record<string, number> {
   top: number;
@@ -45,6 +46,7 @@ export const buildSurround = (): typeof my => {
   let legendItems: LegendItem[];
   let legendPosition = LegendPosition.Right;
   let legendOrientation = LegendOrientation.Vertical;
+  let legendDisplacesTitle = false;
   let chartArea: SVGGraphicsElement;
   let target: SVGElement;
   const my = () => {
@@ -130,6 +132,10 @@ export const buildSurround = (): typeof my => {
       }
     }
     if (legendDisplay && legendItems) {
+      const legendAvailableSpace = {x1: margin.left,x2: width - margin.right,y1:margin.top,y2:height - margin.bottom};
+      if (!legendDisplacesTitle) {
+        legendAvailableSpace.y1 -= (titleTextElement ? titleTextElement.getBBox().height : 0) + (subtitleTextElement ? subtitleTextElement.getBBox().height : 0)
+      }
       if (!legendElement) {
         legendElement = document.createElementNS(
           'http://www.w3.org/2000/svg',
@@ -183,22 +189,38 @@ export const buildSurround = (): typeof my => {
       const legendTransform = { x: 0, y: 0 };
       switch (legendPosition) {
         case 'top-left':
+          legendTransform.x = legendAvailableSpace.x1;
+          legendTransform.y = legendAvailableSpace.y1;
           break;
         case 'top':
+          legendTransform.x = (legendAvailableSpace.x1 + legendAvailableSpace.x2 - legendElement.getBBox().width) / 2;
+          legendTransform.y = legendAvailableSpace.y1;
           break;
         case 'top-right':
+          legendTransform.x = legendAvailableSpace.x2 - legendElement.getBBox().width;
+          legendTransform.y = legendAvailableSpace.y1;
           break;
         case 'right':
           legendTransform.x =
-            width - margin.right - legendElement.getBBox().width;
+          legendAvailableSpace.x2 - legendElement.getBBox().width;
+          legendTransform.y = (legendAvailableSpace.y1 + legendAvailableSpace.y2 - legendElement.getBBox().height) / 2;
           break;
         case 'bottom-right':
+          legendTransform.x =
+          legendAvailableSpace.x2 - legendElement.getBBox().width;
+          legendTransform.y = legendAvailableSpace.y2 - legendElement.getBBox().height;
           break;
         case 'bottom':
+          legendTransform.x = (legendAvailableSpace.x1 + legendAvailableSpace.x2 - legendElement.getBBox().width) / 2;
+          legendTransform.y = legendAvailableSpace.y2 - legendElement.getBBox().height;
           break;
         case 'bottom-left':
+          legendTransform.x = legendAvailableSpace.x1;
+          legendTransform.y = legendAvailableSpace.y2 - legendElement.getBBox().height;
           break;
         case 'left':
+          legendTransform.x = legendAvailableSpace.x1;
+          legendTransform.y = (legendAvailableSpace.y1 + legendAvailableSpace.y2 - legendElement.getBBox().height) / 2;
           break;
         default:
           break;
@@ -255,6 +277,10 @@ export const buildSurround = (): typeof my => {
 
   my.legendOrientation = function (_: LegendOrientation): typeof my | LegendOrientation {
     return arguments.length ? ((legendOrientation = _), my) : legendOrientation;
+  };
+
+  my.legendDisplacesTitle = function (_: boolean): typeof my | boolean {
+    return arguments.length ? ((legendDisplacesTitle = _), my) : legendDisplacesTitle;
   };
 
   my.target = function (_: SVGElement): typeof my | SVGElement {
