@@ -4,14 +4,9 @@
  */
 
 import {
-  SettingsObject,
-  ReturnedCanvas,
   LegendPosition,
   LegendOrientation
 } from './interfaces';
-import addLegend from './addLegend';
-import placeCanvas from './placeCanvas';
-import defaultSettings from './defaultSettings';
 
 export interface Margin extends Record<string, number> {
   top: number;
@@ -226,44 +221,44 @@ export const buildSurround = (): typeof my => {
     }
   };
 
-  my.margin = function (_: Margin) {
-    return arguments.length ? ((margin = _), my) : margin;
+  my.margin = function (_: Margin): typeof my | Margin {
+    return arguments.length ? ((margin = _), my as typeof my) : margin;
   };
 
-  my.title = function (_: string) {
-    return arguments.length ? ((title = _), my) : title;
+  my.title = function (_: string): typeof my | string {
+    return arguments.length ? ((title = _), my as typeof my) : title;
   };
 
-  my.subtitle = function (_: string) {
-    return arguments.length ? ((subtitle = _), my) : subtitle;
+  my.subtitle = function (_: string): typeof my | string {
+    return arguments.length ? ((subtitle = _), my as typeof my) : subtitle;
   };
 
-  my.width = function (_: number) {
-    return arguments.length ? ((width = _), my) : width;
+  my.width = function (_: number): typeof my | number {
+    return arguments.length ? ((width = _), my as typeof my) : width;
   };
 
-  my.height = function (_: number) {
-    return arguments.length ? ((height = _), my) : height;
+  my.height = function (_: number): typeof my | number {
+    return arguments.length ? ((height = _), my as typeof my) : height;
   };
 
-  my.legendPosition = function (_: LegendPosition) {
-    return arguments.length ? ((legendPosition = _), my) : legendPosition;
+  my.legendPosition = function (_: LegendPosition): typeof my | LegendPosition {
+    return arguments.length ? ((legendPosition = _), my as typeof my) : legendPosition;
   };
 
-  my.legendDisplay = function (_: boolean) {
-    return arguments.length ? ((legendDisplay = _), my) : legendDisplay;
+  my.legendDisplay = function (_: boolean): typeof my | boolean {
+    return arguments.length ? ((legendDisplay = _), my as typeof my) : legendDisplay;
   };
 
-  my.legendItems = function (_: LegendItem[]) {
-    return arguments.length ? ((legendItems = _), my) : legendItems;
+  my.legendItems = function (_: LegendItem[]): typeof my | LegendItem[] {
+    return arguments.length ? ((legendItems = _), my as typeof my) : legendItems;
   };
 
-  my.legendOrientation = function (_: LegendOrientation) {
-    return arguments.length ? ((legendOrientation = _), my) : legendOrientation;
+  my.legendOrientation = function (_: LegendOrientation): typeof my | LegendOrientation {
+    return arguments.length ? ((legendOrientation = _), my as typeof my) : legendOrientation;
   };
 
-  my.target = function (_: SVGElement) {
-    return arguments.length ? ((target = _), my) : target;
+  my.target = function (_: SVGElement): typeof my | SVGElement {
+    return arguments.length ? ((target = _), my as typeof my) : target;
   };
 
   my.chartArea = function () {
