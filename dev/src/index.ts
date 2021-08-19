@@ -61,54 +61,54 @@ export const chart = (): typeof my => {
       .legendOrientation(legendOrientation) as typeof my);
   };
 
-  my.height = function (_?: number) {
-    return arguments.length ? ((height = _ as number), my) : height;
+  my.height = function (_: number) {
+    return arguments.length ? ((height = _), my as typeof my) : height;
   };
 
-  my.legendDisplay = function (_?: boolean) {
+  my.legendDisplay = function (_: boolean) {
     return arguments.length
-      ? ((legendDisplay = _ as boolean), my)
+      ? ((legendDisplay = _), my as typeof my)
       : legendDisplay;
   };
 
-  my.legendItems = function (_?: LegendItem[]) {
+  my.legendItems = function (_: LegendItem[]) {
     return arguments.length
-      ? ((legendItems = _ as LegendItem[]), my)
+      ? ((legendItems = _), my as typeof my)
       : legendItems;
   };
 
-  my.legendOrientation = function (_?: LegendOrientation) {
+  my.legendOrientation = function (_: LegendOrientation) {
     return arguments.length
-      ? ((legendOrientation = _ as LegendOrientation), my)
+      ? ((legendOrientation = _), my as typeof my)
       : legendOrientation;
   };
 
-  my.legendPosition = function (_?: LegendPosition) {
+  my.legendPosition = function (_: LegendPosition) {
     return arguments.length
-      ? ((legendPosition = _ as LegendPosition), my)
+      ? ((legendPosition = _), my as typeof my)
       : legendPosition;
   };
 
-  my.margin = function (_?: Margin) {
-    return arguments.length ? ((margin = _ as Margin), my) : margin;
+  my.margin = function (_: Margin) {
+    return arguments.length ? ((margin = _), my as typeof my) : margin;
   };
 
-  my.subtitle = function (_?: string) {
-    return arguments.length ? ((subtitle = _ as string), my) : subtitle;
+  my.subtitle = function (_: string) {
+    return arguments.length ? ((subtitle = _), my as typeof my) : subtitle;
   };
 
-  my.target = function (_?: SVGElement) {
+  my.target = function (_: SVGElement) {
     return arguments.length
-      ? ((target = _ as SVGElement), my)
+      ? ((target = _), my as typeof my)
       : target;
   };
 
-  my.title = function (_?: string) {
-    return arguments.length ? ((title = _ as string), my) : title;
+  my.title = function (_: string) {
+    return arguments.length ? ((title = _), my as typeof my) : title;
   };
 
-  my.width = function (_?: number) {
-    return arguments.length ? ((width = _ as number), my) : width;
+  my.width = function (_: number) {
+    return arguments.length ? ((width = _), my as typeof my) : width;
   };
 
   return my;
