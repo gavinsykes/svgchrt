@@ -10,9 +10,6 @@ import {
   LegendOrientation
 } from './interfaces';
 import addLegend from './addLegend';
-import addSubtitle from './addSubtitle';
-import addTitle from './addTitle';
-import clearCanvas from './clearCanvas';
 import placeCanvas from './placeCanvas';
 import defaultSettings from './defaultSettings';
 
@@ -39,7 +36,7 @@ export interface LegendItem extends Record<string, unknown> {
   y?: string;
 }
 
-export const buildSurround2 = (): typeof my => {
+export const buildSurround = (): typeof my => {
   let width = 960;
   let height = 500;
   let margin = { top: 0, right: 0, bottom: 0, left: 0 };
@@ -51,8 +48,8 @@ export const buildSurround2 = (): typeof my => {
   let legendDisplay = false;
   let legendElement: SVGGraphicsElement | null;
   let legendItems: LegendItem[];
-  let legendPosition = 'right';
-  let legendOrientation = 'vertical';
+  let legendPosition = LegendPosition.Right;
+  let legendOrientation = LegendOrientation.Vertical;
   let chartArea: SVGGraphicsElement;
   let target: SVGElement;
   const my = () => {
@@ -316,48 +313,5 @@ export const buildSurround2 = (): typeof my => {
 
   return my;
 };
-
-/**
- * buildSurround takes a SettingsObject and HTMLElement as its arguments. It generates an SVG element onto which it applies the title, description, subtitle and chart area.
- *
- * The return value is the generted chart area.
- *
- * @param {SettingsObject} settings - the settings to apply to the visualisation.
- *
- * @param {HTMLElement} target - the HTML element in which to build the visualisation.
- *
- */
-function buildSurround(
-  settings: SettingsObject = defaultSettings,
-  target: HTMLElement
-): ReturnedCanvas {
-  clearCanvas(target);
-  const c: ReturnedCanvas = placeCanvas(settings, target);
-  if (
-    settings.legend.position === 'top' ||
-    settings.legend.position === 'bottom' ||
-    settings.legend.orientation === 'horizontal'
-  ) {
-    settings.legend.displaceTitle = false;
-  }
-  if (
-    settings.legend.display &&
-    settings.legend.orientation === 'vertical' &&
-    settings.legend.displaceTitle
-  ) {
-    if (settings.legend.display && settings.legend.items.length > 0) {
-      addLegend(settings, c.canvas);
-    }
-    addTitle(settings, c.canvas);
-    addSubtitle(settings, c.canvas);
-  } else {
-    addTitle(settings, c.canvas);
-    addSubtitle(settings, c.canvas);
-    if (settings.legend.display && settings.legend.items.length > 0) {
-      addLegend(settings, c.canvas);
-    }
-  }
-  return c;
-}
 
 export default buildSurround;
