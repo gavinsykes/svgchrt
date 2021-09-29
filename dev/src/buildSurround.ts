@@ -280,7 +280,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.margin = function (_: Margin): typeof surround {
-    return (margin = _), surround;
+    return ((margin = _), surround);
   };
 
   surround.getMargin = function (): Margin {
@@ -288,7 +288,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.title = function (_: string): typeof surround {
-    return (title = _), surround;
+    return ((title = _), surround);
   };
 
   surround.getTitle = function (): string {
@@ -296,7 +296,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.subtitle = function (_: string): typeof surround {
-    return (subtitle = _), surround;
+    return ((subtitle = _), surround);
   };
 
   surround.getSubtitle = function (): string {
@@ -304,7 +304,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.width = function (_: number): typeof surround {
-    return (width = _), surround;
+    return ((width = _), surround);
   };
 
   surround.getWidth = function (): number {
@@ -312,7 +312,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.height = function (_: number): typeof surround {
-    return (height = _), surround;
+    return ((height = _), surround);
   };
 
   surround.getHeight = function (): number {
@@ -320,7 +320,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.legendPosition = function (_: LegendPosition): typeof surround {
-    return (legendPosition = _), surround;
+    return ((legendPosition = _), surround);
   };
 
   surround.getLegendPosition = function (): LegendPosition {
@@ -328,7 +328,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.legendDisplay = function (_: boolean): typeof surround {
-    return (legendDisplay = _), surround;
+    return ((legendDisplay = _), surround);
   };
 
   surround.getLegendDisplay = function (): boolean {
@@ -336,7 +336,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.legendItems = function (_: LegendItem[]): typeof surround {
-    return (legendItems = _), surround;
+    return ((legendItems = _), surround);
   };
 
   surround.getLegendItems = function (): LegendItem[] {
@@ -346,7 +346,7 @@ export const buildSurround = (): typeof surround => {
   surround.legendOrientation = function (
     _: LegendOrientation
   ): typeof surround {
-    return (legendOrientation = _), surround;
+    return ((legendOrientation = _), surround);
   };
 
   surround.getLegendOrientation = function (): LegendOrientation {
@@ -354,7 +354,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.legendDisplacesTitle = function (_: boolean): typeof surround {
-    return (legendDisplacesTitle = _), surround;
+    return ((legendDisplacesTitle = _), surround);
   };
 
   surround.getLegendDisplacesTitle = function (): boolean {
@@ -362,7 +362,7 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.target = function (_: SVGElement): typeof surround {
-    return (target = _), surround;
+    return ((target = _), surround);
   };
 
   surround.getTarget = function (): SVGElement {
