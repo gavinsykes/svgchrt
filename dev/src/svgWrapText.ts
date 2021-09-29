@@ -40,7 +40,7 @@ function svgWrapText(item: SVGTextElement, width: number, lineHeight = 1.1): voi
     y: y,
     dy: `${dy.value}${dy.units}`
   }) as SVGTextElement;
-  while ((word = words.pop() as string)) {
+  while (word = words.pop() as string) {
     line.push(word);
     tspan.textContent = line.join(' ');
     if (tspan.getComputedTextLength() > width) {
