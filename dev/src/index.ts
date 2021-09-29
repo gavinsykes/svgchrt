@@ -37,11 +37,11 @@ export const chart = (): typeof my => {
     legendItems: LegendItem[],
     legendPosition: LegendPosition,
     legendOrientation: LegendOrientation,
-    target: SVGElement;
+    target: SVGElement | string;
   const my = () => {
     if (!(target instanceof SVGElement)) {
       // Error, target isn't an SVG or string
-    } else if (target instanceof String) {
+    } else if (target instanceof string) {
       if (document.querySelector(target as string) instanceof SVGElement) {
         target = document.querySelector(target as string) as SVGElement;
       } else {
@@ -52,7 +52,7 @@ export const chart = (): typeof my => {
     .width(width) as typeof my)
     .margin(margin) as typeof my)
       .height(height) as typeof my)
-      .target(target) as typeof my)
+      .target(target as SVGElement) as typeof my)
       .title(title) as typeof my)
       .subtitle(subtitle) as typeof my)
       .legendDisplay(legendDisplay) as typeof my)
