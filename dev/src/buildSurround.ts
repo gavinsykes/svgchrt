@@ -84,6 +84,9 @@ export const buildSurround = (): typeof my => {
         titleTextElement.setAttribute('dy', '1em');
         target.appendChild(titleTextElement);
       }
+      if (titleTextElement.getComputedTextLength() > width - margin.left - margin.right) {
+        svgWrapText(titleTextElement, width - margin.left - margin.right);
+      }
       if (titleElement) {
         titleElement.textContent = title;
       } else {
@@ -125,6 +128,9 @@ export const buildSurround = (): typeof my => {
         );
         subtitleTextElement.setAttribute('dy', '1em');
         target.appendChild(subtitleTextElement);
+      }
+      if (subtitleTextElement.getComputedTextLength() > width - margin.left - margin.right) {
+        svgWrapText(subtitleTextElement, width - margin.left - margin.right);
       }
     } else {
       if (subtitleTextElement) {
