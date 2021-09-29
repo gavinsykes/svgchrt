@@ -48,17 +48,6 @@ export const chart = (): typeof my => {
         // Error, selector is not an SVG element
       }
     }
-    ((((((((((buildSurround()
-    .width(width) as typeof my)
-    .margin(margin) as typeof my)
-      .height(height) as typeof my)
-      .target(target as SVGElement) as typeof my)
-      .title(title) as typeof my)
-      .subtitle(subtitle) as typeof my)
-      .legendDisplay(legendDisplay) as typeof my)
-      .legendItems(legendItems) as typeof my)
-      .legendPosition(legendPosition) as typeof my)
-      .legendOrientation(legendOrientation) as typeof my);
   };
 
   my.height = function (_: number) {
@@ -110,6 +99,20 @@ export const chart = (): typeof my => {
   my.width = function (_: number) {
     return arguments.length ? ((width = _), my as typeof my) : width;
   };
+
+  my.draw = function() {
+    (((((((((((buildSurround() as typeof my)
+    .width(width) as typeof my)
+    .margin(margin) as typeof my)
+    .height(height) as typeof my)
+    .target(target as SVGElement) as typeof my)
+    .title(title) as typeof my)
+    .subtitle(subtitle) as typeof my)
+    .legendDisplay(legendDisplay) as typeof my)
+    .legendItems(legendItems) as typeof my)
+    .legendPosition(legendPosition) as typeof my)
+    .legendOrientation(legendOrientation) as typeof my);
+  }
 
   return my;
 };
