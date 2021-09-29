@@ -290,7 +290,7 @@ export const buildSurround = (): typeof surround => {
 
   surround.title = function (_: string): typeof surround {
     title = _;
-    surround;
+    return surround;
   };
 
   surround.getTitle = function (): string {
@@ -308,7 +308,7 @@ export const buildSurround = (): typeof surround => {
 
   surround.width = function (_: number): typeof surround {
     width = _;
-    returnsurround;
+    return surround;
   };
 
   surround.getWidth = function (): number {
