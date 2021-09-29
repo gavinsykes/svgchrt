@@ -3,11 +3,7 @@
  * @license MIT
  */
 
-import {
-  buildSurround,
-  Margin,
-  LegendItem
-} from './buildSurround';
+import { buildSurround, Margin, LegendItem } from './buildSurround';
 
 // UPDATE 5th August 2021 - attempting to reconstruct with a functional approach, in a more D3-esque style
 
@@ -87,9 +83,7 @@ export const chart = (): typeof my => {
   };
 
   my.target = function (_: SVGElement) {
-    return arguments.length
-      ? ((target = _), my as typeof my)
-      : target;
+    return arguments.length ? ((target = _), my as typeof my) : target;
   };
 
   my.title = function (_: string) {
@@ -100,19 +94,19 @@ export const chart = (): typeof my => {
     return arguments.length ? ((width = _), my as typeof my) : width;
   };
 
-  my.draw = function() {
-    (((((((((((buildSurround() as typeof my)
-    .width(width) as typeof my)
-    .margin(margin) as typeof my)
-    .height(height) as typeof my)
-    .target(target as SVGElement) as typeof my)
-    .title(title) as typeof my)
-    .subtitle(subtitle) as typeof my)
-    .legendDisplay(legendDisplay) as typeof my)
-    .legendItems(legendItems) as typeof my)
-    .legendPosition(legendPosition) as typeof my)
-    .legendOrientation(legendOrientation) as typeof my);
-  }
+  my.draw = function () {
+    ((((((((((buildSurround() as typeof my).width(width) as typeof my).margin(
+      margin
+    ) as typeof my).height(height) as typeof my).target(
+      target as SVGElement
+    ) as typeof my).title(title) as typeof my).subtitle(
+      subtitle
+    ) as typeof my).legendDisplay(legendDisplay) as typeof my).legendItems(
+      legendItems
+    ) as typeof my).legendPosition(
+      legendPosition
+    ) as typeof my).legendOrientation(legendOrientation) as typeof my;
+  };
 
   return my;
 };

@@ -15,7 +15,11 @@ import appendSVGChild from './appendSVGChild';
  * @param {number} width - the wrapping width in SVG pixels.
  *
  */
-function svgWrapText(item: SVGTextElement, width: number, lineHeight = 1.1): void {
+function svgWrapText(
+  item: SVGTextElement,
+  width: number,
+  lineHeight = 1.1
+): void {
   if (item.getComputedTextLength() < width) {
     return;
   }
@@ -40,7 +44,7 @@ function svgWrapText(item: SVGTextElement, width: number, lineHeight = 1.1): voi
     y: y,
     dy: `${dy.value}${dy.units}`
   }) as SVGTextElement;
-  while (word = words.pop() as string) {
+  while ((word = words.pop() as string)) {
     line.push(word);
     tspan.textContent = line.join(' ');
     if (tspan.getComputedTextLength() > width) {
