@@ -37,7 +37,7 @@ export const chart = (): typeof my => {
   const my = () => {
     if (!(target instanceof SVGElement)) {
       // Error, target isn't an SVG or string
-    } else if (typeof target === "string") {
+    } else if (typeof target === 'string') {
       if (document.querySelector(target as string) instanceof SVGElement) {
         target = document.querySelector(target as string) as SVGElement;
       } else {
@@ -95,16 +95,17 @@ export const chart = (): typeof my => {
   };
 
   my.draw = function () {
-    buildSurround().width(width).margin(
-      margin).height(height).target(
-      target as SVGElement
-    ).title(title).subtitle(
-      subtitle
-    ).legendDisplay(legendDisplay).legendItems(
-      legendItems
-    ).legendPosition(
-      legendPosition
-    ).legendOrientation(legendOrientation);
+    buildSurround()
+      .width(width)
+      .margin(margin)
+      .height(height)
+      .target(target as SVGElement)
+      .title(title)
+      .subtitle(subtitle)
+      .legendDisplay(legendDisplay)
+      .legendItems(legendItems)
+      .legendPosition(legendPosition)
+      .legendOrientation(legendOrientation);
   };
 
   return my;

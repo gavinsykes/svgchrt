@@ -280,94 +280,94 @@ export const buildSurround = (): typeof surround => {
   };
 
   surround.margin = function (_: Margin): typeof surround {
-    return ((margin = _), surround);
+    return (margin = _), surround;
   };
 
-  surround.getMargin = function(): Margin {
+  surround.getMargin = function (): Margin {
     return margin;
-  }
+  };
 
   surround.title = function (_: string): typeof surround {
-    return ((title = _), surround);
+    return (title = _), surround;
   };
 
-  surround.getTitle = function(): string {
+  surround.getTitle = function (): string {
     return title;
-  }
+  };
 
   surround.subtitle = function (_: string): typeof surround {
-    return ((subtitle = _), surround);
+    return (subtitle = _), surround;
   };
 
-  surround.getSubtitle = function(): string {
+  surround.getSubtitle = function (): string {
     return subtitle;
-  }
+  };
 
   surround.width = function (_: number): typeof surround {
-    return ((width = _), surround);
+    return (width = _), surround;
   };
 
-  surround.getWidth = function(): number {
+  surround.getWidth = function (): number {
     return width;
-  }
-
-  surround.height = function (_: number): typeof surround  {
-    return ((height = _), surround);
   };
 
-  surround.getHeight = function(): number {
+  surround.height = function (_: number): typeof surround {
+    return (height = _), surround;
+  };
+
+  surround.getHeight = function (): number {
     return height;
-  }
-
-  surround.legendPosition = function (_: LegendPosition): typeof surround  {
-    return ((legendPosition = _), surround);
   };
 
-  surround.getLegendPosition = function(): LegendPosition {
+  surround.legendPosition = function (_: LegendPosition): typeof surround {
+    return (legendPosition = _), surround;
+  };
+
+  surround.getLegendPosition = function (): LegendPosition {
     return legendPosition;
-  }
+  };
 
   surround.legendDisplay = function (_: boolean): typeof surround {
-    return ((legendDisplay = _), surround);
+    return (legendDisplay = _), surround;
   };
 
-  surround.getLegendDisplay = function(): boolean {
+  surround.getLegendDisplay = function (): boolean {
     return legendDisplay;
-  }
+  };
 
   surround.legendItems = function (_: LegendItem[]): typeof surround {
-    return ((legendItems = _), surround);
+    return (legendItems = _), surround;
   };
 
-  surround.getLegendItems = function(): LegendItem[] {
+  surround.getLegendItems = function (): LegendItem[] {
     return legendItems;
-  }
+  };
 
   surround.legendOrientation = function (
     _: LegendOrientation
   ): typeof surround {
-    return ((legendOrientation = _), surround);
+    return (legendOrientation = _), surround;
   };
 
-  surround.getLegendOrientation = function(): LegendOrientation {
+  surround.getLegendOrientation = function (): LegendOrientation {
     return legendOrientation;
-  }
+  };
 
   surround.legendDisplacesTitle = function (_: boolean): typeof surround {
-    return ((legendDisplacesTitle = _), surround);
+    return (legendDisplacesTitle = _), surround;
   };
 
-  surround.getLegendDisplacesTitle = function(): boolean {
+  surround.getLegendDisplacesTitle = function (): boolean {
     return legendDisplacesTitle;
-  }
+  };
 
   surround.target = function (_: SVGElement): typeof surround {
-    return ((target = _), surround);
+    return (target = _), surround;
   };
 
-  surround.getTarget = function(): SVGElement {
+  surround.getTarget = function (): SVGElement {
     return target;
-  }
+  };
 
   surround.chartArea = function () {
     return {
