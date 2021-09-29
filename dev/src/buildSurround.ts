@@ -29,7 +29,7 @@ export interface LegendItem extends Record<string, unknown> {
   y?: string;
 }
 
-export const buildSurround = (): typeof my => {
+export const buildSurround = (): typeof surround => {
   let width = 960;
   let height = 500;
   let margin = { top: 0, right: 0, bottom: 0, left: 0 };
@@ -46,7 +46,7 @@ export const buildSurround = (): typeof my => {
   let legendDisplacesTitle = false;
   let chartArea: SVGGraphicsElement;
   let target: SVGElement;
-  const my = () => {
+  const surround = () => {
     if (!target) {
       throw new Error(
         `Looks like I haven't been given a target SVG to work with.`
@@ -279,55 +279,55 @@ export const buildSurround = (): typeof my => {
     }
   };
 
-  my.margin = function (_: Margin): typeof my | Margin {
+  surround.margin = function (_: Margin): typeof my | Margin {
     return arguments.length ? ((margin = _), my) : margin;
   };
 
-  my.title = function (_: string): typeof my | string {
+  surround.title = function (_: string): typeof my | string {
     return arguments.length ? ((title = _), my) : title;
   };
 
-  my.subtitle = function (_: string): typeof my | string {
+  surround.subtitle = function (_: string): typeof my | string {
     return arguments.length ? ((subtitle = _), my) : subtitle;
   };
 
-  my.width = function (_: number): typeof my | number {
+  surround.width = function (_: number): typeof my | number {
     return arguments.length ? ((width = _), my) : width;
   };
 
-  my.height = function (_: number): typeof my | number {
+  surround.height = function (_: number): typeof my | number {
     return arguments.length ? ((height = _), my) : height;
   };
 
-  my.legendPosition = function (_: LegendPosition): typeof my | LegendPosition {
+  surround.legendPosition = function (_: LegendPosition): typeof my | LegendPosition {
     return arguments.length ? ((legendPosition = _), my) : legendPosition;
   };
 
-  my.legendDisplay = function (_: boolean): typeof my | boolean {
+  surround.legendDisplay = function (_: boolean): typeof my | boolean {
     return arguments.length ? ((legendDisplay = _), my) : legendDisplay;
   };
 
-  my.legendItems = function (_: LegendItem[]): typeof my | LegendItem[] {
+  surround.legendItems = function (_: LegendItem[]): typeof my | LegendItem[] {
     return arguments.length ? ((legendItems = _), my) : legendItems;
   };
 
-  my.legendOrientation = function (
+  surround.legendOrientation = function (
     _: LegendOrientation
   ): typeof my | LegendOrientation {
     return arguments.length ? ((legendOrientation = _), my) : legendOrientation;
   };
 
-  my.legendDisplacesTitle = function (_: boolean): typeof my | boolean {
+  surround.legendDisplacesTitle = function (_: boolean): typeof my | boolean {
     return arguments.length
       ? ((legendDisplacesTitle = _), my)
       : legendDisplacesTitle;
   };
 
-  my.target = function (_: SVGElement): typeof my | SVGElement {
+  surround.target = function (_: SVGElement): typeof my | SVGElement {
     return arguments.length ? ((target = _), my) : target;
   };
 
-  my.chartArea = function () {
+  surround.chartArea = function () {
     return {
       g: chartArea,
       x1:
@@ -372,7 +372,7 @@ export const buildSurround = (): typeof my => {
     };
   };
 
-  return my;
+  return surround;
 };
 
 export default buildSurround;
