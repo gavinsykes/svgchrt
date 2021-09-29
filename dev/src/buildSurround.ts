@@ -279,52 +279,52 @@ export const buildSurround = (): typeof surround => {
     }
   };
 
-  surround.margin = function (_: Margin): typeof my | Margin {
-    return arguments.length ? ((margin = _), my) : margin;
+  surround.margin = function (_: Margin): typeof surround | Margin {
+    return arguments.length ? ((margin = _), surround) : margin;
   };
 
-  surround.title = function (_: string): typeof my | string {
-    return arguments.length ? ((title = _), my) : title;
+  surround.title = function (_: string): typeof surround | string {
+    return arguments.length ? ((title = _), surround) : title;
   };
 
-  surround.subtitle = function (_: string): typeof my | string {
-    return arguments.length ? ((subtitle = _), my) : subtitle;
+  surround.subtitle = function (_: string): typeof surround | string {
+    return arguments.length ? ((subtitle = _), surround) : subtitle;
   };
 
-  surround.width = function (_: number): typeof my | number {
-    return arguments.length ? ((width = _), my) : width;
+  surround.width = function (_: number): typeof surround | number {
+    return arguments.length ? ((width = _), surround) : width;
   };
 
-  surround.height = function (_: number): typeof my | number {
-    return arguments.length ? ((height = _), my) : height;
+  surround.height = function (_: number): typeof surround | number {
+    return arguments.length ? ((height = _), surround) : height;
   };
 
-  surround.legendPosition = function (_: LegendPosition): typeof my | LegendPosition {
-    return arguments.length ? ((legendPosition = _), my) : legendPosition;
+  surround.legendPosition = function (_: LegendPosition): typeof surround | LegendPosition {
+    return arguments.length ? ((legendPosition = _), surround) : legendPosition;
   };
 
-  surround.legendDisplay = function (_: boolean): typeof my | boolean {
-    return arguments.length ? ((legendDisplay = _), my) : legendDisplay;
+  surround.legendDisplay = function (_: boolean): typeof surround | boolean {
+    return arguments.length ? ((legendDisplay = _), surround) : legendDisplay;
   };
 
-  surround.legendItems = function (_: LegendItem[]): typeof my | LegendItem[] {
-    return arguments.length ? ((legendItems = _), my) : legendItems;
+  surround.legendItems = function (_: LegendItem[]): typeof surround | LegendItem[] {
+    return arguments.length ? ((legendItems = _), surround) : legendItems;
   };
 
   surround.legendOrientation = function (
     _: LegendOrientation
-  ): typeof my | LegendOrientation {
-    return arguments.length ? ((legendOrientation = _), my) : legendOrientation;
+  ): typeof surround | LegendOrientation {
+    return arguments.length ? ((legendOrientation = _), surround) : legendOrientation;
   };
 
-  surround.legendDisplacesTitle = function (_: boolean): typeof my | boolean {
+  surround.legendDisplacesTitle = function (_: boolean): typeof surround | boolean {
     return arguments.length
-      ? ((legendDisplacesTitle = _), my)
+      ? ((legendDisplacesTitle = _), surround)
       : legendDisplacesTitle;
   };
 
-  surround.target = function (_: SVGElement): typeof my | SVGElement {
-    return arguments.length ? ((target = _), my) : target;
+  surround.target = function (_: SVGElement): typeof surround | SVGElement {
+    return arguments.length ? ((target = _), surround) : target;
   };
 
   surround.chartArea = function () {
