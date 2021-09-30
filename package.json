@@ -37,7 +37,7 @@
     "webpack-cli": "^4.8.0",
     "webpack-merge": "^5.8.0"
   },
-  "description": "A way to easily create SVG-based charts without having to worry about positioning of titles, subtitles or legends.",
+  "description": "A way to easily create SVG-based visualisations without having to worry about positioning of titles, subtitles or legends.",
   "keywords": [
     "chart",
     "data",
@@ -77,5 +77,5 @@
     "update:major": "npx npm-check-updates -u && npm install"
   },
   "types": "./dist/index.d.ts",
-  "version": "0.6.0"
+  "version": "0.5.23"
 }
