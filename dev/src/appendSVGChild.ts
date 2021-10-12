@@ -8,7 +8,7 @@
  *
  * The return value is the generated SVG element.
  *
- * @param {string} elementType - the type of element to add.
+ * @param {string} elementType - the type of element to add. If the target is a HTMLElement then this **must** be `svg`.
  *
  * @param {HTMLElement | SVGElement} target - the HTML or SVG element to which to add the element.
  *
