@@ -12,7 +12,7 @@
  *
  * @param {HTMLElement | SVGElement} target - the HTML or SVG element to which to add the element.
  *
- * @param {Record<string, unknown>} [attributes = {}] - the attributes to apply to the element.
+ * @param {Record<string, unknown>} [attributes = {}] - the attributes, if any, to apply to the element.
  *
  * @param {string} [text = ''] - if the element is a text element, this is the text to apply.
  */
