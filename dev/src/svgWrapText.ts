@@ -10,10 +10,14 @@ import appendSVGChild from './appendSVGChild';
  *
  * The return value is void.
  *
- * @param {SVGTextElement} item - the text item to wrap.
+ * @param {SVGTextElement} item - The text item to wrap.
  *
- * @param {number} width - the wrapping width in SVG pixels.
+ * @param {number} width - The wrapping width in SVG pixels.
+ * 
+ * @param {number} [lineHeight = 1.1] - The line height to use while wrapping the text. Default value is `1.1`.
  *
+ * @returns void
+ * 
  */
 function svgWrapText(
   item: SVGTextElement,
