@@ -3,10 +3,7 @@
  * @license MIT
  */
 
-import {
-  LegendPosition,
-  LegendOrientation
-} from './interfaces';
+import { LegendPosition, LegendOrientation } from './interfaces';
 import svgWrapText from './svgWrapText';
 
 export interface Margin extends Record<string, number> {
@@ -32,7 +29,7 @@ export interface LegendItem extends Record<string, unknown> {
   y?: string;
 }
 
-export const buildSurround = (): typeof my => {
+export const buildSurround = (): typeof surround => {
   let width = 960;
   let height = 500;
   let margin = { top: 0, right: 0, bottom: 0, left: 0 };
@@ -49,7 +46,7 @@ export const buildSurround = (): typeof my => {
   let legendDisplacesTitle = false;
   let chartArea: SVGGraphicsElement;
   let target: SVGElement;
-  const my = () => {
+  const surround = () => {
     if (!target) {
       throw new Error(
         `Looks like I haven't been given a target SVG to work with.`
@@ -83,6 +80,12 @@ export const buildSurround = (): typeof my => {
         );
         titleTextElement.setAttribute('dy', '1em');
         target.appendChild(titleTextElement);
+      }
+      if (
+        titleTextElement.getComputedTextLength() >
+        width - margin.left - margin.right
+      ) {
+        svgWrapText(titleTextElement, width - margin.left - margin.right);
       }
       if (titleElement) {
         titleElement.textContent = title;
@@ -126,15 +129,28 @@ export const buildSurround = (): typeof my => {
         subtitleTextElement.setAttribute('dy', '1em');
         target.appendChild(subtitleTextElement);
       }
+      if (
+        subtitleTextElement.getComputedTextLength() >
+        width - margin.left - margin.right
+      ) {
+        svgWrapText(subtitleTextElement, width - margin.left - margin.right);
+      }
     } else {
       if (subtitleTextElement) {
         subtitleTextElement.remove();
       }
     }
     if (legendDisplay && legendItems) {
-      const legendAvailableSpace = {x1: margin.left,x2: width - margin.right,y1:margin.top,y2:height - margin.bottom};
+      const legendAvailableSpace = {
+        x1: margin.left,
+        x2: width - margin.right,
+        y1: margin.top,
+        y2: height - margin.bottom
+      };
       if (!legendDisplacesTitle) {
-        legendAvailableSpace.y1 -= (titleTextElement ? titleTextElement.getBBox().height : 0) + (subtitleTextElement ? subtitleTextElement.getBBox().height : 0)
+        legendAvailableSpace.y1 -=
+          (titleTextElement ? titleTextElement.getBBox().height : 0) +
+          (subtitleTextElement ? subtitleTextElement.getBBox().height : 0);
       }
       if (!legendElement) {
         legendElement = document.createElementNS(
@@ -193,34 +209,54 @@ export const buildSurround = (): typeof my => {
           legendTransform.y = legendAvailableSpace.y1;
           break;
         case 'top':
-          legendTransform.x = (legendAvailableSpace.x1 + legendAvailableSpace.x2 - legendElement.getBBox().width) / 2;
+          legendTransform.x =
+            (legendAvailableSpace.x1 +
+              legendAvailableSpace.x2 -
+              legendElement.getBBox().width) /
+            2;
           legendTransform.y = legendAvailableSpace.y1;
           break;
         case 'top-right':
-          legendTransform.x = legendAvailableSpace.x2 - legendElement.getBBox().width;
+          legendTransform.x =
+            legendAvailableSpace.x2 - legendElement.getBBox().width;
           legendTransform.y = legendAvailableSpace.y1;
           break;
         case 'right':
           legendTransform.x =
-          legendAvailableSpace.x2 - legendElement.getBBox().width;
-          legendTransform.y = (legendAvailableSpace.y1 + legendAvailableSpace.y2 - legendElement.getBBox().height) / 2;
+            legendAvailableSpace.x2 - legendElement.getBBox().width;
+          legendTransform.y =
+            (legendAvailableSpace.y1 +
+              legendAvailableSpace.y2 -
+              legendElement.getBBox().height) /
+            2;
           break;
         case 'bottom-right':
           legendTransform.x =
-          legendAvailableSpace.x2 - legendElement.getBBox().width;
-          legendTransform.y = legendAvailableSpace.y2 - legendElement.getBBox().height;
+            legendAvailableSpace.x2 - legendElement.getBBox().width;
+          legendTransform.y =
+            legendAvailableSpace.y2 - legendElement.getBBox().height;
           break;
         case 'bottom':
-          legendTransform.x = (legendAvailableSpace.x1 + legendAvailableSpace.x2 - legendElement.getBBox().width) / 2;
-          legendTransform.y = legendAvailableSpace.y2 - legendElement.getBBox().height;
+          legendTransform.x =
+            (legendAvailableSpace.x1 +
+              legendAvailableSpace.x2 -
+              legendElement.getBBox().width) /
+            2;
+          legendTransform.y =
+            legendAvailableSpace.y2 - legendElement.getBBox().height;
           break;
         case 'bottom-left':
           legendTransform.x = legendAvailableSpace.x1;
-          legendTransform.y = legendAvailableSpace.y2 - legendElement.getBBox().height;
+          legendTransform.y =
+            legendAvailableSpace.y2 - legendElement.getBBox().height;
           break;
         case 'left':
           legendTransform.x = legendAvailableSpace.x1;
-          legendTransform.y = (legendAvailableSpace.y1 + legendAvailableSpace.y2 - legendElement.getBBox().height) / 2;
+          legendTransform.y =
+            (legendAvailableSpace.y1 +
+              legendAvailableSpace.y2 -
+              legendElement.getBBox().height) /
+            2;
           break;
         default:
           break;
@@ -243,51 +279,108 @@ export const buildSurround = (): typeof my => {
     }
   };
 
-  my.margin = function (_: Margin): typeof my | Margin {
-    return arguments.length ? ((margin = _), my) : margin;
+  surround.margin = function (_: Margin): typeof surround {
+    margin = _;
+    return surround;
   };
 
-  my.title = function (_: string): typeof my | string {
-    return arguments.length ? ((title = _), my) : title;
+  surround.getMargin = function (): Margin {
+    return margin;
   };
 
-  my.subtitle = function (_: string): typeof my | string {
-    return arguments.length ? ((subtitle = _), my) : subtitle;
+  surround.title = function (_: string): typeof surround {
+    title = _;
+    return surround;
   };
 
-  my.width = function (_: number): typeof my | number {
-    return arguments.length ? ((width = _), my) : width;
+  surround.getTitle = function (): string {
+    return title;
   };
 
-  my.height = function (_: number): typeof my | number {
-    return arguments.length ? ((height = _), my) : height;
+  surround.subtitle = function (_: string): typeof surround {
+    subtitle = _;
+    return surround;
   };
 
-  my.legendPosition = function (_: LegendPosition): typeof my | LegendPosition {
-    return arguments.length ? ((legendPosition = _), my) : legendPosition;
+  surround.getSubtitle = function (): string {
+    return subtitle;
   };
 
-  my.legendDisplay = function (_: boolean): typeof my | boolean {
-    return arguments.length ? ((legendDisplay = _), my) : legendDisplay;
+  surround.width = function (_: number): typeof surround {
+    width = _;
+    return surround;
   };
 
-  my.legendItems = function (_: LegendItem[]): typeof my | LegendItem[] {
-    return arguments.length ? ((legendItems = _), my) : legendItems;
+  surround.getWidth = function (): number {
+    return width;
   };
 
-  my.legendOrientation = function (_: LegendOrientation): typeof my | LegendOrientation {
-    return arguments.length ? ((legendOrientation = _), my) : legendOrientation;
+  surround.height = function (_: number): typeof surround {
+    height = _;
+    return surround;
   };
 
-  my.legendDisplacesTitle = function (_: boolean): typeof my | boolean {
-    return arguments.length ? ((legendDisplacesTitle = _), my) : legendDisplacesTitle;
+  surround.getHeight = function (): number {
+    return height;
   };
 
-  my.target = function (_: SVGElement): typeof my | SVGElement {
-    return arguments.length ? ((target = _), my) : target;
+  surround.legendPosition = function (_: LegendPosition): typeof surround {
+    legendPosition = _;
+    return surround;
   };
 
-  my.chartArea = function () {
+  surround.getLegendPosition = function (): LegendPosition {
+    return legendPosition;
+  };
+
+  surround.legendDisplay = function (_: boolean): typeof surround {
+    legendDisplay = _;
+    return surround;
+  };
+
+  surround.getLegendDisplay = function (): boolean {
+    return legendDisplay;
+  };
+
+  surround.legendItems = function (_: LegendItem[]): typeof surround {
+    legendItems = _;
+    return surround;
+  };
+
+  surround.getLegendItems = function (): LegendItem[] {
+    return legendItems;
+  };
+
+  surround.legendOrientation = function (
+    _: LegendOrientation
+  ): typeof surround {
+    legendOrientation = _;
+    return surround;
+  };
+
+  surround.getLegendOrientation = function (): LegendOrientation {
+    return legendOrientation;
+  };
+
+  surround.legendDisplacesTitle = function (_: boolean): typeof surround {
+    legendDisplacesTitle = _;
+    return surround;
+  };
+
+  surround.getLegendDisplacesTitle = function (): boolean {
+    return legendDisplacesTitle;
+  };
+
+  surround.target = function (_: SVGElement): typeof surround {
+    target = _;
+    return surround;
+  };
+
+  surround.getTarget = function (): SVGElement {
+    return target;
+  };
+
+  surround.chartArea = function () {
     return {
       g: chartArea,
       x1:
@@ -332,7 +425,7 @@ export const buildSurround = (): typeof my => {
     };
   };
 
-  return my;
+  return surround;
 };
 
 export default buildSurround;

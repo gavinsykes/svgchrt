@@ -3,11 +3,7 @@
  * @license MIT
  */
 
-import {
-  buildSurround,
-  Margin,
-  LegendItem
-} from './buildSurround';
+import { buildSurround, Margin, LegendItem } from './buildSurround';
 
 // UPDATE 5th August 2021 - attempting to reconstruct with a functional approach, in a more D3-esque style
 
@@ -37,28 +33,17 @@ export const chart = (): typeof my => {
     legendItems: LegendItem[],
     legendPosition: LegendPosition,
     legendOrientation: LegendOrientation,
-    target: SVGElement;
+    target: SVGElement | string;
   const my = () => {
     if (!(target instanceof SVGElement)) {
       // Error, target isn't an SVG or string
-    } else if (target instanceof String) {
+    } else if (typeof target === 'string') {
       if (document.querySelector(target as string) instanceof SVGElement) {
         target = document.querySelector(target as string) as SVGElement;
       } else {
         // Error, selector is not an SVG element
       }
     }
-    ((((((((((buildSurround()
-    .width(width) as typeof my)
-    .margin(margin) as typeof my)
-      .height(height) as typeof my)
-      .target(target) as typeof my)
-      .title(title) as typeof my)
-      .subtitle(subtitle) as typeof my)
-      .legendDisplay(legendDisplay) as typeof my)
-      .legendItems(legendItems) as typeof my)
-      .legendPosition(legendPosition) as typeof my)
-      .legendOrientation(legendOrientation) as typeof my);
   };
 
   my.height = function (_: number) {
@@ -98,9 +83,7 @@ export const chart = (): typeof my => {
   };
 
   my.target = function (_: SVGElement) {
-    return arguments.length
-      ? ((target = _), my as typeof my)
-      : target;
+    return arguments.length ? ((target = _), my as typeof my) : target;
   };
 
   my.title = function (_: string) {
@@ -109,6 +92,20 @@ export const chart = (): typeof my => {
 
   my.width = function (_: number) {
     return arguments.length ? ((width = _), my as typeof my) : width;
+  };
+
+  my.draw = function () {
+    buildSurround()
+      .width(width)
+      .margin(margin)
+      .height(height)
+      .target(target as SVGElement)
+      .title(title)
+      .subtitle(subtitle)
+      .legendDisplay(legendDisplay)
+      .legendItems(legendItems)
+      .legendPosition(legendPosition)
+      .legendOrientation(legendOrientation);
   };
 
   return my;
