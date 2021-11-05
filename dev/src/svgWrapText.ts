@@ -34,10 +34,10 @@ function svgWrapText(
   const x = item.getAttribute('x');
   const y = item.getAttribute('y');
   const dyval: string = item.getAttribute('dy')
-    ? item.getAttribute('dy')!
+    ? item.getAttribute('dy') as string
     : '0';
-  const value: number = parseFloat(dyval.match(/[0-9.]/)![0]);
-  const units: string = dyval.match(/[A-Za-z%]+/)![0];
+  const value: number = parseFloat((dyval.match(/[0-9.]/) as RegExpMatchArray)[0]);
+  const units: string = (dyval.match(/[A-Za-z%]+/) as RegExpMatchArray)[0];
   const dy = {
     value: value,
     units: units
