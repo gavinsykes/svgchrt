@@ -13,6 +13,10 @@ export interface Margin extends Record<string, number> {
   left: number;
 }
 
+/**
+ * interface LegendItem
+ * @member {string} text - Explanation
+ */
 export interface LegendItem extends Record<string, unknown> {
   text: string;
   colour?: string;
@@ -165,7 +169,7 @@ export const buildSurround = (): typeof surround => {
       );
       legendBackground.setAttribute('class', 'legend-background');
       legendElement.appendChild(legendBackground);
-      legendItems.map((c, i) => {
+      legendItems.forEach((c, i) => {
         const legendItemElement = document.createElementNS(
           'http://www.w3.org/2000/svg',
           'g'
