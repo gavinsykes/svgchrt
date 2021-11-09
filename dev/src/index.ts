@@ -37,11 +37,13 @@ export const chart = (): typeof my => {
   const my = () => {
     if (!(target instanceof SVGElement)) {
       // Error, target isn't an SVG or string
+      throw new Error("Target isn't an SVG element or string!");
     } else if (typeof target === 'string') {
       if (document.querySelector(target as string) instanceof SVGElement) {
         target = document.querySelector(target as string) as SVGElement;
       } else {
         // Error, selector is not an SVG element
+        throw new Error("Given selector is not an SVG element!");
       }
     }
   };
