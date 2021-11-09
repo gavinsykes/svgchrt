@@ -20,16 +20,16 @@ const layout: LayoutObject = {
     if (propChain === '') return;
     propChain
       .split('.')
-      .reduce<Record<string, unknown>>((original, nuevo, level): Record<
-        string,
-        unknown
-      > => {
-        if (!(nuevo in original))
-          original[nuevo] = {} as Record<string, unknown>;
-        if (level === propChain.split('.').length - 1)
-          original[nuevo] = newState;
-        return original[nuevo] as Record<string, unknown>;
-      }, this as Record<string, unknown>);
+      .reduce<Record<string, unknown>>(
+        (original, nuevo, level): Record<string, unknown> => {
+          if (!(nuevo in original))
+            original[nuevo] = {} as Record<string, unknown>;
+          if (level === propChain.split('.').length - 1)
+            original[nuevo] = newState;
+          return original[nuevo] as Record<string, unknown>;
+        },
+        this as Record<string, unknown>
+      );
   },
   canvas: {
     height: defaultSettings.canvas.height,

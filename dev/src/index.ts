@@ -43,7 +43,7 @@ export const chart = (): typeof my => {
         target = document.querySelector(target as string) as SVGElement;
       } else {
         // Error, selector is not an SVG element
-        throw new Error("Given selector is not an SVG element!");
+        throw new Error('Given selector is not an SVG element!');
       }
     }
   };
@@ -53,81 +53,81 @@ export const chart = (): typeof my => {
     return my;
   };
 
-  my.getHeight = function(): number {
+  my.getHeight = function (): number {
     return height;
-  }
+  };
 
   my.legendDisplay = function (_: boolean) {
     legendDisplay = _;
     return my;
   };
 
-  my.getLegendDisplay = function(): boolean {
+  my.getLegendDisplay = function (): boolean {
     return legendDisplay;
-  }
+  };
 
   my.legendItems = function (_: LegendItem[]) {
     legendItems = _;
     return my;
   };
 
-  my.getLegendItems = function(): LegendItem[] {
+  my.getLegendItems = function (): LegendItem[] {
     return legendItems;
-  }
+  };
 
   my.legendOrientation = function (_: LegendOrientation) {
     legendOrientation = _;
     return my;
   };
 
-  my.getLegendOrientation = function(): LegendOrientation {
+  my.getLegendOrientation = function (): LegendOrientation {
     return legendOrientation;
-  }
+  };
 
   my.legendPosition = function (_: LegendPosition) {
     legendPosition = _;
     return my;
   };
 
-  my.getLegendPosition = function(): LegendPosition {
+  my.getLegendPosition = function (): LegendPosition {
     return legendPosition;
-  }
+  };
 
   my.margin = function (_: Margin) {
     margin = _;
     return my;
   };
 
-  my.getMargin = function(): Margin {
+  my.getMargin = function (): Margin {
     return margin;
-  }
+  };
 
   my.subtitle = function (_: string) {
     subtitle = _;
     return my;
   };
 
-  my.getSubtitle = function(): string {
+  my.getSubtitle = function (): string {
     return subtitle;
-  }
+  };
 
   my.target = function (_: SVGElement | string) {
     target = _;
     return my;
   };
 
-  my.getTarget = function(): SVGElement {
+  my.getTarget = function (): SVGElement {
     return target as SVGElement;
-  }
+  };
 
   my.title = function (_: string) {
     title = _;
     return my;
   };
 
-  my.getTitle = function(): string {
+  my.getTitle = function (): string {
     return title;
-  }
+  };
 
   my.width = function (_: number): typeof my {
     width = _;
