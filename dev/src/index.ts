@@ -26,9 +26,9 @@ enum LegendPosition {
 export const chart = (): typeof my => {
   let width = 960;
   let height = 500;
-  let margin: Margin = {top: 0, right: 0, bottom: 0, left: 0};
-  let title = "";
-  let subtitle = "";
+  let margin: Margin = { top: 0, right: 0, bottom: 0, left: 0 };
+  let title = '';
+  let subtitle = '';
   let legendDisplay = false;
   let legendItems: LegendItem[] = [];
   let legendPosition = LegendPosition.Right;
