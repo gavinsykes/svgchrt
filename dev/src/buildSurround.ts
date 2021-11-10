@@ -34,22 +34,24 @@ export interface LegendItem extends Record<string, unknown> {
 }
 
 export const buildSurround = (): typeof surround => {
-  let width = 960;
-  let height = 500;
-  let margin = { top: 0, right: 0, bottom: 0, left: 0 };
+  // Editable by user - will need accessor in main chart function
+  let width: number;
+  let height: number;
+  let margin: Margin;
   let title: string;
   let subtitle: string;
+  let legendDisplay: boolean;
+  let legendItems: LegendItem[];
+  let legendPosition: LegendPosition;
+  let legendOrientation: LegendOrientation;
+  let legendDisplacesTitle: boolean;
+  let target: SVGElement;
+  // Not editable by user
   let titleTextElement: SVGTextElement | null;
   let titleElement: SVGTitleElement | null;
   let subtitleTextElement: SVGTextElement | null;
-  let legendDisplay = false;
   let legendElement: SVGGraphicsElement | null;
-  let legendItems: LegendItem[];
-  let legendPosition = LegendPosition.Right;
-  let legendOrientation = LegendOrientation.Vertical;
-  let legendDisplacesTitle = false;
   let chartArea: SVGGraphicsElement;
-  let target: SVGElement;
   const surround = () => {
     if (!target) {
       throw new Error(

@@ -24,16 +24,16 @@ enum LegendPosition {
 }
 
 export const chart = (): typeof my => {
-  let width: number,
-    height: number,
-    margin: Margin,
-    title: string,
-    subtitle: string,
-    legendDisplay: boolean,
-    legendItems: LegendItem[],
-    legendPosition: LegendPosition,
-    legendOrientation: LegendOrientation,
-    target: SVGElement | string;
+  let width = 960;
+  let height = 500;
+  let margin: Margin = {top: 0, right: 0, bottom: 0, left: 0};
+  let title = "";
+  let subtitle = "";
+  let legendDisplay = false;
+  let legendItems: LegendItem[] = [];
+  let legendPosition = LegendPosition.Right;
+  let legendOrientation = LegendOrientation.Vertical;
+  let target: SVGElement | string;
   const my = () => {
     if (!(target instanceof SVGElement)) {
       // Error, target isn't an SVG or string
